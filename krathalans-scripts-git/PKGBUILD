@@ -6,7 +6,7 @@ pkgver=r333.172d866
 pkgrel=1
 pkgdesc="Krathalan's personal scripts"
 url="https://git.sr.ht/~krathalan/miscellaneous-scripts"
-license=("GPL")
+license=("GPL3")
 arch=("any")
 
 # Dependencies

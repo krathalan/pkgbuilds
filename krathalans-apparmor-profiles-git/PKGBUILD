@@ -6,7 +6,7 @@ pkgver=r297.fddb1b0
 pkgrel=1
 pkgdesc="Krathalan's apparmor profiles"
 url="https://git.sr.ht/~krathalan/apparmor-profiles"
-license=("GPL")
+license=("GPL3")
 arch=("any")
 
 # Dependencies
