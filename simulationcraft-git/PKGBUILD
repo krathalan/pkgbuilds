@@ -1,0 +1,39 @@
+# Maintainer: Hunter Peavey < krathalan at disroot dot org >
+
+# General package information
+pkgname=simulationcraft-git
+pkgver=release.830.01.r216.g31dca4cda2
+pkgrel=1
+pkgdesc="SimulationCraft is a tool to explore combat mechanics in the popular MMO RPG World of Warcraft (tm)."
+url="https://github.com/simulationcraft/simc"
+license=("GPL3")
+arch=("any")
+
+# Dependencies
+depends=("qt5-base" "qt5-webengine" "curl")
+makedepends=("cmake" "git" "pkgconf")
+
+# Download information
+source=("${pkgname}::git+${url}.git#branch=bfa-dev")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}/${pkgname}"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+  cd "${srcdir}/${pkgname}"
+  mkdir -p build && cd build
+  cmake ../ -DCMAKE_BUILD_TYPE=Release
+  make
+}
+
+package() {
+  cd "${srcdir}/${pkgname}"
+  mkdir -p "${pkgdir}/usr/bin"
+  mkdir -p "${pkgdir}/usr/lib"
+  cp -r build "${pkgdir}/usr/lib/${pkgname}"
+  ln -sf "/usr/lib/${pkgname}/qt/SimulationCraft" "${pkgdir}/usr/bin/SimulationCraft"
+  ln -sf "/usr/lib/${pkgname}/simc" "${pkgdir}/usr/bin/simc"
+}
