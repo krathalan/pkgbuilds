@@ -2,7 +2,7 @@
 
 # General package information
 pkgname=krathalans-apparmor-profiles-git
-pkgver=r297.fddb1b0
+pkgver=r299.9833159
 pkgrel=1
 pkgdesc="Krathalan's apparmor profiles"
 url="https://git.sr.ht/~krathalan/apparmor-profiles"
@@ -29,6 +29,7 @@ pkgver() {
 
 package() {
   cd "${srcdir}/${pkgname}"
+  install -D -m755 version-check "${pkgdir}/usr/bin/version-check"
 
   cd "profiles"
   install -D -m644 aerc "${pkgdir}/etc/apparmor.d/aerc"
