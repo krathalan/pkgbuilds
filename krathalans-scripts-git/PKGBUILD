@@ -1,0 +1,42 @@
+# Maintainer: Hunter Peavey < krathalan at disroot dot org >
+
+# General package information
+pkgname=krathalans-scripts-git
+pkgver=r333.172d866
+pkgrel=1
+pkgdesc="Krathalan's personal scripts"
+url="https://git.sr.ht/~krathalan/miscellaneous-scripts"
+license=("GPL")
+arch=("any")
+
+# Dependencies
+depends=()
+makedepends=("git")
+
+# Download information
+source=("${pkgname}::git+${url}")
+sha256sums=('SKIP')
+
+# https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
+pkgver() {
+  cd "${srcdir}/${pkgname}"
+
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+package() {
+  cd "${srcdir}/${pkgname}"
+  install -D -m755 audio_to_opus "${pkgdir}/usr/bin/audio_to_opus"
+  install -D -m755 gather_time_data "${pkgdir}/usr/bin/gather_time_data"
+  install -D -m755 list_nonfree_packages "${pkgdir}/usr/bin/list_nonfree_packages"
+  install -D -m755 make_gif.sh "${pkgdir}/usr/bin/make_gif.sh"
+  install -D -m755 prntscrn.sh "${pkgdir}/usr/bin/prntscrn.sh"
+  install -D -m755 remove_from_name "${pkgdir}/usr/bin/remove_from_name"
+  install -D -m755 system_maintenance.sh "${pkgdir}/usr/bin/system_maintenance.sh"
+  install -D -m755 update_git_repos "${pkgdir}/usr/bin/update_git_repos"
+  install -D -m755 update_wow_addons "${pkgdir}/usr/bin/update_wow_addons"
+  install -D -m755 update_wow_classic_addons "${pkgdir}/usr/bin/update_wow_classic_addons"
+}
