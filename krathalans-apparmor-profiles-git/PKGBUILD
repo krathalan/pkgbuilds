@@ -1,8 +1,11 @@
+#!/usr/bin/env bash
 # Maintainer: Hunter Peavey < krathalan at disroot dot org >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
 
 # General package information
 pkgname=krathalans-apparmor-profiles-git
-pkgver=r300.30f7784
+pkgver=r305.444a901
 pkgrel=1
 pkgdesc="Krathalan's apparmor profiles"
 url="https://git.sr.ht/~krathalan/apparmor-profiles"
@@ -19,7 +22,7 @@ sha256sums=('SKIP' 'bab4b1f4f8be2588d81bcaafe7ec7da4dceef0e270e09a53de3e1fe2a57a
 
 # https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
 pkgver() {
-  cd "${srcdir}/${pkgname}"
+  cd "${srcdir}/${pkgname}" || exit
 
   ( set -o pipefail
     git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
@@ -28,51 +31,22 @@ pkgver() {
 }
 
 package() {
-  pwd
   install -D -m644 99-apparmor-profiles.hook "${pkgdir}/usr/share/libalpm/hooks/99-apparmor-profiles.hook"
 
-  cd "${srcdir}/${pkgname}"
+  cd "${srcdir}/${pkgname}" || exit
   install -D -m755 version-check "${pkgdir}/usr/bin/version-check"
 
-  cd "profiles"
-  install -D -m644 aerc "${pkgdir}/etc/apparmor.d/aerc"
-  install -D -m644 bluetoothd "${pkgdir}/etc/apparmor.d/bluetoothd"
-  install -D -m644 code "${pkgdir}/etc/apparmor.d/code"
-  install -D -m644 evince "${pkgdir}/etc/apparmor.d/evince"
-  install -D -m644 firefox "${pkgdir}/etc/apparmor.d/firefox"
-  install -D -m644 gedit "${pkgdir}/etc/apparmor.d/gedit"
-  install -D -m644 gpg-agent "${pkgdir}/etc/apparmor.d/gpg-agent"
-  install -D -m644 imv "${pkgdir}/etc/apparmor.d/imv"
-  install -D -m644 irssi "${pkgdir}/etc/apparmor.d/irssi"
-  install -D -m644 iwd "${pkgdir}/etc/apparmor.d/iwd"
-  install -D -m644 less "${pkgdir}/etc/apparmor.d/less"
-  install -D -m644 lollypop "${pkgdir}/etc/apparmor.d/lollypop"
-  install -D -m644 mako "${pkgdir}/etc/apparmor.d/mako"
-  install -D -m644 micro "${pkgdir}/etc/apparmor.d/micro"
-  install -D -m644 mosh "${pkgdir}/etc/apparmor.d/mosh"
-  install -D -m644 mpv "${pkgdir}/etc/apparmor.d/mpv"
-  install -D -m644 NetworkManager "${pkgdir}/etc/apparmor.d/NetworkManager"
-  install -D -m644 pass "${pkgdir}/etc/apparmor.d/pass"
-  install -D -m644 pulseaudio "${pkgdir}/etc/apparmor.d/pulseaudio"
-  install -D -m644 redshift "${pkgdir}/etc/apparmor.d/redshift"
-  install -D -m644 rngd "${pkgdir}/etc/apparmor.d/rngd"
-  install -D -m644 signal-desktop "${pkgdir}/etc/apparmor.d/signal-desktop"
-  install -D -m644 ssh "${pkgdir}/etc/apparmor.d/ssh"
-  install -D -m644 ssh-agent "${pkgdir}/etc/apparmor.d/ssh-agent"
-  install -D -m644 streamlink "${pkgdir}/etc/apparmor.d/streamlink"
-  install -D -m644 swaybg "${pkgdir}/etc/apparmor.d/swaybg"
-  install -D -m644 syncthing "${pkgdir}/etc/apparmor.d/syncthing"
-  install -D -m644 transmission-cli "${pkgdir}/etc/apparmor.d/transmission-cli"
-  install -D -m644 undervolt-py "${pkgdir}/etc/apparmor.d/undervolt-py"
-  install -D -m644 waybar "${pkgdir}/etc/apparmor.d/waybar"
-  install -D -m644 wob "${pkgdir}/etc/apparmor.d/wob"
-  install -D -m644 wpa_supplicant "${pkgdir}/etc/apparmor.d/wpa_supplicant"
-  install -D -m644 youtube-dl "${pkgdir}/etc/apparmor.d/youtube-dl"
+  cd "profiles" || exit
+  for profile in ./*; do
+    if [[ "${profile}" == *"template" ]]; then
+      continue
+    fi
 
-  cd "../abstractions"
-  install -D -m644 krathalans-common-gui "${pkgdir}/etc/apparmor.d/abstractions/krathalans-common-gui"
-  install -D -m644 krathalans-hardening "${pkgdir}/etc/apparmor.d/abstractions/krathalans-hardening"
-  install -D -m644 krathalans-hwaccel "${pkgdir}/etc/apparmor.d/abstractions/krathalans-hwaccel"
-  install -D -m644 krathalans-hwaccel-nvidia "${pkgdir}/etc/apparmor.d/abstractions/krathalans-hwaccel-nvidia"
-  install -D -m644 krathalans-networking "${pkgdir}/etc/apparmor.d/abstractions/krathalans-networking"
+    install -D -m644 "${profile}" "${pkgdir}/etc/apparmor.d/${profile}"
+  done
+
+  cd "../abstractions" || exit
+  for abstraction in ./*; do
+    install -D -m644 "${abstraction}" "${pkgdir}/etc/apparmor.d/abstractions/${abstraction}"
+  done
 }
