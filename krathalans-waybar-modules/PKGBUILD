@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < krathalan at disroot dot org >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krathalans-waybar-modules
+pkgver=2.0.0
+pkgrel=1
+pkgdesc="Krathalan's personal waybar modules"
+url="https://git.sr.ht/~krathalan/waybar-modules"
+license=("GPL3")
+arch=("any")
+
+# Dependencies
+depends=()
+
+# Download information
+_packagesig="${url}/blob/master/signatures/${pkgver}.tar.gz.sig"
+source=("${url}/archive/${pkgver}.tar.gz" "${_packagesig}")
+validpgpkeys=("02AAA23ABDF1D538BD889D251AADE5E728FFC667")
+sha512sums=("b54e9abd0db403468755f9605b380f59efe202536ae6ca9401f373cbe7cb4a449e1847138b7b06184f7d6abb81cd9e0b8837a2fc3ec3f13676b3059d241f9937" "73cd57768adbc5171f666cd4cd9b6dacb37afd458b7f0461bf40f0a3e716c5ed19225e344b33069c6286d6a158196e04d3da78c4bddee5da77f6a158bfc324ef")
+
+# Package specific information
+_MODULES=("battery" "vpn")
+
+build() {
+  for module in "${_MODULES[@]}"; do
+    cd "${srcdir}/waybar-modules-${pkgver}/${module}" || exit
+    make clean > /dev/null
+    make release
+  done
+}
+
+package() {
+  for module in "${_MODULES[@]}"; do
+    cd "${srcdir}/waybar-modules-${pkgver}/${module}" || exit
+    install -D -m755 "wbm_${module}" "${pkgdir}/usr/bin/wbm_${module}"
+  done
+
+  cd "${srcdir}/waybar-modules-${pkgver}/apparmor-profiles" || exit
+
+  for profile in ./*; do
+    install -D -m644 "${profile}" "${pkgdir}/etc/apparmor.d/${profile}"
+  done
+}
