@@ -6,11 +6,13 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=2
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
 arch=("any")
+
+install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("02AAA23ABDF1D538BD889D251AADE5E728FFC667")
@@ -129,8 +131,8 @@ depends=(
 package() {
     cd "${srcdir}/etc-config-${pkgver}" || exit
     install -D -m644 issue "${pkgdir}/etc/issue"
-    install -D -m644 makepkg.conf "${pkgdir}/etc/makepkg.conf"
-    install -D -m644 pacman.conf "${pkgdir}/etc/pacman.conf"
+    install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
+    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
 
     install -D -m644 modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
     install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
@@ -141,8 +143,8 @@ package() {
     install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/dash.hook"
     install -D -m644 pacman.d/hooks/mirrorlist.hook "${pkgdir}/etc/pacman.d/mirrorlist.hook"
 
-    install -D -m644 ssh/ssh_config "${pkgdir}/etc/ssh/ssh_config"
-    install -D -m644 ssh/sshd_config "${pkgdir}/etc/ssh/sshd_config"
+    install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
+    install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
 
     install -D -m644 sysctl.d/krathalans-custom.conf "${pkgdir}/etc/sysctl.d/krathalans-custom.conf"
 
