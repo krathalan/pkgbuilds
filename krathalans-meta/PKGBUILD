@@ -1,0 +1,157 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < krathalan at disroot dot org >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krathalans-meta
+pkgver=1
+pkgrel=1
+pkgdesc="Packages and configuration for Krathalan's computers"
+url="https://git.sr.ht/~krathalan/pkgbuilds"
+license=("GPL3")
+arch=("any")
+
+source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
+validpgpkeys=("02AAA23ABDF1D538BD889D251AADE5E728FFC667")
+sha512sums=("b801b2d26eccfbabb866b3f0e458ac7a00fcf0460782d242311f039f0f5804722af7a5f8c439c2e86d93e373b6a5555f3a7f250a418144fd5e83fb875178408c" "93de131ffaad0416bebfc123202136bbe899d6354d558be07a6b3ca9e02df53ebbf420135aa6e4e7c8fa0f86a80d49607c11272f696804b57a42fad4ba1f269c")
+
+# Dependencies
+depends=(
+    "gnu-free-fonts"
+    "noto-fonts"
+    "noto-fonts-cjk"
+    "noto-fonts-emoji"
+    "otf-fira-mono"
+    "terminus-font"
+    "ttf-dejavu"
+    "ttf-ibm-plex"
+    "ttf-linux-libertine"
+    "ttf-roboto"
+    "ttf-roboto-mono"
+    "alacritty"
+    "alsa-plugins"
+    "android-tools"
+    "apparmor"
+    "arch-audit"
+    "aspell"
+    "aspell-en"
+    "bash-completion"
+    "bluez"
+    "bluez-utils"
+    "calc"
+    "clang"
+    "code"
+    "cups"
+    "cups-pdf"
+    "dash"
+    "devtools"
+    "dictd"
+    "dosfstools"
+    "e2fsprogs"
+    "efitools"
+    "epiphany"
+    "evince"
+    "fff"
+    "ffmpeg"
+    "firefox"
+    "firefox-developer-edition"
+    "foliate"
+    "gimp"
+    "git"
+    "gnome-characters"
+    "go"
+    "gptfdisk"
+    "gst-libav"
+    "gst-plugins-base"
+    "hplip"
+    "hunspell-en_US"
+    "iftop"
+    "imagemagick"
+    "imv"
+    "inkscape"
+    "intel-ucode"
+    "irssi"
+    "iw"
+    "iwd"
+    "libreoffice-fresh"
+    "lld"
+    "logrotate"
+    "lollypop"
+    "lynx"
+    "man-db"
+    "man-pages"
+    "mediainfo"
+    "meson"
+    "mosh"
+    "mpv"
+    "nano"
+    "nano-syntax-highlighting"
+    "ncdu"
+    "ninja"
+    "notification-daemon"
+    "ntfs-3g"
+    "openresolv"
+    "openvpn"
+    "pacman-contrib"
+    "pamixer"
+    "papirus-icon-theme"
+    "pass"
+    "pass-otp"
+    "pavucontrol"
+    "perl-image-exiftool"
+    "pigz"
+    "playerctl"
+    "pulseaudio-alsa"
+    "pulseaudio-bluetooth"
+    "reflector"
+    "rng-tools"
+    "sbsigntools"
+    "shellcheck"
+    "stress"
+    "syncthing"
+    "system-config-printer"
+    "termdown"
+    "tmux"
+    "transmission-cli"
+    "tree"
+    "unzip"
+    "usbguard"
+    "usbutils"
+    "wget"
+    "which"
+    "wireguard-tools"
+    "youtube-dl"
+    "zim"
+    "zip"
+)
+
+package() {
+    cd "${srcdir}/etc-config-${pkgver}" || exit
+    install -D -m644 issue "${pkgdir}/etc/issue"
+    install -D -m644 makepkg.conf "${pkgdir}/etc/makepkg.conf"
+    install -D -m644 pacman.conf "${pkgdir}/etc/pacman.conf"
+
+    install -D -m644 modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
+    install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
+
+    install -D -m644 NetworkManager/conf.d/rc-manager.conf "${pkgdir}/etc/NetworkManager/conf.d/rc-manager.conf"
+
+    install -D -m644 pacman.d/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/77-systemd-boot.hook"
+    install -D -m644 pacman.d/dash.hook "${pkgdir}/etc/pacman.d/dash.hook"
+    install -D -m644 pacman.d/mirrorlist.hook "${pkgdir}/etc/pacman.d/mirrorlist.hook"
+
+    install -D -m644 ssh/ssh_config "${pkgdir}/etc/ssh/ssh_config"
+    install -D -m644 ssh/sshd_config "${pkgdir}/etc/ssh/sshd_config"
+
+    install -D -m644 sysctl.d/krathalans-custom.conf "${pkgdir}/etc/sysctl.d/krathalans-custom.conf"
+
+    install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
+    install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
+    install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
+
+    install -D -m644 tlp.d/krathalans-custom.conf "${pkgdir}/etc/tlp.d/krathalans-custom.conf"
+
+    install -D -m644 udev/rules.d/51-android.rules "${pkgdir}/etc/udev/rules.d/51-android.rules"
+    install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
+}
