@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-meta
-pkgver=1
+pkgver=2
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -14,7 +14,7 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("02AAA23ABDF1D538BD889D251AADE5E728FFC667")
-sha512sums=("b801b2d26eccfbabb866b3f0e458ac7a00fcf0460782d242311f039f0f5804722af7a5f8c439c2e86d93e373b6a5555f3a7f250a418144fd5e83fb875178408c" "93de131ffaad0416bebfc123202136bbe899d6354d558be07a6b3ca9e02df53ebbf420135aa6e4e7c8fa0f86a80d49607c11272f696804b57a42fad4ba1f269c")
+sha512sums=("a70b39a005acf5700374c6d9c4ddea87601494d59e80afb6d9c80f55b2d15b30fd96239d00a18210f555d317cda371584aa7935d216a68b3549a26bd0004623c" "873b0e2343b68d88f4565fa9c89de9c7f5636375e559d9001275a9b574dcdd62b24d3376517d3c3c6ec09378e523e87499a47002400b0fbd4a1ac1da5e90f514")
 
 # Dependencies
 depends=(
@@ -137,9 +137,9 @@ package() {
 
     install -D -m644 NetworkManager/conf.d/rc-manager.conf "${pkgdir}/etc/NetworkManager/conf.d/rc-manager.conf"
 
-    install -D -m644 pacman.d/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/77-systemd-boot.hook"
-    install -D -m644 pacman.d/dash.hook "${pkgdir}/etc/pacman.d/dash.hook"
-    install -D -m644 pacman.d/mirrorlist.hook "${pkgdir}/etc/pacman.d/mirrorlist.hook"
+    install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/77-systemd-boot.hook"
+    install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/dash.hook"
+    install -D -m644 pacman.d/hooks/mirrorlist.hook "${pkgdir}/etc/pacman.d/mirrorlist.hook"
 
     install -D -m644 ssh/ssh_config "${pkgdir}/etc/ssh/ssh_config"
     install -D -m644 ssh/sshd_config "${pkgdir}/etc/ssh/sshd_config"
