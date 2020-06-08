@@ -3,6 +3,7 @@ post_install() {
 }
 
 post_upgrade() {
+    cp /etc/krathalan/issue /etc/issue
     cp /etc/krathalan/makepkg.conf /etc/makepkg.conf
     cp /etc/krathalan/pacman.conf /etc/pacman.conf
     cp /etc/krathalan/ssh/ssh_config /etc/ssh/ssh_config
