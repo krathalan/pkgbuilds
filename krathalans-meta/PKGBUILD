@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-meta
-pkgver=2
-pkgrel=3
+pkgver=3
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -16,7 +16,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("02AAA23ABDF1D538BD889D251AADE5E728FFC667")
-sha512sums=("a70b39a005acf5700374c6d9c4ddea87601494d59e80afb6d9c80f55b2d15b30fd96239d00a18210f555d317cda371584aa7935d216a68b3549a26bd0004623c" "873b0e2343b68d88f4565fa9c89de9c7f5636375e559d9001275a9b574dcdd62b24d3376517d3c3c6ec09378e523e87499a47002400b0fbd4a1ac1da5e90f514")
+sha512sums=("8e7b036fba1b49dcfc94770ae8bcc074366b63b642a211572c70ffae41e5316a2c9ed50dd6dcf9920d5f5e529e2f55f208d66fed34a6310520d5f91681727a48" "e810a39bbbcdea29ff4e53a758dbd5fb21e23ed9e4f2d4294a0558d19012fa51aa05fd2f7987c42812a1ee89d068932175890ddcd9e122fca88a4338319b9fae")
 
 # Dependencies
 depends=(
@@ -137,6 +137,7 @@ package() {
     install -D -m644 modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
     install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
+    install -D -m644 NetworkManager/conf.d/disable-connectivity-checking.conf "${pkgdir}/etc/NetworkManager/conf.d/disable-connectivity-checking.conf"
     install -D -m644 NetworkManager/conf.d/rc-manager.conf "${pkgdir}/etc/NetworkManager/conf.d/rc-manager.conf"
 
     install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/77-systemd-boot.hook"
