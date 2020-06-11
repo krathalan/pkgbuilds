@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < krathalan at disroot dot org >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krathalans-laptop
+pkgver=4
+pkgrel=1
+pkgdesc="Packages and configuration for Krathalan's laptop"
+url="https://git.sr.ht/~krathalan/pkgbuilds"
+license=("GPL3")
+arch=("any")
+
+source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
+validpgpkeys=("02AAA23ABDF1D538BD889D251AADE5E728FFC667")
+sha512sums=("b37e70461bfaf021d266d5ab0fcf0457872519dab2e786e2d06698141c4480def3ecb951e2f40550ca78fab006a83bef5d1a6cbab84518aa04247c07a9980dae" "69a1bcc5a07401c127138106f206ce0f69ea40cbc43d65c9aeea8c3b759e88bc2c7cc2bfc7b5e96a6bd95690f0e3c5eafdadb294cd08dc8b9559e4ea5907446a")
+
+# Dependencies
+depends=(
+    # System packages
+    "smartmontools" "tlp" "x86_energy_perf_policy"
+
+    # Wayland packages
+    "bemenu" "grim" "light" "mako" "slurp" "sway"
+    "swayidle" "swaylock" "waybar" "wl-clipboard"
+    "xorg-server-xwayland"
+)
+
+package() {
+    cd "${srcdir}/etc-config-${pkgver}/laptop" || exit
+    install -D -m644 cmdline "${pkgdir}/etc/cmdline"
+    install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
+
+    install -D -m644 dracut.conf.d/krathalans-custom-laptop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-laptop.conf"
+
+    install -D -m644 NetworkManager/conf.d/networkmanager-hardening.conf "${pkgdir}/etc/NetworkManager/conf.d/networkmanager-hardening.conf"
+    install -D -m644 NetworkManager/conf.d/wifi-backend.conf "${pkgdir}/etc/NetworkManager/conf.d/wifi-backend.conf"
+
+    install -D -m644 systemd/system/undervolt.service "${pkgdir}/etc/systemd/system/undervolt.service"
+    install -D -m644 systemd/system/undervolt.timer "${pkgdir}/etc/systemd/system/undervolt.timer"
+
+    install -D -m644 ../tlp.d/krathalans-custom.conf "${pkgdir}/etc/tlp.d/krathalans-custom.conf"
+}
