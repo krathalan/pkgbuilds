@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < krathalan at disroot dot org >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krathalans-desktop
+pkgver=5
+pkgrel=1
+pkgdesc="Packages and configuration for Krathalan's desktop"
+url="https://git.sr.ht/~krathalan/pkgbuilds"
+license=("GPL3")
+arch=("any")
+
+source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
+validpgpkeys=("02AAA23ABDF1D538BD889D251AADE5E728FFC667")
+sha512sums=("de6024835614d1505c9a6c2222237ce5156141fb41810ae6c62dc3448aabf79a1a83af71adba17642412de7e3713691f20abb45f585b2503400c456e389c20e3" "1f1b7eeced5a83c1c8d1cab1cc5a1a6afce1f0e59a5c45ec91a69623c85993444e44116803878dad9e00ac9d3c034dfc8a02765da3008d177e316439de2f5bb2")
+
+# Dependencies
+depends=(
+    # Xorg packages
+    "dmenu" "dunst" "feh" "i3-gaps" "i3lock" "i3status"
+    "picom" "redshift" "scrot"
+)
+
+package() {
+    cd "${srcdir}/etc-config-${pkgver}/desktop" || exit
+
+    install -D -m644 dracut.conf.d/krathalans-custom-desktop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-desktop.conf"
+
+    install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
+}
