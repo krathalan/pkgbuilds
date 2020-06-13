@@ -5,12 +5,14 @@
 
 # General package information
 pkgname=krathalans-apparmor-profiles-git
-pkgver=r335.d283dd3
+pkgver=r337.6011ceb
 pkgrel=1
 pkgdesc="Krathalan's apparmor profiles"
 url="https://git.sr.ht/~krathalan/apparmor-profiles"
 license=("GPL3")
 arch=("any")
+
+install=touch-local-files.install
 
 # Dependencies
 depends=()

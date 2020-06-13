@@ -12,6 +12,7 @@ url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
 arch=("any")
 
+# Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
 install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
