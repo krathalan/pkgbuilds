@@ -51,9 +51,10 @@ depends=(
     # Graphical applications
     "alacritty" "epiphany" "evince" "firefox"
     "firefox-developer-edition" "foliate" "gimp"
-    "gnome-characters" "imv" "inkscape" "libreoffice-fresh"
-    "lollypop" "mpv" "pavucontrol" "syncthing"
-    "system-config-printer" "zim"
+    "gnome-characters" "gnome-system-monitor" "imv"
+    "inkscape" "libreoffice-fresh" "lollypop" "mpv"
+    "pavucontrol" "syncthing" "system-config-printer"
+    "zim"
 
     # Development packages
     "clang" "code" "devtools" "git" "go" "lld" "meson"
