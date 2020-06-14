@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=6
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -44,7 +44,7 @@ depends=(
     "nano" "nano-syntax-highlighting" "ncdu"
     "pacman-contrib" "pamixer" "pass" "pass-otp"
     "perl-image-exiftool" "pigz" "playerctl" "reflector"
-    "sbsigntools" "shellcheck" "stress" "termdown"
+    "sbsigntools" "shellcheck" "stow" "stress" "termdown"
     "transmission-cli" "tree" "unzip" "wget" "which"
     "youtube-dl" "zip"
 
