@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=6
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -40,7 +40,7 @@ depends=(
     # Terminal applications
     "android-tools" "arch-audit" "calc" "dictd"
     "dosfstools" "e2fsprogs" "efitools" "fff" "gptfdisk"
-    "iftop" "irssi" "iw" "mediainfo" "mosh"
+    "iftop" "irssi" "iw" "mediainfo" "mosh" "mutt"
     "nano" "nano-syntax-highlighting" "ncdu"
     "pacman-contrib" "pamixer" "pass" "pass-otp"
     "perl-image-exiftool" "pigz" "playerctl" "reflector"
