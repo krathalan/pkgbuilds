@@ -3,5 +3,5 @@ post_install() {
 }
 
 post_upgrade() {
-  touch /etc/apparmor.d/local/{aerc,code,firefox,gpg-agent,imv,irssi,mako,micro,micro-git,mpv,pass,redshift,signal-desktop,swaybg,syncthing,transmission-cli,waybar}
+  touch /etc/apparmor.d/local/{code,firefox,gpg-agent,imv,irssi,mako,mbsync,micro,micro-git,mpv,mutt,mutt-nano,pass,pass-nano,redshift,signal-desktop,swaybg,syncthing,transmission-cli,waybar}
 }
