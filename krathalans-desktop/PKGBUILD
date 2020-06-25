@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-desktop
-pkgver=7
+pkgver=8
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -14,13 +14,13 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("02AAA23ABDF1D538BD889D251AADE5E728FFC667")
-sha512sums=("4395257906e248e3b406394363b0ad723a25df9af7cd64086b3b5997d798bd3602a385b29f182013bd118a25374404294207145cbb679c8faf07d943e316df55" "ad1b31c1a856aa08f98ee41e4d745ede091b679111e65b44d23b143ce895290a2cd6788702ce888dfb0a1f332d71454b528d37be5221cb02bb17d5bd96dabbc1")
+sha512sums=("63d676a30e9b5c013fe21bc0a299d3e2024bb720fb8fdb73c9bb2fa255de12be5b927c863daf31cb642db2b06d4443c07ec0e31d809489fa7330e6604ddff450" "5ea909ca7241dd806e2020c87f57ba199dac87f1c2de59bcb2aa1e1077767ea8393059b69fbd4fb01a84c999738fba2ca2b82ffee58ca9134a440bbc7c179239")
 
 # Dependencies
 depends=(
     # Xorg packages
     "dmenu" "dunst" "feh" "i3-gaps" "i3lock" "i3status"
-    "picom" "redshift" "scrot"
+    "picom" "redshift" "rofi" "scrot"
 )
 
 package() {
