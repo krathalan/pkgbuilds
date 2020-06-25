@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=8
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -67,6 +67,7 @@ package() {
     install -D -m644 issue "${pkgdir}/etc/krathalan/issue"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 
     install -D -m644 dracut.conf.d/krathalans-custom.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom.conf"
 
