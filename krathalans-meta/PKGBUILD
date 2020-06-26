@@ -43,9 +43,9 @@ depends=(
     "dosfstools" "e2fsprogs" "efitools" "fff" "gptfdisk"
     "iftop" "irssi" "isync" "iw" "mediainfo" "mosh" "mutt"
     "nano" "nano-syntax-highlighting" "ncdu"
-    "pacman-contrib" "pamixer" "pass" "pass-otp"
-    "perl-image-exiftool" "pigz" "playerctl" "reflector"
-    "sbsigntools" "shellcheck" "stow" "stress" "termdown"
+    "pacman-contrib" "pamixer" "perl-image-exiftool"
+    "pigz" "playerctl" "reflector" "sbsigntools"
+    "shellcheck" "stow" "stress" "termdown"
     "transmission-cli" "tree" "unzip" "w3m" "which"
     "youtube-dl" "zip"
 
