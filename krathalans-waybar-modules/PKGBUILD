@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-waybar-modules
-pkgver=2.0.0
+pkgver=2.0.1
 pkgrel=1
 pkgdesc="Krathalan's personal waybar modules"
 url="https://git.sr.ht/~krathalan/waybar-modules"
@@ -18,8 +18,8 @@ depends=()
 # Download information
 _packagesig="${url}/blob/master/signatures/${pkgver}.tar.gz.sig"
 source=("${url}/archive/${pkgver}.tar.gz" "${_packagesig}")
-validpgpkeys=("02AAA23ABDF1D538BD889D251AADE5E728FFC667")
-sha512sums=("b54e9abd0db403468755f9605b380f59efe202536ae6ca9401f373cbe7cb4a449e1847138b7b06184f7d6abb81cd9e0b8837a2fc3ec3f13676b3059d241f9937" "73cd57768adbc5171f666cd4cd9b6dacb37afd458b7f0461bf40f0a3e716c5ed19225e344b33069c6286d6a158196e04d3da78c4bddee5da77f6a158bfc324ef")
+validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
+sha512sums=("381ceadd1def3dece5348ee91217cc6d467b44765ad1a5f4d57edfab2866f42afc74969226c7376aa4c9825fa9533f5c6aab36ed3a49803866fdfbda003c37ac" "4ac91f914c1e19654c27fbdc9ac781b4f21c58c4ff8e61e196f9e67b8c10dae737ec4b7a6256a2ccae59ddefd91d5bc28e741a35ff1ded17bd4ebb920a414b11")
 
 # Package specific information
 _MODULES=("battery" "vpn")
