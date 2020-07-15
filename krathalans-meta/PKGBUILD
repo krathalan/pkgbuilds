@@ -30,7 +30,7 @@ depends=(
     # System Packages
     "alsa-plugins" "apparmor" "asp" "bash-completion"
     "bluez" "bluez-utils" "dash" "ffmpeg" "fwupd"
-    "gst-libav" "gst-plugins-base" "hplip" "hunspell-en_US"
+    "gst-libav" "gst-plugins-base" "hunspell-en_US"
     "intel-ucode" "iwd" "logrotate" "man-db" "man-pages"
     "notification-daemon" "papirus-icon-theme"
     "pulseaudio-alsa" "pulseaudio-bluetooth" "rng-tools"
@@ -50,9 +50,8 @@ depends=(
     # Graphical applications
     "alacritty" "epiphany" "evince" "firefox"
     "firefox-developer-edition" "foliate" "gimp"
-    "gnome-characters" "imv" "inkscape"
-    "libreoffice-fresh" "lollypop" "mpv" "pavucontrol"
-    "syncthing" "system-config-printer" "zim"
+    "gnome-characters" "imv" "libreoffice-fresh"
+    "lollypop" "mpv" "pavucontrol" "syncthing" "zim"
 
     # Development packages
     "clang" "code" "devtools" "git" "go" "lld" "meson"
