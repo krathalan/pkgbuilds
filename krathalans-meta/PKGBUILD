@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=12
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -28,12 +28,11 @@ depends=(
     "ttf-roboto" "ttf-roboto-mono"
 
     # System Packages
-    "alsa-plugins" "apparmor" "asp" "aspell" "aspell-en"
-    "bash-completion" "bluez" "bluez-utils" "cups"
-    "cups-pdf" "dash" "ffmpeg" "fwupd" "gst-libav"
-    "gst-plugins-base" "hplip" "hunspell-en_US"
+    "alsa-plugins" "apparmor" "asp" "bash-completion"
+    "bluez" "bluez-utils" "dash" "ffmpeg" "fwupd"
+    "gst-libav" "gst-plugins-base" "hplip" "hunspell-en_US"
     "intel-ucode" "iwd" "logrotate" "man-db" "man-pages"
-    "notification-daemon" "ntfs-3g" "papirus-icon-theme"
+    "notification-daemon" "papirus-icon-theme"
     "pulseaudio-alsa" "pulseaudio-bluetooth" "rng-tools"
     "systemd-resolvconf" "usbguard" "usbutils"
     "wireguard-tools"
@@ -41,21 +40,19 @@ depends=(
     # Terminal applications
     "android-tools" "arch-audit" "calc" "dictd"
     "dosfstools" "e2fsprogs" "efitools" "fff" "gptfdisk"
-    "iftop" "irssi" "isync" "iw" "mediainfo" "mosh" "mutt"
+    "htop" "irssi" "isync" "iw" "mediainfo" "mosh" "mutt"
     "nano" "nano-syntax-highlighting" "ncdu"
     "pacman-contrib" "pamixer" "perl-image-exiftool"
-    "pigz" "playerctl" "reflector" "sbsigntools"
-    "shellcheck" "stow" "stress" "termdown"
-    "transmission-cli" "tree" "unzip" "w3m" "which"
-    "youtube-dl" "zip"
+    "playerctl" "reflector" "shellcheck" "stow" "stress"
+    "termdown" "transmission-cli" "tree" "unzip" "w3m"
+    "which" "youtube-dl" "zip"
 
     # Graphical applications
     "alacritty" "epiphany" "evince" "firefox"
     "firefox-developer-edition" "foliate" "gimp"
-    "gnome-characters" "gnome-system-monitor" "imv"
-    "inkscape" "libreoffice-fresh" "lollypop" "mpv"
-    "pavucontrol" "syncthing" "system-config-printer"
-    "zim"
+    "gnome-characters" "imv" "inkscape"
+    "libreoffice-fresh" "lollypop" "mpv" "pavucontrol"
+    "syncthing" "system-config-printer" "zim"
 
     # Development packages
     "clang" "code" "devtools" "git" "go" "lld" "meson"
