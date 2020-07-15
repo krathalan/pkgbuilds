@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=12
-pkgrel=1
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -33,10 +33,10 @@ depends=(
     "cups-pdf" "dash" "ffmpeg" "fwupd" "gst-libav"
     "gst-plugins-base" "hplip" "hunspell-en_US"
     "intel-ucode" "iwd" "logrotate" "man-db" "man-pages"
-    "notification-daemon" "ntfs-3g" "openresolv"
-    "papirus-icon-theme" "pulseaudio-alsa"
-    "pulseaudio-bluetooth" "rng-tools" "usbguard"
-    "usbutils" "wireguard-tools"
+    "notification-daemon" "ntfs-3g" "papirus-icon-theme"
+    "pulseaudio-alsa" "pulseaudio-bluetooth" "rng-tools"
+    "systemd-resolvconf" "usbguard" "usbutils"
+    "wireguard-tools"
 
     # Terminal applications
     "android-tools" "arch-audit" "calc" "dictd"
