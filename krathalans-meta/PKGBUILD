@@ -45,7 +45,7 @@ depends=(
     "pacman-contrib" "pamixer" "perl-image-exiftool"
     "playerctl" "reflector" "shellcheck" "stow" "stress"
     "termdown" "transmission-cli" "tree" "unzip" "w3m"
-    "which" "youtube-dl" "zip"
+    "which" "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
     "alacritty" "epiphany" "evince" "firefox"
