@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-meta
-pkgver=13
+pkgver=14
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("7a0d8cd60deb3ec2967547fbb3e47551a9a70e09f3a65f92205b19b9f4fc0652ce9a43f1384aeeedd38cd88b08638ae8554809816fd47b666de9f9a25f2b8dc8" "92847531da8bb75674786ecdcf10310ce7f934f6694bfbea7a9f682fc58b413837eec54184a47ca55affb0925b895e93ac57a144aa9534764a2c473f05f9e5dd")
+sha512sums=("2cd29547e145600868e4817bd34c0168944868bfb367cd67549e7053b8dca3abaeedcf742ed33b469f47e2c302807a5e4d920e7b80e7fd0745875d1e57137421" "b4e24c07847e1c7e86e389dddee5d8b3d5719be1fa477c2c888a4cb842f0758ddb5941cc805053bb68b2a5875bb0b82ce4cdbed26bd773e23475df2ebbf21a3a")
 
 # Dependencies
 depends=(
