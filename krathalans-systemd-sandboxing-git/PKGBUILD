@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < krathalan at disroot dot org >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krathalans-systemd-sandboxing-git
+pkgver=r8.990fac8
+pkgrel=1
+pkgdesc="Krathalan's systemd sandboxing .confs"
+url="https://git.sr.ht/~krathalan/systemd-sandboxing"
+license=("GPL3")
+arch=("any")
+
+# Dependencies
+depends=()
+makedepends=("git")
+
+# Download information
+source=("${pkgname}::git+${url}")
+sha256sums=('SKIP')
+
+# https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
+pkgver() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+package() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  for confFile in */*; do
+    install -D -m644 "${confFile}" "${pkgdir}/usr/lib/systemd/system/${confFile}"
+  done
+}
