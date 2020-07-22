@@ -34,9 +34,6 @@ package() {
 
     install -D -m644 dracut.conf.d/krathalans-custom-laptop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-laptop.conf"
 
-    install -D -m644 NetworkManager/conf.d/networkmanager-hardening.conf "${pkgdir}/etc/NetworkManager/conf.d/networkmanager-hardening.conf"
-    install -D -m644 NetworkManager/conf.d/wifi-backend.conf "${pkgdir}/etc/NetworkManager/conf.d/wifi-backend.conf"
-
     install -D -m644 systemd/system/undervolt.service "${pkgdir}/etc/systemd/system/undervolt.service"
     install -D -m644 systemd/system/undervolt.timer "${pkgdir}/etc/systemd/system/undervolt.timer"
 
