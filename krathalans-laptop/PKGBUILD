@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop
 pkgver=14
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -21,10 +21,13 @@ depends=(
     # System packages
     "smartmontools" "tlp" "x86_energy_perf_policy"
 
+    # Hwaccel
+    "intel-media-driver"
+
     # Wayland packages
     "bemenu" "grim" "light" "mako" "slurp" "sway"
     "swayidle" "swaylock" "waybar" "wl-clipboard"
-    "xorg-server-xwayland"
+    "xorg-server-xwayland" "xorg-xlsclients"
 )
 
 package() {
