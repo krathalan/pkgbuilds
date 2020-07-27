@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-meta
-pkgver=14
-pkgrel=8
+pkgver=17
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("2cd29547e145600868e4817bd34c0168944868bfb367cd67549e7053b8dca3abaeedcf742ed33b469f47e2c302807a5e4d920e7b80e7fd0745875d1e57137421" "b4e24c07847e1c7e86e389dddee5d8b3d5719be1fa477c2c888a4cb842f0758ddb5941cc805053bb68b2a5875bb0b82ce4cdbed26bd773e23475df2ebbf21a3a")
+sha512sums=("8c0068cda54ad483dae1aacb687986ac7c1e11dad95d98f58b133c3ce7b037c84277b6122a485c8b0ba7de9c3d0ba7acb1cd2cb733d9ba9412c169a0debb179e" "4f48d36dad7d68588ef85f6c73565a4e8a34c6bc7aedf9d5f8d36e13990b39ed9a3ffac02ea9b356a6d758a06f8ff461263eb1833b8a1a9ef440823270150d5e")
 
 # Dependencies
 depends=(
@@ -78,6 +78,8 @@ package() {
     install -D -m644 modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
     install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
+    install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
+    install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/etc/systemd/network/25-ethernet.network"
     install -D -m644 systemd/resolved.conf.d/disable-fallback-dns.conf "${pkgdir}/etc/systemd/resolved.conf.d/disable-fallback-dns.conf"
 
     install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/hooks/77-systemd-boot.hook"
