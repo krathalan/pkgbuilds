@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-systemd-sandboxing-git
-pkgver=r12.f521fc0
+pkgver=r13.9d7384a
 pkgrel=1
 pkgdesc="Krathalan's systemd sandboxing .confs"
 url="https://git.sr.ht/~krathalan/systemd-sandboxing"
