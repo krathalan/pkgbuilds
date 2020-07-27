@@ -3,5 +3,5 @@ post_install() {
 }
 
 post_upgrade() {
-  touch /etc/apparmor.d/local/{code,firefox,gpg-agent,haveged,imv,irssi,khard,lollypop,mako,mbsync,micro,micro-git,mpv,mutt,mutt-nano,nginx,pash,pass,pass-nano,polybar,redshift,signal-desktop,swaybg,syncthing,transmission-cli,waybar,xob}
+  touch /etc/apparmor.d/local/{code,firefox,gpg-agent,haveged,imv,irssi,khard,lollypop,mako,mbsync,micro,micro-git,mpv,mutt,mutt-nano,nginx,pash,pass,pass-nano,polybar,redshift,signal-desktop,swaybg,syncthing,transmission-cli,vdirsyncer,waybar,xob}
 }
