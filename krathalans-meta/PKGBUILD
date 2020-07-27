@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=14
-pkgrel=6
+pkgrel=7
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -50,8 +50,8 @@ depends=(
     "mutt" "nano" "nano-syntax-highlighting" "ncdu"
     "pacman-contrib" "pamixer" "perl-image-exiftool"
     "playerctl" "reflector" "shellcheck" "stow" "stress"
-    "termdown" "transmission-cli" "tree" "unzip" "w3m"
-    "vdirsyncer" "which" "xxhash" "youtube-dl" "zip"
+    "termdown" "todoman" "transmission-cli" "tree" "unzip"
+    "w3m" "vdirsyncer" "which" "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
     "alacritty" "epiphany" "evince" "firefox"
