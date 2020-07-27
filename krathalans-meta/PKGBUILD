@@ -46,12 +46,12 @@ depends=(
     # Terminal applications
     "android-tools" "arch-audit" "calc" "dictd"
     "dosfstools" "e2fsprogs" "efitools" "fff" "gptfdisk"
-    "htop" "irssi" "isync" "iw" "mediainfo" "mosh" "mutt"
-    "nano" "nano-syntax-highlighting" "ncdu"
+    "htop" "irssi" "isync" "iw" "khard" "mediainfo" "mosh"
+    "mutt" "nano" "nano-syntax-highlighting" "ncdu"
     "pacman-contrib" "pamixer" "perl-image-exiftool"
     "playerctl" "reflector" "shellcheck" "stow" "stress"
     "termdown" "transmission-cli" "tree" "unzip" "w3m"
-    "which" "xxhash" "youtube-dl" "zip"
+    "vdirsyncer" "which" "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
     "alacritty" "epiphany" "evince" "firefox"
