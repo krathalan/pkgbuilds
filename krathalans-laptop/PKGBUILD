@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-laptop
-pkgver=17
+pkgver=20
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -14,7 +14,7 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("8c0068cda54ad483dae1aacb687986ac7c1e11dad95d98f58b133c3ce7b037c84277b6122a485c8b0ba7de9c3d0ba7acb1cd2cb733d9ba9412c169a0debb179e" "4f48d36dad7d68588ef85f6c73565a4e8a34c6bc7aedf9d5f8d36e13990b39ed9a3ffac02ea9b356a6d758a06f8ff461263eb1833b8a1a9ef440823270150d5e")
+sha512sums=("660da96d375b5b27bd90b6f784c16d9d704cb46bea2d2f8b8551b9951e1b8fe6061cd3ddc508f5cc2f48938d272e9936cf5db4cde7e0241256526c909ad988cc" "7735dac53721ea82c54e78569fcc7449e2b06f8ebce8b035149a7f0a359c054df9fb82c7ed68a9f0245b86bcd779e4b90ec27c79fb60a7b547d338eac17a774c")
 
 # Dependencies
 depends=(
@@ -36,6 +36,10 @@ package() {
     install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
 
     install -D -m644 dracut.conf.d/krathalans-custom-laptop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-laptop.conf"
+
+    install -D -m644 ../modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
+    install -D -m644 ../modprobe.d/iwlwifi.conf "${pkgdir}/etc/modprobe.d/iwlwifi.conf"
+
 
     install -D -m644 systemd/system/undervolt.service "${pkgdir}/etc/systemd/system/undervolt.service"
     install -D -m644 systemd/system/undervolt.timer "${pkgdir}/etc/systemd/system/undervolt.timer"
