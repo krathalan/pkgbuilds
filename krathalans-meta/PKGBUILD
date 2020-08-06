@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-meta
-pkgver=19
-pkgrel=2
+pkgver=25
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("41c6415123a9888738d42b1ab007f9c6ff27a040a9a0f278d74e8b9b3b1d1aaef0f99b5d99c46297ca0fb3fa701511d3d63b44b89d96164e5aa4673caf7c2bc1" "a9bb2b1b53d5437bdb98532992a8ede6d5a5d29e9a27a03843172dc634230f519d66cbdcdc6af1d08d0736876268b2a0689e19edfe0fa52ab5f82b415b667bd1")
+sha512sums=("1047433d6aa0ee4de89c0c6be83eda6fadfcb8557ea1c9bcf70362cf56b66f8d1272f343ef49e1de1404cdb6323535f3e978da5ea6b54ee6a662cfa26aa39b11" "7ddb21c9ace85a49134b45940bbac020e0231021f45a51a01e80d2365f4c3ffd05975dab5d7ab849bbc675b9b467f82b950739b8a7165abef644525f3e8531c8")
 
 # Dependencies
 depends=(
@@ -68,6 +68,7 @@ depends=(
 
 package() {
     cd "${srcdir}/etc-config-${pkgver}" || exit
+    install -D -m644 dict/dictd.conf "${pkgdir}/etc/krathalan/dictd.conf"
     install -D -m644 issue "${pkgdir}/etc/krathalan/issue"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
