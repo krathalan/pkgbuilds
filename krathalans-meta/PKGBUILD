@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=25
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -68,7 +68,7 @@ depends=(
 
 package() {
     cd "${srcdir}/etc-config-${pkgver}" || exit
-    install -D -m644 dict/dictd.conf "${pkgdir}/etc/krathalan/dictd.conf"
+    install -D -m644 dict/dictd.conf "${pkgdir}/etc/krathalan/dict/dictd.conf"
     install -D -m644 issue "${pkgdir}/etc/krathalan/issue"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
