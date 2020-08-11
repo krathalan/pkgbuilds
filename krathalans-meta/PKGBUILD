@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=25
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -42,7 +42,7 @@ depends=(
     "restic" "fuse2"
 
     # Printing
-    "cups" "hplip" "system-config-printer"
+    "cups" "hplip"
 
     # Terminal applications
     "android-tools" "arch-audit" "calc" "dictd"
