@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=25
-pkgrel=5
+pkgrel=6
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -45,8 +45,8 @@ depends=(
     "cups" "hplip"
 
     # Terminal applications
-    "android-tools" "arch-audit" "calc" "dictd"
-    "dosfstools" "e2fsprogs" "efitools" "fff" "gptfdisk"
+    "android-tools" "arch-audit" "bat" "calc" "dictd"
+    "dosfstools" "e2fsprogs" "exa" "efitools" "fff" "gptfdisk"
     "htop" "hyperfine" "irssi" "isync" "iw" "khard"
     "mediainfo" "mosh" "mutt" "nano" "nano-syntax-highlighting"
     "ncdu" "pacman-contrib" "pamixer" "perl-image-exiftool"
@@ -64,7 +64,7 @@ depends=(
 
     # Development packages
     "clang" "code" "devtools" "git" "go" "lld" "meson"
-    "ninja" "scdoc"
+    "ninja" "rust" "scdoc"
 )
 
 package() {
