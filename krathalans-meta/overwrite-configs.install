@@ -10,4 +10,5 @@ post_upgrade() {
     cp /etc/krathalan/sudoers /etc/sudoers
     cp /etc/krathalan/ssh/ssh_config /etc/ssh/ssh_config
     cp /etc/krathalan/ssh/sshd_config /etc/ssh/sshd_config
+    cp /etc/krathalan/xdg/reflector/reflector.conf /etc/xdg/reflector/reflector.conf
 }
