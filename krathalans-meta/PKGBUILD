@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-meta
-pkgver=27
+pkgver=28
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("88b735d72f06149cd9883c50d0ec4f9d1f8aa950b2114a68cc5790f83eb80f4d26c9963d274c804922942e7caca282a780830386b42a37799c537ff7be5a8155" "a515ad8dc6682ad8870f7141f31aefcd4c428717f6f4ab5cb2656dc99d2a33133789e2b7d97a54435275f93431fc77433284ae2e688bf1e22af35e3a29d986d7")
+sha512sums=("310c8e9023bafeeb866aa91f4a0f0008a74cc22bf18b68a5770070aae787e1f78b85a8d8e24a5c7fbad63594cd7df16d12a1f71e33c388f15f6fb94aa93935eb" "64509b4a95c6ef59f2f4c9bf8e57a834867e2be1f7d81bb1c962c4334501c84fddc17a9eb7995d9046883755f1e27c89d1d8ddb6bf29563d6d5e4b2825f461f4")
 
 # Dependencies
 depends=(
@@ -71,7 +71,6 @@ package() {
     cd "${srcdir}/etc-config-${pkgver}" || exit
     install -D -m644 dict/dictd.conf "${pkgdir}/etc/krathalan/dict/dictd.conf"
     install -D -m644 issue "${pkgdir}/etc/krathalan/issue"
-    install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
     install -D -m644 xdg/reflector/reflector.conf "${pkgdir}/etc/krathalan/xdg/reflector/reflector.conf"
