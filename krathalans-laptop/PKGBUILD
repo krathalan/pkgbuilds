@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop
 pkgver=30
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -32,7 +32,6 @@ depends=(
 
 package() {
     cd "${srcdir}/etc-config-${pkgver}/laptop" || exit
-    install -D -m644 cmdline "${pkgdir}/etc/cmdline"
     install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
 
     install -D -m644 dracut.conf.d/krathalans-custom-laptop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-laptop.conf"
