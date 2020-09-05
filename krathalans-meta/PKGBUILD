@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=29
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -29,14 +29,14 @@ depends=(
 
     # System Packages
     "alsa-plugins" "apparmor" "asp" "bash-completion"
-    "bluez" "bluez-utils" "dash" "exfat-utils" "f2fs-tools"
-    "ffmpeg" "fwupd" "gst-libav" "gst-plugins-base"
-    "hunspell-en_US" "intel-ucode" "iwd" "logrotate"
-    "man-db" "man-pages" "notification-daemon"
-    "papirus-icon-theme" "pkgstats" "pulseaudio-alsa"
-    "pulseaudio-bluetooth" "rng-tools" "source-highlight"
-    "systemd-resolvconf" "usbguard" "usbutils"
-    "wireguard-tools"
+    "bluez" "bluez-utils" "crda" "dash" "exfat-utils"
+    "f2fs-tools" "ffmpeg" "fwupd" "gst-libav"
+    "gst-plugins-base" "hunspell-en_US" "intel-ucode"
+    "iwd" "logrotate" "man-db" "man-pages"
+    "notification-daemon" "papirus-icon-theme" "pkgstats"
+    "pulseaudio-alsa" "pulseaudio-bluetooth" "rng-tools"
+    "source-highlight" "systemd-resolvconf" "usbguard"
+    "usbutils" "wireguard-tools"
 
     # Backups
     "restic" "fuse2"
