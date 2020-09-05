@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=29
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -49,11 +49,10 @@ depends=(
     "dosfstools" "e2fsprogs" "exa" "efitools" "fff" "gptfdisk"
     "htop" "hyperfine" "irssi" "isync" "iw" "khard"
     "mediainfo" "mosh" "nano" "nano-syntax-highlighting"
-    "ncdu" "neomutt" "pacman-contrib" "pamixer" "pandoc"
-    "perl-image-exiftool" "playerctl" "reflector" "shellcheck"
-    "stow" "stress" "termdown" "todoman" "transmission-cli"
-    "unzip" "w3m" "vdirsyncer" "which" "xxhash" "youtube-dl"
-    "zip"
+    "ncdu" "neomutt" "pacman-contrib" "pamixer"
+    "perl-image-exiftool" "playerctl" "reflector" "stow"
+    "stress" "termdown" "todoman" "transmission-cli" "unzip"
+    "w3m" "vdirsyncer" "which" "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
     "alacritty" "epiphany" "evince" "firefox"
