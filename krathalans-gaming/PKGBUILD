@@ -16,10 +16,18 @@ source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "http
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
 sha512sums=("bf6ffc0c5219d0d8f32643430524f76e635af34c45f478489f3379c004164c2952d66fd72e424fa1babbb2dd6e8ea2ef21e9808f6b233a5d308c0fe13ac44d0e" "7c1a8d17003b3f88ecf87a28462c36720cca4ea2a2367cc03339477ca86395d7afa98c822e7e10c4c7e20dfc5a7f35444e21d6b3202afc221d77a733e8fe11a8")
 
+# Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
+install=overwrite-configs.install
+
 # Dependencies
 depends=(
+    # Xorg packages (krathalans-desktop)
+    "dmenu" "dunst" "feh" "i3-gaps" "i3lock" "i3status"
+    "picom" "redshift" "rofi" "scrot" "xorg-server"
+    "xorg-xinit"
+
     # Misc
-    "lutris"
+    "lutris" "steam-native"
 
     # Wine
     "wine-staging" "wine-gecko" "wine-mono"
@@ -30,11 +38,66 @@ depends=(
     # Battle.net
     # https://github.com/lutris/docs/blob/master/Battle.Net.md
     "lib32-gnutls" "lib32-libldap" "lib32-libgpg-error" "lib32-sqlite" "lib32-libpulse"
+
+    # Stripped down krathalans-meta
+    # Fonts
+    "gnu-free-fonts" "noto-fonts" "noto-fonts-cjk"
+    "noto-fonts-emoji" "otf-fira-mono" "terminus-font"
+    "ttf-dejavu" "ttf-ibm-plex" "ttf-linux-libertine"
+    "ttf-roboto" "ttf-roboto-mono"
+
+    # System Packages
+    "alsa-plugins" "apparmor" "asp" "bash-completion"
+    "bluez" "bluez-utils" "crda" "dash" "exfat-utils"
+    "f2fs-tools" "ffmpeg" "gst-libav" "gst-plugins-base"
+    "hunspell-en_US" "intel-ucode" "iwd" "logrotate"
+    "man-db" "man-pages" "notification-daemon"
+    "papirus-icon-theme" "pkgstats" "pulseaudio-alsa"
+    "pulseaudio-bluetooth" "rng-tools" "source-highlight"
+    "systemd-resolvconf" "usbutils"
+
+    # Terminal applications
+    "android-tools" "bat" "calc" "dictd"
+    "dosfstools" "e2fsprogs" "exa" "efitools" "fff" "gptfdisk"
+    "htop" "iw" "mediainfo" "nano" "nano-syntax-highlighting"
+    "ncdu" "pacman-contrib" "pamixer" "perl-image-exiftool"
+    "playerctl" "reflector" "termdown" "unzip" "which"
+    "xxhash" "youtube-dl" "zip"
+
+    # Graphical applications
+    "alacritty" "epiphany" "evince" "firefox"
+    "firefox-developer-edition" "gimp"
+    "gnome-characters" "imv" "mpv" "pavucontrol"
 )
 
 package() {
     cd "${srcdir}/etc-config-${pkgver}/desktop" || exit
 
+    # krathalans-meta
+    install -D -m644 conf.d/wireless-regdom "${pkgdir}/etc/krathalan/conf.d/wireless-regdom"
+    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
+    install -D -m644 xdg/reflector/reflector.conf "${pkgdir}/etc/krathalan/xdg/reflector/reflector.conf"
+
+    install -D -m644 dracut.conf.d/krathalans-custom.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom.conf"
+
+    install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
+
+    install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
+    install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/etc/systemd/network/25-ethernet.network"
+
+    install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/hooks/77-systemd-boot.hook"
+    install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
+    install -D -m644 pacman.d/hooks/dracut.hook "${pkgdir}/etc/pacman.d/hooks/dracut.hook"
+    install -D -m644 pacman.d/hooks/mirrorupgrade.hook "${pkgdir}/etc/pacman.d/hooks/mirrorupgrade.hook"
+
+    install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
+    install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
+    install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
+
+    install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
+
+    # krathalans-desktop
     install -D -m644 dracut.conf.d/krathalans-custom-desktop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-desktop.conf"
 
     install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
