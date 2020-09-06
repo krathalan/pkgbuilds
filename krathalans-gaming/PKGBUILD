@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming
 pkgver=31
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -27,7 +27,7 @@ depends=(
     "xorg-xinit"
 
     # Misc
-    "lutris" "steam-native"
+    "lutris" "steam-native-runtime"
 
     # Wine
     "wine-staging" "wine-gecko" "wine-mono"
@@ -71,7 +71,7 @@ depends=(
 )
 
 package() {
-    cd "${srcdir}/etc-config-${pkgver}/desktop" || exit
+    cd "${srcdir}/etc-config-${pkgver}" || exit
 
     # krathalans-meta
     install -D -m644 conf.d/wireless-regdom "${pkgdir}/etc/krathalan/conf.d/wireless-regdom"
@@ -96,6 +96,8 @@ package() {
     install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
 
     install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
+
+    cd "${srcdir}/etc-config-${pkgver}/desktop" || exit
 
     # krathalans-desktop
     install -D -m644 dracut.conf.d/krathalans-custom-desktop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-desktop.conf"
