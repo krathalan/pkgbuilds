@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krathalans-gaming
+pkgver=31
+pkgrel=1
+pkgdesc="Packages and configuration for Krathalan's gaming"
+url="https://git.sr.ht/~krathalan/pkgbuilds"
+license=("GPL3")
+arch=("any")
+
+source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
+validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
+sha512sums=("bf6ffc0c5219d0d8f32643430524f76e635af34c45f478489f3379c004164c2952d66fd72e424fa1babbb2dd6e8ea2ef21e9808f6b233a5d308c0fe13ac44d0e" "7c1a8d17003b3f88ecf87a28462c36720cca4ea2a2367cc03339477ca86395d7afa98c822e7e10c4c7e20dfc5a7f35444e21d6b3202afc221d77a733e8fe11a8")
+
+# Dependencies
+depends=(
+    # Misc
+    "lutris"
+
+    # Wine
+    "wine-staging" "wine-gecko" "wine-mono"
+
+    # https://github.com/lutris/docs/blob/master/WineDependencies.md
+    "giflib" "lib32-giflib" "libpng" "lib32-libpng" "libldap" "lib32-libldap" "gnutls" "lib32-gnutls" "mpg123" "lib32-mpg123" "openal" "lib32-openal" "v4l-utils" "lib32-v4l-utils" "libpulse" "lib32-libpulse" "libgpg-error" "lib32-libgpg-error" "alsa-plugins" "lib32-alsa-plugins" "alsa-lib" "lib32-alsa-lib" "libjpeg-turbo" "lib32-libjpeg-turbo" "sqlite" "lib32-sqlite" "libxcomposite" "lib32-libxcomposite" "libxinerama" "lib32-libgcrypt" "libgcrypt" "lib32-libxinerama" "ncurses" "lib32-ncurses" "opencl-icd-loader" "lib32-opencl-icd-loader" "libxslt" "lib32-libxslt" "libva" "lib32-libva" "gtk3" "lib32-gtk3" "gst-plugins-base-libs" "lib32-gst-plugins-base-libs" "vulkan-icd-loader" "lib32-vulkan-icd-loader"
+
+    # Battle.net
+    # https://github.com/lutris/docs/blob/master/Battle.Net.md
+    "lib32-gnutls" "lib32-libldap" "lib32-libgpg-error" "lib32-sqlite" "lib32-libpulse"
+)
+
+package() {
+    cd "${srcdir}/etc-config-${pkgver}/desktop" || exit
+
+    install -D -m644 dracut.conf.d/krathalans-custom-desktop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-desktop.conf"
+
+    install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
+}
