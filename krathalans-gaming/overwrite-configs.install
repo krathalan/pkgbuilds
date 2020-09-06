@@ -1,0 +1,10 @@
+post_install() {
+    post_upgrade
+}
+
+post_upgrade() {
+    cp /etc/krathalan/conf.d/wireless-regdom /etc/conf.d/wireless-regdom
+    cp /etc/krathalan/pacman.conf /etc/pacman.conf
+    cp /etc/krathalan/sudoers /etc/sudoers
+    cp /etc/krathalan/xdg/reflector/reflector.conf /etc/xdg/reflector/reflector.conf
+}
