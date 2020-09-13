@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=31
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -62,8 +62,8 @@ depends=(
     "syncthing" "zim"
 
     # Development packages
-    "clang" "code" "devtools" "git" "go" "lld" "meson"
-    "ninja" "rust" "scdoc"
+    "ccache" "clang" "code" "devtools" "git" "go" "lld"
+    "meson" "ninja" "rust" "scdoc"
 )
 
 package() {
