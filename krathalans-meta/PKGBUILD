@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=31
-pkgrel=4
+pkgrel=5
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -51,8 +51,9 @@ depends=(
     "khard" "mediainfo" "mosh" "nano"
     "nano-syntax-highlighting" "ncdu" "neomutt"
     "pacman-contrib" "pamixer" "perl-image-exiftool"
-    "playerctl" "reflector" "stow" "stress" "termdown" "transmission-cli" "unzip" "w3m" "vdirsyncer" "which"
-    "xxhash" "youtube-dl" "zip"
+    "playerctl" "qpdf" "reflector" "stow" "stress"
+    "termdown" "transmission-cli" "unzip" "w3m"
+    "vdirsyncer" "which" "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
     "alacritty" "eolie" "evince" "firefox"
