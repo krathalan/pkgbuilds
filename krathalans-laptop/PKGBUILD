@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop
 pkgver=30
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -24,8 +24,11 @@ depends=(
     # Hwaccel
     "intel-media-driver"
 
+    # Replace this with rofi-lbonn-wayland-git from the AUR
+    "rofi"
+
     # Wayland packages
-    "bemenu" "grim" "light" "mako" "slurp" "sway"
+    "grim" "light" "mako" "slurp" "sway"
     "swayidle" "swaylock" "waybar" "wl-clipboard"
     "xorg-server-xwayland" "xorg-xlsclients"
 )
