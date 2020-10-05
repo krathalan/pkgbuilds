@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-meta
-pkgver=31
-pkgrel=6
+pkgver=34
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("bf6ffc0c5219d0d8f32643430524f76e635af34c45f478489f3379c004164c2952d66fd72e424fa1babbb2dd6e8ea2ef21e9808f6b233a5d308c0fe13ac44d0e" "7c1a8d17003b3f88ecf87a28462c36720cca4ea2a2367cc03339477ca86395d7afa98c822e7e10c4c7e20dfc5a7f35444e21d6b3202afc221d77a733e8fe11a8")
+sha512sums=("fba95ee3cb65edacb29761850284f9a17de692116c2e5a320d13455c8a2b2fc0f5b3531424349b47ebf2f586f604dffb796f60ebe8393783903ff80a531d4b81" "acbd527785660fec2029c7f5488cb47d7cea653cfa5366b32d32f8b6eef2785c2a4841d72da9cf4a3c203eb5d47d8cff7903b9ac0bfc32fdf4dc9621bf6ae9bc")
 
 # Dependencies
 depends=(
@@ -72,6 +72,7 @@ package() {
     install -D -m644 conf.d/wireless-regdom "${pkgdir}/etc/krathalan/conf.d/wireless-regdom"
     install -D -m644 dict/dictd.conf "${pkgdir}/etc/krathalan/dict/dictd.conf"
     install -D -m644 issue "${pkgdir}/etc/krathalan/issue"
+    install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
     install -D -m644 xdg/reflector/reflector.conf "${pkgdir}/etc/krathalan/xdg/reflector/reflector.conf"
