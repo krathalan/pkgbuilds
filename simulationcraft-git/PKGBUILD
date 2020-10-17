@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=simulationcraft-git
-pkgver=release.830.01.r216.g31dca4cda2
+pkgver=release.901.01.r3269.g80fc54e921
 pkgrel=1
 pkgdesc="SimulationCraft is a tool to explore combat mechanics in the popular MMO RPG World of Warcraft (tm)."
 url="https://github.com/simulationcraft/simc"
@@ -17,7 +17,7 @@ depends=("qt5-base" "qt5-webengine" "curl")
 makedepends=("cmake" "git" "pkgconf")
 
 # Download information
-source=("${pkgname}::git+${url}.git#branch=bfa-dev")
+source=("${pkgname}::git+${url}.git#branch=shadowlands")
 sha256sums=('SKIP')
 
 pkgver() {
