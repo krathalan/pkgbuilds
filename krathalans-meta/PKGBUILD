@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=35
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -56,7 +56,7 @@ depends=(
     "vdirsyncer" "which" "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
-    "alacritty" "eolie" "evince" "file-roller" "firefox"
+    "alacritty" "epiphany"  "evince" "file-roller" "firefox"
     "firefox-developer-edition" "foliate" "gedit" "gimp"
     "gnome-characters" "imv" "libreoffice-fresh" "meld"
     "lollypop" "mpv" "pavucontrol" "signal-desktop"
