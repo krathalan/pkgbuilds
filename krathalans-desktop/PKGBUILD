@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-desktop
-pkgver=17
-pkgrel=2
+pkgver=37
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -14,7 +14,7 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("8c0068cda54ad483dae1aacb687986ac7c1e11dad95d98f58b133c3ce7b037c84277b6122a485c8b0ba7de9c3d0ba7acb1cd2cb733d9ba9412c169a0debb179e" "4f48d36dad7d68588ef85f6c73565a4e8a34c6bc7aedf9d5f8d36e13990b39ed9a3ffac02ea9b356a6d758a06f8ff461263eb1833b8a1a9ef440823270150d5e")
+sha512sums=("3e00aca3855189b6a8882aa396f697f6fd4c9301e06c6cee9d3093b5ec9d905a17fa46f3232af2efacee6c850e40de1199140946538bc8687d3e85b86edbcc07" "7ac1fb1561d3026bb52f63850dceab70f4fbb850fdc6caa59f83c46539abb0b203440030811592a1373c7b2cc560cb59429ca4f9fb4f12a97b89ce4d24dfa8de")
 
 # Dependencies
 depends=(
@@ -33,7 +33,4 @@ package() {
     install -D -m644 dracut.conf.d/krathalans-custom-desktop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-desktop.conf"
 
     install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
-
-    install -D -m644 pacman.d/hooks/nvidia.hook "${pkgdir}/etc/pacman.d/hooks/nvidia.hook"
-    install -D -m644 pacman.d/hooks/nvidia-lts.hook "${pkgdir}/etc/pacman.d/hooks/nvidia-lts.hook"
 }
