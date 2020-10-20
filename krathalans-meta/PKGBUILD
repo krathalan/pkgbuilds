@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=35
-pkgrel=3
+pkgrel=6
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -21,6 +21,12 @@ sha512sums=("dadc2a8b0fb31c7da93969fdf11749e58040d17d74a1cca3ab1216e46930877d50c
 
 # Dependencies
 depends=(
+    # From builds.krathalan.net
+    "bottom" "dict-gcide" "dict-moby-thesaurus" "etc-update"
+    "gimp-git" "micro" "nemo-no-gvfs" "pandoc-static" "pash"
+    "plata-theme" "pfetch-git" "shellcheck-git-static"
+    "tealdeer" "ttf-material-design-icons-webfont" "wtwitch"
+
     # Fonts
     "gnu-free-fonts" "noto-fonts" "noto-fonts-cjk"
     "noto-fonts-emoji" "otf-fira-mono" "terminus-font"
@@ -39,7 +45,7 @@ depends=(
     "usbguard" "usbutils" "wireguard-tools"
 
     # Backups
-    "restic" "fuse2"
+    "borg" "python-llfuse" "restic" "fuse2"
 
     # Printing
     "cups" "hplip"
@@ -57,7 +63,7 @@ depends=(
 
     # Graphical applications
     "alacritty" "epiphany"  "evince" "file-roller" "firefox"
-    "firefox-developer-edition" "foliate" "gedit" "gimp"
+    "firefox-developer-edition" "foliate" "gedit"
     "gnome-characters" "imv" "libreoffice-fresh" "meld"
     "lollypop" "mpv" "pavucontrol" "signal-desktop"
     "syncthing" "zim"

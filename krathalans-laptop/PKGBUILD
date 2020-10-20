@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop
 pkgver=30
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -18,14 +18,15 @@ sha512sums=("8ac72fcf19391f96810b28474a5d13cd13f0b93fb0ee47c0e950de7c1a263f277bf
 
 # Dependencies
 depends=(
+    # From builds.krathalan.net
+    "redshift-wayland-git-no-geoclue" "rofi-lbonn-wayland-git"
+    "sbctl-git" "ungoogled-chromium-ozone" "wob"
+
     # System packages
     "smartmontools" "tlp" "x86_energy_perf_policy"
 
     # Hwaccel
     "intel-media-driver"
-
-    # Replace this with rofi-lbonn-wayland-git from the AUR
-    "rofi"
 
     # Wayland packages
     "grim" "light" "mako" "slurp" "sway"
