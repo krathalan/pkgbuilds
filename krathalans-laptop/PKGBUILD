@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-laptop
-pkgver=30
-pkgrel=4
+pkgver=36
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -14,7 +14,7 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("8ac72fcf19391f96810b28474a5d13cd13f0b93fb0ee47c0e950de7c1a263f277bf4eb90e792492b14b75a2fd0f6ed0787a9c71751eca1c358d8a1dd3070ab8f" "1eddaca52dd28e09423c28ae436364acf9131d5352db5129cb92d2b52007e1b904e1c06498136b8c1120f5bfc77fb530b9405f409123e298726acdcbb7ead950")
+sha512sums=("f930e951d9fba86d89df4b82ce02da02f3644c499f794408a3f1a4821bb1c3c51a133c3f75320422da434d111ad9bd9a8f52fc3573cc25f8e3f68968a09b559e" "f1fd20fc90fa0ee32a501441ce8e76ea7537830ceda0228ccb7efa7faabfd269dfd86077010d83194af915fdde8f9129abdc5baef0a2499b217b896394f24b85")
 
 # Dependencies
 depends=(
@@ -36,16 +36,15 @@ depends=(
 
 package() {
     cd "${srcdir}/etc-config-${pkgver}/laptop" || exit
+
+    install -D -m644 sbctl-cmdline "${pkgdir}/etc/sbctl-cmdline"
+
     install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
 
     install -D -m644 dracut.conf.d/krathalans-custom-laptop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-laptop.conf"
 
     install -D -m644 ../modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
     install -D -m644 ../modprobe.d/iwlwifi.conf "${pkgdir}/etc/modprobe.d/iwlwifi.conf"
-
-
-    install -D -m644 systemd/system/undervolt.service "${pkgdir}/etc/systemd/system/undervolt.service"
-    install -D -m644 systemd/system/undervolt.timer "${pkgdir}/etc/systemd/system/undervolt.timer"
 
     install -D -m644 ../tlp.d/krathalans-custom.conf "${pkgdir}/etc/tlp.d/krathalans-custom.conf"
 }
