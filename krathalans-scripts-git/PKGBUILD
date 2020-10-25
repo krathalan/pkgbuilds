@@ -36,6 +36,8 @@ package() {
   for file in ./*; do
     if [[ ! -d "${file}" ]] && head -n1 "${file}" | grep -q "\#\!/.*sh"; then
       install -D -m755 "${file}" "${pkgdir}/usr/bin/${file}"
+    elif [[ ! -d "${file}" ]] && [[ "${file}" == *".service" ]]; then
+      install -D -m644 "${file}" "${pkgdir}/usr/lib/systemd/system/${file}"
     fi
   done
 }
