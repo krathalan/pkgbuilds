@@ -1,0 +1,9 @@
+post_install() {
+  post_upgrade
+}
+
+post_upgrade() {
+  if systemctl -q is-active watch_add_packages.service; then
+    systemctl restart watch_add_packages.service
+  fi
+}

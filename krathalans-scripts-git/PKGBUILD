@@ -12,6 +12,8 @@ url="https://git.sr.ht/~krathalan/miscellaneous-scripts"
 license=("GPL3")
 arch=("any")
 
+install=restart-service.install
+
 # Dependencies
 depends=()
 makedepends=("git")
