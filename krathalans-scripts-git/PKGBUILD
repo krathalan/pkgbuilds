@@ -15,12 +15,15 @@ arch=("any")
 install=restart-service.install
 
 # Dependencies
-depends=("termdown" "jq" "bc" "ffmpeg" "curl" "imagemagick"
-         "perl-image-exiftool" "inotify-tools" "git")
+depends=("termdown" "jq" "bc" "curl" "git")
 makedepends=("git")
-optdepends=("grim: for Wayland screenshots (prntscrn.sh)"
-            "slurp: for Wayland screenshot region selection (prntscrn.sh)"
-            "scrot: for Xorg screenshots (prntscrn.sh)")
+optdepends=("ffmpeg: for audio_to_opus"
+            "imagemagick: for make_gif.sh"
+            "perl-image-exiftool: for scramble_photos.sh"
+            "grim: for Wayland screenshots in prntscrn.sh"
+            "slurp: for Wayland screenshot region selection in prntscrn.sh"
+            "scrot: for Xorg screenshots in prntscrn.sh"
+            "inotify-tools: for watch_add_packages{,.service}")
 
 # Download information
 source=("${pkgname}::git+${url}")
