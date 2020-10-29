@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-scripts-git
-pkgver=r402.9c485e9
-pkgrel=3
+pkgver=r414.2f1977c
+pkgrel=1
 pkgdesc="Krathalan's personal scripts"
 url="https://git.sr.ht/~krathalan/miscellaneous-scripts"
 license=("GPL3")
@@ -15,8 +15,12 @@ arch=("any")
 install=restart-service.install
 
 # Dependencies
-depends=()
+depends=("termdown" "jq" "bc" "ffmpeg" "curl" "imagemagick"
+         "perl-image-exiftool" "inotify-tools" "git")
 makedepends=("git")
+optdepends=("grim: for Wayland screenshots (prntscrn.sh)"
+            "slurp: for Wayland screenshot region selection (prntscrn.sh)"
+            "scrot: for Xorg screenshots (prntscrn.sh)")
 
 # Download information
 source=("${pkgname}::git+${url}")
