@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=35
-pkgrel=9
+pkgrel=10
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -70,7 +70,7 @@ depends=(
 
     # Development packages
     "ccache" "code" "devtools" "git" "go" "meson"
-    "modprobed-db" "ninja" "scdoc"
+    "ninja" "scdoc"
 )
 
 package() {
