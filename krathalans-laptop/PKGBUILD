@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop
 pkgver=38
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -20,7 +20,7 @@ sha512sums=("df027182bc526d8167626229866725fe2e7c0586b534b3f7d4de5d0d8e968aa299f
 depends=(
     # From builds.krathalan.net
     "redshift-wayland-git-no-geoclue" "rofi-lbonn-wayland-git"
-    "sbctl-git" "ungoogled-chromium-ozone" "wob"
+    "sbctl-git" "wob"
 
     # System packages
     "smartmontools" "tlp" "x86_energy_perf_policy"
