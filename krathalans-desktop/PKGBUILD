@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-desktop
 pkgver=38
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -19,8 +19,7 @@ sha512sums=("df027182bc526d8167626229866725fe2e7c0586b534b3f7d4de5d0d8e968aa299f
 # Dependencies
 depends=(
     # From builds.krathalan.net
-    "polybar" "redshift-no-geoclue" "ungoogled-chromium"
-    "xob"
+    "polybar" "redshift-no-geoclue" "xob"
 
     # Also from builds.krathalan.net; for f-droid server
     "android-sdk" "android-sdk-build-tools" "fdroidserver"
