@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-laptop
-pkgver=36
+pkgver=38
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -14,7 +14,7 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("f930e951d9fba86d89df4b82ce02da02f3644c499f794408a3f1a4821bb1c3c51a133c3f75320422da434d111ad9bd9a8f52fc3573cc25f8e3f68968a09b559e" "f1fd20fc90fa0ee32a501441ce8e76ea7537830ceda0228ccb7efa7faabfd269dfd86077010d83194af915fdde8f9129abdc5baef0a2499b217b896394f24b85")
+sha512sums=("df027182bc526d8167626229866725fe2e7c0586b534b3f7d4de5d0d8e968aa299f247d0b53f1dcb3bc916455253c82496772ead932867f2bcc1d6d726f0ecc6" "50b466e7e54a8423808d97b30eeb2ef0d667fb5f060c7bd193545565b0487235fed4f2ce749604c1e6d9fc715074caf0cf63666e79857123bdbc08ebbf173bfd")
 
 # Dependencies
 depends=(
