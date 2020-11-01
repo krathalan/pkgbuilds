@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krathalans-server
+pkgver=41
+pkgrel=1
+pkgdesc="Packages and configuration for Krathalan's servers"
+url="https://git.sr.ht/~krathalan/pkgbuilds"
+license=("GPL3")
+arch=("any")
+
+# Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
+install=overwrite-configs.install
+
+source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
+validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
+sha512sums=("da803834ce92f694b196fa87a908a75c8ced3a018f5eac79496e4fa9e60f74106a7306e3ac3c73b7a7b2a997a035e4c5a52e7b0bbc3fcedf442c9338fd9fe8fb" "ef6383dfe22151ddcb308967fdd6fe8d71a4a9a2d957e48d479608a1ce36521551702a56ad334faa1bf9b5414c2dcad292a6b2bf816b7558650fe6b4be656939")
+
+# Dependencies
+depends=(
+    # From builds.krathalan.net
+    "etc-update" "micro" "nginx-mainline-mod-fancyindex"
+    # For htpasswd
+    "apache-tools"
+    # F-Droid server
+    "android-sdk" "android-sdk-build-tools" "fdroidserver"
+
+    # System packages
+    "apparmor" "bash-completion" "certbot" "certbot-nginx"
+    "dash" "fail2ban" "haveged" "pkgstats"
+
+    # Server packages (email, http, dav, file host, firewall)
+    "dovecot" "mosh" "nginx" "opendkim" "opendmarc"
+    "pigeonhole" "postfix" "radicale" "rsync"
+    "spamassassin" "ufw"
+
+    # Backups
+    "borg"
+
+    # Terminal applications
+    "arch-audit" "bat" "brotli" "e2fsprogs" "exa" "htop"
+    "inotify-tools" "jq" "logrotate" "man-db" "man-pages"
+    "nano" "ncdu" "ripgrep" "tree"
+
+    # Development packages
+    "git"
+)
+
+package() {
+    cd "${srcdir}/etc-config-${pkgver}" || exit
+    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+
+    install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
+
+    install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
+
+    install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
+    install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
+
+    install -D -m644 sysctl.d/krathalans-custom.conf "${pkgdir}/etc/sysctl.d/krathalans-custom.conf"
+
+    install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
+    install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
+
+    install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
+}
