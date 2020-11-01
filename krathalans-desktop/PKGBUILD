@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-desktop
-pkgver=40
+pkgver=41
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -14,7 +14,7 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("daa317768b1e671f59fa705449e359e7ce0c46dd5f79adca713782e1dc103cc8c457004b7ca9217255ac6785e3f57ce84f325619e8096d86337ad502ec915e13" "797e418346d882655a615cbd1590a17835beb6a2681d7fa932f7741c7b9d7cb1865de3f60ad943e26527f8afc6a858e185e4a721af3fb4406abbf7c4cfc04e45")
+sha512sums=("da803834ce92f694b196fa87a908a75c8ced3a018f5eac79496e4fa9e60f74106a7306e3ac3c73b7a7b2a997a035e4c5a52e7b0bbc3fcedf442c9338fd9fe8fb" "ef6383dfe22151ddcb308967fdd6fe8d71a4a9a2d957e48d479608a1ce36521551702a56ad334faa1bf9b5414c2dcad292a6b2bf816b7558650fe6b4be656939")
 
 # Dependencies
 depends=(
