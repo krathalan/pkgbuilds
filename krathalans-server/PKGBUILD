@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-server
-pkgver=41
+pkgver=42
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("da803834ce92f694b196fa87a908a75c8ced3a018f5eac79496e4fa9e60f74106a7306e3ac3c73b7a7b2a997a035e4c5a52e7b0bbc3fcedf442c9338fd9fe8fb" "ef6383dfe22151ddcb308967fdd6fe8d71a4a9a2d957e48d479608a1ce36521551702a56ad334faa1bf9b5414c2dcad292a6b2bf816b7558650fe6b4be656939")
+sha512sums=("52360ef037db0a64f2094911fbd7ea9c66442c52fa53c6112ab02ad293f90cb737a5ee31c814c2d765c20549c4972c1d756e2fb6398d41ad57c6e4d851bdbf00" "20e1fa50fcebaf93a2abadaf2f1c0931bb157ad256046f593d7159c3a4db4b6a273d94a7565970f5fb5bef37bc96c1561845d438b11348cd4660231fdda3f023")
 
 # Dependencies
 depends=(
@@ -53,14 +53,15 @@ package() {
     cd "${srcdir}/etc-config-${pkgver}" || exit
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
 
-    install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
+    install -D -m644 server/modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
     install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
 
     install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
     install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
 
-    install -D -m644 sysctl.d/krathalans-custom.conf "${pkgdir}/etc/sysctl.d/krathalans-custom.conf"
+    install -D -m644 server/sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
+    install -D -m644 server/sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
 
     install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
