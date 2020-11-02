@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop
 pkgver=41
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -20,7 +20,7 @@ sha512sums=("da803834ce92f694b196fa87a908a75c8ced3a018f5eac79496e4fa9e60f74106a7
 depends=(
     # From builds.krathalan.net
     "rofi-lbonn-wayland-git" "sbctl-git"
-    "wlsunset" "wob"
+    "wlsunset-git" "wob"
 
     # System packages
     "smartmontools" "tlp" "x86_energy_perf_policy"
