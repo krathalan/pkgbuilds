@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=44
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -23,9 +23,9 @@ sha512sums=("bf3911b679e4a8f0add72a1f6f45c8ffee583458d0f21bd287d24e9c53d710d8e81
 depends=(
     # From builds.krathalan.net
     "bottom" "dict-gcide" "dict-moby-thesaurus" "etc-update"
-    "gimp-git" "micro" "nemo-no-gvfs" "pandoc-static" "pash"
-    "plata-theme" "pfetch-git" "shellcheck-git-static"
-    "tealdeer" "ttf-material-design-icons-webfont"
+    "gimp-git" "micro" "nemo-no-gvfs" "pash" "plata-theme"
+    "pfetch-git" "tealdeer"
+    "ttf-material-design-icons-webfont"
     "ungoogled-chromium" "wtwitch"
 
     # Fonts
@@ -57,10 +57,11 @@ depends=(
     "efitools" "fff" "gptfdisk" "htop" "hyperfine" "irssi"
     "isync" "iw" "khard" "mediainfo" "mosh" "nano"
     "nano-syntax-highlighting" "ncdu" "neomutt"
-    "pacman-contrib" "pamixer" "perl-image-exiftool"
-    "playerctl" "qpdf" "qrencode" "stow" "stress"
-    "termdown" "transmission-cli" "unzip" "w3m"
-    "vdirsyncer" "which" "xxhash" "youtube-dl" "zip"
+    "pacman-contrib" "pamixer" "pandoc"
+    "perl-image-exiftool" "playerctl" "qpdf" "qrencode"
+    "shellcheck" "stow" "stress" "termdown"
+    "transmission-cli" "unzip" "w3m" "vdirsyncer" "which"
+    "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
     "alacritty" "epiphany"  "evince" "file-roller" "firefox"
