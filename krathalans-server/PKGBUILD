@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-server
-pkgver=45
+pkgver=46
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -17,12 +17,13 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("07da2bf2b4b83a01ec9bb732bc9eb8ef0ddc34813d7c17971912c0dd39631f3b0d2b34a7e7ce340b76a3c83a016168588f94ae275164209a60ab62b18e3cd0b3" "6dc16dc8d9c602d1ca067ec3e346d4e427ca24817b9cfdd84117b6c7151777cc9135f440f7a4fae4d812309757488d5631e3c1d45c193e0dc3b0599d5d51042a")
+sha512sums=("024e98865a09fde436c083b2ee87905c38b6677199f7523c640935d90ca805480a2095b70d5c02dedae064e6445b1181c89863849a4c2e91784feca5e0f71a56" "81636ee387ba3dca0be6781bae4af78845df761566b3dcc8d3a2e207e62674724616da25cd0724666a6698cf442c82cc3bc504751e4bb22ad76212b6df504fd8")
 
 # Dependencies
 depends=(
     # From builds.krathalan.net
-    "etc-update" "micro" "nginx-mainline-mod-fancyindex"
+    "etc-update" "micro" "nginx-mainline-mod-brotli"
+    "nginx-mainline-mod-fancyindex"
     # For htpasswd
     "apache-tools"
     # F-Droid server
