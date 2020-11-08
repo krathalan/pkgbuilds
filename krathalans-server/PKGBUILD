@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-server
-pkgver=47
+pkgver=48
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("c0dd246ee3104a4b583de7b4f4421d8894ec9a3df283e5883fd7f52d977429f28f97682725dba469e9cfe15736fa5def64397e6a3f93adeb7a8bbfbcc19ba36c" "7e8d90a4c5c72b89c0396cfe4fc4da101001c6ffba6ae0881ce7c00392ee776889f46d019d913d2fd1b5372b1dc92678553df1b7fb72e0ec840d6dec519c385a")
+sha512sums=("e3bd66234254beb3fc3740db54e3f0e6c4e571587d27d2d38aab3e2e1a9c80c0e7eb174cc0fc80f074ce3bf81885e18df0194a34ec8198403892d947b2ec0d5b" "8c824f350e20cf0796fc3c8d741fac62cb22b5608857709bd7edba63110067d5e4cbdac459a1f35fe845ad9e3965a670d8d5a43bc6cc915e17238536570a9a04")
 
 # Dependencies
 depends=(
@@ -55,6 +55,11 @@ package() {
 
     install -D -m644 nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+
+    install -D -m644 nginx/sites-available/builds "${pkgdir}/etc/nginx/sites-available/builds"
+    install -D -m644 nginx/sites-available/default "${pkgdir}/etc/nginx/sites-available/default"
+    install -D -m644 nginx/sites-available/fdroid "${pkgdir}/etc/nginx/sites-available/fdroid"
+    install -D -m644 nginx/sites-available/mail "${pkgdir}/etc/nginx/sites-available/mail"
 
     install -D -m644 server/modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
