@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=44
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -96,7 +96,6 @@ package() {
     install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/hooks/77-systemd-boot.hook"
     install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
     install -D -m644 pacman.d/hooks/dracut.hook "${pkgdir}/etc/pacman.d/hooks/dracut.hook"
-    install -D -m644 pacman.d/hooks/mirrorupgrade.hook "${pkgdir}/etc/pacman.d/hooks/mirrorupgrade.hook"
 
     install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
     install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
