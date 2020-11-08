@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-server
-pkgver=42
-pkgrel=2
+pkgver=45
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("52360ef037db0a64f2094911fbd7ea9c66442c52fa53c6112ab02ad293f90cb737a5ee31c814c2d765c20549c4972c1d756e2fb6398d41ad57c6e4d851bdbf00" "20e1fa50fcebaf93a2abadaf2f1c0931bb157ad256046f593d7159c3a4db4b6a273d94a7565970f5fb5bef37bc96c1561845d438b11348cd4660231fdda3f023")
+sha512sums=("07da2bf2b4b83a01ec9bb732bc9eb8ef0ddc34813d7c17971912c0dd39631f3b0d2b34a7e7ce340b76a3c83a016168588f94ae275164209a60ab62b18e3cd0b3" "6dc16dc8d9c602d1ca067ec3e346d4e427ca24817b9cfdd84117b6c7151777cc9135f440f7a4fae4d812309757488d5631e3c1d45c193e0dc3b0599d5d51042a")
 
 # Dependencies
 depends=(
@@ -51,6 +51,8 @@ depends=(
 
 package() {
     cd "${srcdir}/etc-config-${pkgver}" || exit
+
+    install -D -m644 nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
 
     install -D -m644 server/modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
