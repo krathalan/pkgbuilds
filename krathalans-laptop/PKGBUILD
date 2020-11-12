@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-laptop
-pkgver=41
-pkgrel=3
+pkgver=51
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -14,7 +14,7 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("da803834ce92f694b196fa87a908a75c8ced3a018f5eac79496e4fa9e60f74106a7306e3ac3c73b7a7b2a997a035e4c5a52e7b0bbc3fcedf442c9338fd9fe8fb" "ef6383dfe22151ddcb308967fdd6fe8d71a4a9a2d957e48d479608a1ce36521551702a56ad334faa1bf9b5414c2dcad292a6b2bf816b7558650fe6b4be656939")
+sha512sums=("de94d53025bf98f1960ee16d82c17ab06eeb3dc4a93e838963820a313a816a2cf2d02aa8c7d530853451c25fa31feb09b152e9610bc812fc95473d8256b586cd" "63a28c5081b5669f244a1c74fad9fd51ffaef4cf92581cd5ce217508935ae8781b41b1981f6171f73908bc9b776cc2606f279c60da6b645c13df91d07dc86686")
 
 # Dependencies
 depends=(
@@ -43,8 +43,8 @@ package() {
 
     install -D -m644 dracut.conf.d/krathalans-custom-laptop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-laptop.conf"
 
-    install -D -m644 ../modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
-    install -D -m644 ../modprobe.d/iwlwifi.conf "${pkgdir}/etc/modprobe.d/iwlwifi.conf"
+    install -D -m644 modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
+    install -D -m644 modprobe.d/iwlwifi.conf "${pkgdir}/etc/modprobe.d/iwlwifi.conf"
 
-    install -D -m644 ../tlp.d/krathalans-custom.conf "${pkgdir}/etc/tlp.d/krathalans-custom.conf"
+    install -D -m644 tlp.d/krathalans-custom.conf "${pkgdir}/etc/tlp.d/krathalans-custom.conf"
 }
