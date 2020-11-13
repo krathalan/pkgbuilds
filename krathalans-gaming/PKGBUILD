@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-gaming
-pkgver=53
-pkgrel=4
+pkgver=54
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -14,7 +14,7 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("86f8fc27cf98ebb0b3b21f67f890f4f05165ed3c791da0f00c7ef63c13f27a163a421d0528fbaa262e82ba9e5a0faf988e0e535691adebeeaa5bf40dabe403a3" "b31bb5d65c0e9e69b7f17e88ba726359da835e1e0af3e5fa8d556fb410029c8517262309a4bea756536c37cba3373c0c60e50752ecc88337a661510cce1c3c38")
+sha512sums=("3ec505a2a90f6aba7220c4bb25a3c1182f0e5696197b1a333619fadadb3673f0d86d621c1e349d0a0081b12ceb6e5af3997e248f93ee8510e6a108e153bb4c91" "e005087762e0ab12df250ae221b8784a3faf6b71fb440b395f55fe2cead2b35292ce274971c1c39171c457ae01767c5c7dba6d44dbabaee1a67a18aefa3e7098")
 
 # Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
 install=overwrite-configs.install
@@ -78,11 +78,15 @@ depends=(
 )
 
 package() {
-    cd "${srcdir}/etc-config-${pkgver}" || exit
+    # gaming
+    cd "${srcdir}/etc-config-${pkgver}/gaming" || exit
+
+    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
 
     # krathalans-meta
+    cd "${srcdir}/etc-config-${pkgver}" || exit
+
     install -D -m644 conf.d/wireless-regdom "${pkgdir}/etc/krathalan/conf.d/wireless-regdom"
-    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
     install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 
@@ -103,9 +107,9 @@ package() {
 
     install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
 
+    # krathalans-desktop
     cd "${srcdir}/etc-config-${pkgver}/desktop" || exit
 
-    # krathalans-desktop
     install -D -m644 dracut.conf.d/krathalans-custom-desktop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-desktop.conf"
 
     install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
