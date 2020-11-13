@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=50
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -24,9 +24,8 @@ depends=(
     # From builds.krathalan.net
     "bottom" "dict-gcide" "dict-moby-thesaurus" "etc-update"
     "gimp-git" "gmni-git" "lzop" "micro" "nemo-no-gvfs"
-    "otf-san-francisco" "otf-san-francisco-mono" "pash"
-    "plata-theme" "pfetch-git" "pigz" "tealdeer"
-    "ttf-material-design-icons-webfont"
+    "otf-san-francisco" "pash" "plata-theme" "pfetch-git"
+    "pigz" "tealdeer" "ttf-material-design-icons-webfont"
     "ungoogled-chromium" "wtwitch"
 
     # Fonts
