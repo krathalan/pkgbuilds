@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=53
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -23,9 +23,9 @@ sha512sums=("86f8fc27cf98ebb0b3b21f67f890f4f05165ed3c791da0f00c7ef63c13f27a163a4
 depends=(
     # From builds.krathalan.net
     "bottom" "dict-gcide" "dict-moby-thesaurus" "etc-update"
-    "gimp-git" "gmni-git" "lzop" "micro" "nemo-no-gvfs"
+    "gimp-git" "gmni-git" "micro" "nemo-no-gvfs"
     "otf-san-francisco" "pash" "plata-theme" "pfetch-git"
-    "pigz" "tealdeer" "ttf-material-design-icons-webfont"
+    "tealdeer" "ttf-material-design-icons-webfont"
     "ungoogled-chromium" "wtwitch"
 
     # Fonts
@@ -55,20 +55,19 @@ depends=(
     "android-tools" "arch-audit" "archiso" "bat" "calc"
     "cmatrix" "dictd" "dosfstools" "e2fsprogs" "exa"
     "efitools" "fff" "gptfdisk" "htop" "hyperfine" "irssi"
-    "isync" "iw" "khard" "mediainfo" "mosh" "nano"
+    "isync" "iw" "khard" "lzop" "mediainfo" "mosh" "nano"
     "nano-syntax-highlighting" "ncdu" "neomutt"
     "pacman-contrib" "pamixer" "pandoc"
-    "perl-image-exiftool" "playerctl" "qpdf" "qrencode"
-    "shellcheck" "stow" "stress" "termdown"
+    "perl-image-exiftool" "pigz" "playerctl" "qpdf"
+    "qrencode" "shellcheck" "stow" "stress" "termdown"
     "transmission-cli" "unzip" "w3m" "vdirsyncer" "which"
     "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
-    "alacritty" "epiphany"  "evince" "file-roller" "firefox"
-    "firefox-developer-edition" "foliate" "gedit"
-    "gnome-characters" "imv" "libreoffice-fresh" "meld"
-    "lollypop" "mpv" "pavucontrol" "signal-desktop"
-    "syncthing" "zim"
+    "alacritty" "epiphany"  "evince" "firefox"
+    "firefox-developer-edition" "foliate" "gnome-characters"
+    "imv" "libreoffice-fresh" "meld" "lollypop" "mpv"
+    "pavucontrol" "signal-desktop" "syncthing" "zim"
 
     # Development packages
     "ccache" "code" "devtools" "git" "go" "meson"

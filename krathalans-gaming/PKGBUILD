@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming
 pkgver=53
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -40,6 +40,12 @@ depends=(
     "lib32-gnutls" "lib32-libldap" "lib32-libgpg-error" "lib32-sqlite" "lib32-libpulse"
 
     # Stripped down krathalans-meta
+    # From builds.krathalan.net
+    "bottom" "etc-update" "gimp-git" "micro" "nemo-no-gvfs"
+    "otf-san-francisco" "plata-theme" "pfetch-git"
+    "tealdeer" "ttf-material-design-icons-webfont"
+    "ungoogled-chromium" "wtwitch"
+
     # Fonts
     "gnu-free-fonts" "noto-fonts" "noto-fonts-cjk"
     "noto-fonts-emoji" "otf-fira-mono" "terminus-font"
@@ -61,7 +67,7 @@ depends=(
     "dosfstools" "e2fsprogs" "exa" "efitools" "fff" "gptfdisk"
     "htop" "iw" "mediainfo" "nano" "nano-syntax-highlighting"
     "ncdu" "pacman-contrib" "pamixer" "perl-image-exiftool"
-    "playerctl" "reflector" "termdown" "unzip" "which"
+    "pigz" "playerctl" "reflector" "termdown" "unzip" "which"
     "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
