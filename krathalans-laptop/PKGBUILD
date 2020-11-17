@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop
 pkgver=54
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -23,7 +23,8 @@ depends=(
     "wlsunset-git" "wob"
 
     # System packages
-    "smartmontools" "tlp" "x86_energy_perf_policy"
+    "intel-ucode" "smartmontools" "tlp"
+    "x86_energy_perf_policy"
 
     # Hwaccel
     "intel-media-driver"

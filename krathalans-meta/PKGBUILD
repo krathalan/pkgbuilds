@@ -38,12 +38,12 @@ depends=(
     "alsa-plugins" "apparmor" "asp" "bash-completion"
     "bluez" "bluez-utils" "crda" "dash" "exfatprogs"
     "f2fs-tools" "ffmpeg" "fwupd" "gst-libav"
-    "gst-plugins-base" "hunspell-en_US" "intel-ucode"
-    "iwd" "logrotate" "man-db" "man-pages"
-    "notification-daemon" "papirus-icon-theme" "pkgstats"
-    "pulseaudio-alsa" "pulseaudio-bluetooth" "rng-tools"
-    "source-highlight" "systemd-resolvconf" "ufw"
-    "usbguard" "usbutils" "wireguard-tools"
+    "gst-plugins-base" "hunspell-en_US" "iwd" "logrotate"
+    "man-db" "man-pages" "notification-daemon"
+    "papirus-icon-theme" "pkgstats" "pulseaudio-alsa"
+    "pulseaudio-bluetooth" "rng-tools" "source-highlight"
+    "systemd-resolvconf" "ufw" "usbguard" "usbutils"
+    "wireguard-tools"
 
     # Backups
     "borg" "python-llfuse"

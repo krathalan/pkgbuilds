@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming
 pkgver=55
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -33,6 +33,9 @@ depends=(
     "picom" "redshift-no-geoclue" "rofi" "scrot" "xorg-server"
     "xorg-xinit"
 
+    # System packages
+    "amd-ucode"
+
     # Stripped down krathalans-meta
     # From builds.krathalan.net
     "bottom" "etc-update" "gimp-git" "micro" "nemo-no-gvfs"
@@ -54,7 +57,7 @@ depends=(
     "man-db" "man-pages" "notification-daemon"
     "papirus-icon-theme" "pkgstats" "pulseaudio-alsa"
     "pulseaudio-bluetooth" "rng-tools" "source-highlight"
-    "systemd-resolvconf" "usbutils"
+    "systemd-resolvconf" "ufw" "usbutils"
 
     # Terminal applications
     "android-tools" "bat" "calc" "dictd" "dosfstools"
