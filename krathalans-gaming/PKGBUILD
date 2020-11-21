@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming
 pkgver=55
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -22,8 +22,14 @@ install=overwrite-configs.install
 # Dependencies
 depends=(
     # From builds.krathalan.net
-    "gamemode" "lib32-gamemode" "lib32-mangohud"
-    "lib32-vkd3d-tkg-git" "mangohud" "vkd3d-tkg-git"
+    "discord_arch_electron" "gamemode" "lib32-gamemode"
+    "lib32-mangohud" "lib32-vkd3d-tkg-git" "mangohud"
+    "vkd3d-tkg-git"
+
+    # For building dxvk
+    "ccache" "meson" "mingw-w64-binutils"
+    "mingw-w64-crt" "mingw-w64-gcc" "mingw-w64-headers"
+    "mingw-w64-winpthreads"
 
     # Launchers
     "lutris" "steam-native-runtime"
