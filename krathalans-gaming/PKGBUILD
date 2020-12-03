@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming
 pkgver=55
-pkgrel=5
+pkgrel=6
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -59,7 +59,7 @@ depends=(
     "hunspell-en_US" "intel-ucode" "iwd" "logrotate"
     "man-db" "man-pages" "notification-daemon"
     "papirus-icon-theme" "pkgstats" "pulseaudio-alsa"
-    "pulseaudio-bluetooth" "rng-tools" "source-highlight"
+    "pulseaudio-modules-bt-git" "rng-tools" "source-highlight"
     "systemd-resolvconf" "ufw" "usbutils"
 
     # Terminal applications
