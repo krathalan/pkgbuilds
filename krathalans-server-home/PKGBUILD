@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krathalans-server-home
+pkgver=54
+pkgrel=1
+pkgdesc="Packages and configuration for Krathalan's servers"
+url="https://git.sr.ht/~krathalan/pkgbuilds"
+license=("GPL3")
+arch=("any")
+
+# Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
+install=overwrite-configs.install
+
+source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
+validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
+sha512sums=("3ec505a2a90f6aba7220c4bb25a3c1182f0e5696197b1a333619fadadb3673f0d86d621c1e349d0a0081b12ceb6e5af3997e248f93ee8510e6a108e153bb4c91" "e005087762e0ab12df250ae221b8784a3faf6b71fb440b395f55fe2cead2b35292ce274971c1c39171c457ae01767c5c7dba6d44dbabaee1a67a18aefa3e7098")
+
+# Dependencies
+depends=(
+    # From builds.krathalan.net
+    "etc-update" "micro"
+
+    # System packages
+    "apparmor" "bash-completion" "dash" "pkgstats"
+    "rngd" "rsync" "sudo" "ufw"
+
+    # Backups
+    "borg"
+
+    # Terminal applications
+    "arch-audit" "bat" "bc" "brotli" "e2fsprogs" "exa"
+    "htop" "inotify-tools" "jq" "logrotate" "man-db"
+    "man-pages" "nano" "ncdu" "ripgrep" "texinfo" "tree"
+
+    # Development packages
+    "git"
+)
+
+package() {
+    cd "${srcdir}/etc-config-${pkgver}" || exit
+
+    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+
+    install -D -m644 server/modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
+
+    install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
+
+    install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
+    install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
+
+    install -D -m644 server/sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
+    install -D -m644 server/sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
+
+    install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
+    install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
+
+    install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
+}

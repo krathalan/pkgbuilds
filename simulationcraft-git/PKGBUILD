@@ -5,9 +5,9 @@
 
 # General package information
 pkgname=simulationcraft-git
-pkgver=release.830.01.r3720.g95ee6f204b
+pkgver=release.830.01.r4461.ge216689b6e
 pkgrel=1
-pkgdesc="SimulationCraft is a tool to explore combat mechanics in the popular MMO RPG World of Warcraft (tm)."
+pkgdesc="SimulationCraft is a tool to explore combat mechanics in the popular MMO RPG World of Warcraft (tm). Shadowlands branch."
 url="https://github.com/simulationcraft/simc"
 license=("GPL3")
 arch=("any")

@@ -1,0 +1,9 @@
+post_install() {
+    post_upgrade
+}
+
+post_upgrade() {
+    cp /etc/krathalan/pacman.conf /etc/pacman.conf
+    cp /etc/krathalan/ssh/ssh_config /etc/ssh/ssh_config
+    cp /etc/krathalan/ssh/sshd_config /etc/ssh/sshd_config
+}
