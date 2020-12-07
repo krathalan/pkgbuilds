@@ -26,7 +26,7 @@ depends=(
 
     # System packages
     "apparmor" "bash-completion" "dash" "pkgstats"
-    "rngd" "rsync" "sudo" "ufw"
+    "rng-tools" "rsync" "sudo" "ufw"
 
     # Backups
     "borg"
