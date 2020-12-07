@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-server-home
 pkgver=54
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -22,11 +22,11 @@ sha512sums=("3ec505a2a90f6aba7220c4bb25a3c1182f0e5696197b1a333619fadadb3673f0d86
 # Dependencies
 depends=(
     # From builds.krathalan.net
-    "etc-update" "micro"
+    "etc-update" "jellyfin-server" "micro"
 
     # System packages
-    "apparmor" "bash-completion" "dash" "pkgstats"
-    "rng-tools" "rsync" "sudo" "ufw"
+    "apparmor" "bash-completion" "dash" "mosh" "openssh"
+    "pkgstats" "rng-tools" "rsync" "sudo" "syncthing" "ufw"
 
     # Backups
     "borg"
