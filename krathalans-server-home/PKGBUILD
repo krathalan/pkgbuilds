@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-server-home
 pkgver=57
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -22,11 +22,19 @@ sha512sums=("66dc3e232933af7be476ce41f444f06c51cc2eb179bab51e2f4be74ee6265fca951
 # Dependencies
 depends=(
     # From builds.krathalan.net
-    "etc-update" "jellyfin-server" "micro"
+    "cloudflared" "etc-update" "jellyfin-server" "micro"
+    "pi-hole-server"
+
+    # Syncthing web GUI reverse proxy
+    "nginx-mainline"
+
+    # Pihole
+    "lighttpd" "php-cgi" "php-sqlite"
 
     # System packages
-    "apparmor" "bash-completion" "dash" "mosh" "openssh"
-    "pkgstats" "rng-tools" "rsync" "sudo" "syncthing" "ufw"
+    "apparmor" "bash-completion" "dash" "gptfdisk" "lsscsi"
+    "mosh" "openssh" "pkgstats" "rng-tools" "rsync" "stress"
+    "sudo" "syncthing" "ufw"
 
     # Backups
     "borg"
