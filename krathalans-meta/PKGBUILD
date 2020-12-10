@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=58
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -70,7 +70,8 @@ depends=(
     "alacritty" "epiphany"  "evince" "firefox"
     "firefox-developer-edition" "foliate" "gnome-characters"
     "imv" "libreoffice-fresh" "meld" "lollypop" "mpv"
-    "pavucontrol" "signal-desktop" "syncthing" "zim"
+    "pavucontrol" "signal-desktop" "syncthing" "thunderbird"
+    "zim"
 
     # Development packages
     "ccache" "code" "devtools" "git" "go" "meson"
