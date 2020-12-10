@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop
 pkgver=58
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -22,7 +22,8 @@ sha512sums=("d8967aa051b763895cc401dd71bce55bc9300b08fc7aa09b250fc3a266e087f8ea8
 # Dependencies
 depends=(
     # From builds.krathalan.net
-    "rofi-lbonn-wayland-git" "wlsunset-git" "wob"
+    "rofi-lbonn-wayland-git" "wdisplays" "wlsunset-git"
+    "wob"
 
     # System packages
     "intel-ucode" "smartmontools" "tlp"
