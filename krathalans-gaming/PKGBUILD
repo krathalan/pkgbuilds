@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming
 pkgver=58
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -25,6 +25,7 @@ depends=(
     "discord_arch_electron" "gamemode" "lib32-gamemode"
     "lib32-mangohud" "lib32-vkd3d-tkg-git" "mangohud"
     "minecraft-launcher" "vkd3d-tkg-git"
+    "weakauras-companion-bin"
 
     # For building dxvk
     "ccache" "meson" "mingw-w64-binutils"
