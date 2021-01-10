@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-desktop
 pkgver=59
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -22,6 +22,9 @@ sha512sums=("0da9d9720eee693f99b2882adb2428bd8b9365e2dccadb52cf272f4bcaa4821bfe9
 # Dependencies
 depends=(
     # From builds.krathalan.net
+    "krathalans-apparmor-profiles-git"
+    "krathalans-meta" "krathalans-scripts-git"
+    "krathalans-systemd-sandboxing-git"
     "polybar" "redshift-no-geoclue" "xob"
 
     # Also from builds.krathalan.net; for f-droid server
