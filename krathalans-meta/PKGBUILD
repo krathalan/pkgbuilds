@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=59
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -44,7 +44,7 @@ depends=(
     "f2fs-tools" "ffmpeg" "fwupd" "gst-libav"
     "hunspell-en_US" "iwd" "logrotate" "man-db" "man-pages"
     "notification-daemon" "papirus-icon-theme" "pkgstats"
-    "pulseaudio-alsa" "pulseaudio-modules-bt-git" "rng-tools"
+    "pulseaudio-alsa" "pulseaudio-bluetooth" "rng-tools"
     "source-highlight" "systemd-resolvconf" "ufw" "usbguard"
     "usbutils" "wireguard-tools"
 

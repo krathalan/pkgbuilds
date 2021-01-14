@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming
 pkgver=59
-pkgrel=3
+pkgrel=6
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -25,10 +25,12 @@ depends=(
     "krathalans-apparmor-profiles-git"
     "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
-    "discord_arch_electron" "gamemode" "lib32-gamemode"
-    "lib32-mangohud" "lib32-vkd3d-tkg-git" "mangohud"
-    "minecraft-launcher" "vkd3d-tkg-git"
-    "weakauras-companion-bin"
+    "gamemode" "lib32-gamemode" "lib32-mangohud"
+    "lib32-vkd3d-tkg-git" "mangohud" "minecraft-launcher"
+    "vkd3d-tkg-git" "weakauras-companion-bin"
+
+    # Misc
+    "discord"
 
     # For building dxvk
     "ccache" "meson" "mingw-w64-binutils"
@@ -63,8 +65,8 @@ depends=(
     "hunspell-en_US" "intel-ucode" "iwd" "logrotate"
     "man-db" "man-pages" "notification-daemon"
     "papirus-icon-theme" "pkgstats" "pulseaudio-alsa"
-    "pulseaudio-modules-bt-git" "rng-tools" "source-highlight"
-    "systemd-resolvconf" "ufw" "usbutils"
+    "rng-tools" "source-highlight" "systemd-resolvconf"
+    "ufw" "usbutils"
 
     # Terminal applications
     "android-tools" "bat" "calc" "dictd" "dosfstools"
