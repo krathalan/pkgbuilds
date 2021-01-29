@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-gaming
-pkgver=61
+pkgver=62
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -14,7 +14,7 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("b4331d4abdac2cd077e9a5b8fd600da8bccdee0b278afcf2b2395dc537366d130ba30da12f6c74f1ee231849842ce3b42b9391a32f6d528595242fb5948f3d68" "f938b6995176b461024bea841ac4ae1d4a709fc3c7399a2dd0a23887804ff56308cd530fa0e99f5b893655b05412e78eb0a91b7361acb541b71da22809a243d4")
+sha512sums=("87ba4338f58a20ca52240499b5ad1ceb9bbc8bebd10dba3c1d9aa87a739d2f7d3d5f419f910a1f2da08c9c30b51d2584d9e6754aeb7af8b467b2d1274004a7fd" "22017381b840203a0a78a2747b5325e7c8e8504e2cd29399cdf7babbad147f902e2177a09024d255b8c84600bd8669a3fdeec065445282763b825a0141037633")
 
 # Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
 install=overwrite-configs.install
