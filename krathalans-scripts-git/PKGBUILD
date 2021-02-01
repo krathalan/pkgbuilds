@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-scripts-git
-pkgver=r434.73ceea6
+pkgver=r435.5e0689e
 pkgrel=1
 pkgdesc="Krathalan's personal scripts"
 url="https://git.sr.ht/~krathalan/miscellaneous-scripts"

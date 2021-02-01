@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-server-home
 pkgver=62
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -39,13 +39,17 @@ depends=(
     "mosh" "openssh" "pigz" "pkgstats" "rng-tools" "rsync"
     "stress" "sudo" "syncthing" "ufw"
 
+    # Package building
+    "ccache" "devtools"
+
     # Backups
     "borg"
 
     # Terminal applications
     "arch-audit" "bat" "bc" "brotli" "e2fsprogs" "exa"
     "htop" "inotify-tools" "jq" "logrotate" "man-db"
-    "man-pages" "nano" "ncdu" "ripgrep" "texinfo" "tree"
+    "man-pages" "nano" "ncdu" "ripgrep" "texinfo" "tmux"
+    "tree"
 
     # Development packages
     "git"
