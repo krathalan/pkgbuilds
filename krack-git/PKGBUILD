@@ -5,15 +5,18 @@
 
 # General package information
 pkgname=krack-git
-pkgver=r9.39e5ea8
+pkgver=r29.0e1c59c
 pkgrel=1
 pkgdesc="Krathalan's packaging softwares"
 url="https://git.sr.ht/~krathalan/krack"
 license=("GPL3")
 arch=("any")
 
+# Files in /etc, keep these if the package upgrades!
+backup=("etc/krack/build.conf" "etc/krack/receive.conf")
+
 # Dependencies
-depends=("devtools" "git")
+depends=("ccache" "devtools" "git" "gnupg" "rsync")
 makedepends=("git")
 
 # Download information
@@ -33,8 +36,13 @@ pkgver() {
 package() {
   cd "${srcdir}/${pkgname}" || exit
 
-  install -D -m755 krack-build "${pkgdir}/usr/bin/krack-build"
-  install -D -m755 krack-receive "${pkgdir}/usr/bin/krack-receive"
+  install -D -m755 etc/build.conf "${pkgdir}/etc/krack/build.conf"
+  install -D -m755 etc/receive.conf "${pkgdir}/etc/krack/receive.conf"
 
-  install -D -m644 krack-receive.service "${pkgdir}/usr/lib/systemd/system/krack-receive.service"
+  install -D -m755 bin/krack-build "${pkgdir}/usr/bin/krack-build"
+  
+  install -D -m755 lib/krack-build "${pkgdir}/usr/lib/krack/krack-build"
+  install -D -m755 lib/krack-receive "${pkgdir}/usr/lib/krack/krack-receive"
+
+  install -D -m644 lib/systemd/system/krack-receive.service "${pkgdir}/usr/lib/systemd/system/krack-receive.service"
 }
