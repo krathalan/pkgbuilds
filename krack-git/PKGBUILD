@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krack-git
-pkgver=r32.9241a6b
+pkgver=r43.03cd2b0
 pkgrel=1
 pkgdesc="Krathalan's packaging softwares"
 url="https://git.sr.ht/~krathalan/krack"
@@ -42,8 +42,9 @@ package() {
   install -D -m755 bin/krack-build "${pkgdir}/usr/bin/krack-build"
   install -D -m755 bin/krackctl "${pkgdir}/usr/bin/krackctl"
 
-  install -D -m755 lib/krack-build "${pkgdir}/usr/lib/krack/krack-build"
-  install -D -m755 lib/krack-receive "${pkgdir}/usr/lib/krack/krack-receive"
+  install -D -m755 lib/build "${pkgdir}/usr/lib/krack/build"
+  install -D -m755 lib/common "${pkgdir}/usr/lib/krack/common"
+  install -D -m755 lib/receive "${pkgdir}/usr/lib/krack/receive"
 
   install -D -m644 lib/systemd/system/krack-receive.service "${pkgdir}/usr/lib/systemd/system/krack-receive.service"
 }
