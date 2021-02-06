@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-server-home
 pkgver=62
-pkgrel=2
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -22,6 +22,7 @@ sha512sums=("87ba4338f58a20ca52240499b5ad1ceb9bbc8bebd10dba3c1d9aa87a739d2f7d3d5
 # Dependencies
 depends=(
     # From builds.krathalan.net
+    "krack-git"
     "krathalans-apparmor-profiles-git"
     "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
