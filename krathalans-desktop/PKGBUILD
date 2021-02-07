@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-desktop
 pkgver=62
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -32,7 +32,7 @@ depends=(
     "python-paramiko"
 
     # Xorg packages
-    "dmenu" "dunst" "feh" "i3-gaps" "i3lock" "i3status"
+    "code" "dmenu" "dunst" "feh" "i3-gaps" "i3lock" "i3status"
     "picom" "rofi" "scrot" "xorg-server" "xorg-xinit"
 
     # System packages

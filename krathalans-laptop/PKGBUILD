@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop
 pkgver=62
-pkgrel=1
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -22,7 +22,7 @@ sha512sums=("87ba4338f58a20ca52240499b5ad1ceb9bbc8bebd10dba3c1d9aa87a739d2f7d3d5
 # Dependencies
 depends=(
     # From builds.krathalan.net
-    "krathalans-apparmor-profiles-git"
+    "code-wayland" "krathalans-apparmor-profiles-git"
     "krathalans-meta" "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
     "krathalans-waybar-modules"
@@ -39,7 +39,6 @@ depends=(
     # Wayland packages
     "grim" "light" "mako" "slurp" "sway"
     "swayidle" "swaylock" "waybar" "wl-clipboard"
-    "xorg-server-xwayland" "xorg-xlsclients"
 )
 
 package() {
