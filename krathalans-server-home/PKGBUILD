@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-server-home
-pkgver=62
+pkgver=63
 pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("87ba4338f58a20ca52240499b5ad1ceb9bbc8bebd10dba3c1d9aa87a739d2f7d3d5f419f910a1f2da08c9c30b51d2584d9e6754aeb7af8b467b2d1274004a7fd" "22017381b840203a0a78a2747b5325e7c8e8504e2cd29399cdf7babbad147f902e2177a09024d255b8c84600bd8669a3fdeec065445282763b825a0141037633")
+sha512sums=("2f2e1f57da700a524a74fc2e61ffab903f19fa95f8acd803b730eedfab8256fb3ec5d2f63e55fbddeee3a3635978d6110a53c48e696121ce4c7fd4b9ac9c81bb" "8f0dcc145b984990ad1c6de664cf2eca048d6bceec4dc5b0091138925ed9ffbd067b1104c0d6c6970d0eb260f2943fbf6125cdf666c90713a517924ccdfdc46e")
 
 # Dependencies
 depends=(
@@ -59,7 +59,7 @@ depends=(
 package() {
     cd "${srcdir}/etc-config-${pkgver}" || exit
 
-    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+    install -D -m644 home-server/pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
 
     install -D -m644 server/modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
