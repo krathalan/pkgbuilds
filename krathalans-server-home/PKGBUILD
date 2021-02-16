@@ -60,13 +60,13 @@ package() {
     cd "${srcdir}/etc-config-${pkgver}" || exit
 
     install -D -m644 home-server/pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+    install -D -m644 home-server/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
 
     install -D -m644 server/modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
     install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
 
     install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
-    install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
 
     install -D -m644 server/sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
     install -D -m644 server/sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
