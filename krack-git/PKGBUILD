@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krack-git
-pkgver=r43.03cd2b0
+pkgver=r83.61e88f8
 pkgrel=1
 pkgdesc="Krathalan's packaging softwares"
 url="https://git.sr.ht/~krathalan/krack"
@@ -36,15 +36,18 @@ pkgver() {
 package() {
   cd "${srcdir}/${pkgname}" || exit
 
-  install -D -m755 etc/build.conf "${pkgdir}/etc/krack/build.conf"
-  install -D -m755 etc/receive.conf "${pkgdir}/etc/krack/receive.conf"
+  install -D -m644 etc/build.conf "${pkgdir}/etc/krack/build.conf"
+  install -D -m644 etc/receive.conf "${pkgdir}/etc/krack/receive.conf"
+  install -D -m644 etc/sync-status.conf "${pkgdir}/etc/krack/sync-status.conf"
 
   install -D -m755 bin/krack-build "${pkgdir}/usr/bin/krack-build"
   install -D -m755 bin/krackctl "${pkgdir}/usr/bin/krackctl"
 
   install -D -m755 lib/build "${pkgdir}/usr/lib/krack/build"
   install -D -m755 lib/common "${pkgdir}/usr/lib/krack/common"
+  install -D -m644 lib/honey "${pkgdir}/usr/lib/krack/honey"
   install -D -m755 lib/receive "${pkgdir}/usr/lib/krack/receive"
+  install -D -m755 lib/sync-status "${pkgdir}/usr/lib/krack/sync-status"
 
   install -D -m644 lib/systemd/system/krack-receive.service "${pkgdir}/usr/lib/systemd/system/krack-receive.service"
 }
