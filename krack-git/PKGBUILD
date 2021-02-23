@@ -55,7 +55,6 @@ package() {
 
   install -D -m755 lib/build "${pkgdir}/usr/lib/krack/build"
   install -D -m755 lib/common "${pkgdir}/usr/lib/krack/common"
-  install -D -m644 lib/honey "${pkgdir}/usr/lib/krack/honey"
   install -D -m755 lib/receive "${pkgdir}/usr/lib/krack/receive"
 
   install -D -m644 man/krack-build.1 "${pkgdir}/usr/share/man/man1/krack-build.1"
