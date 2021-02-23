@@ -17,7 +17,8 @@ backup=("etc/krack/build.conf" "etc/krack/receive.conf")
 
 # Dependencies
 depends=("ccache" "devtools" "git" "gnupg" "rsync")
-makedepends=("git")
+makedepends=("git" "scdoc")
+conflicts=("krack")
 
 # Download information
 source=("${pkgname}::git+${url}")
@@ -33,12 +34,21 @@ pkgver() {
   )
 }
 
+build()
+{
+  # "Build" man pages
+  cd "${srcdir}/${pkgname}-${pkgver}/man" || exit
+
+  for manpage in ./*.scd; do
+    scdoc < "${manpage}" > "${manpage%.scd}"
+  done
+}
+
 package() {
   cd "${srcdir}/${pkgname}" || exit
 
   install -D -m644 etc/build.conf "${pkgdir}/etc/krack/build.conf"
   install -D -m644 etc/receive.conf "${pkgdir}/etc/krack/receive.conf"
-  install -D -m644 etc/sync-status.conf "${pkgdir}/etc/krack/sync-status.conf"
 
   install -D -m755 bin/krack-build "${pkgdir}/usr/bin/krack-build"
   install -D -m755 bin/krackctl "${pkgdir}/usr/bin/krackctl"
@@ -47,7 +57,10 @@ package() {
   install -D -m755 lib/common "${pkgdir}/usr/lib/krack/common"
   install -D -m644 lib/honey "${pkgdir}/usr/lib/krack/honey"
   install -D -m755 lib/receive "${pkgdir}/usr/lib/krack/receive"
-  install -D -m755 lib/sync-status "${pkgdir}/usr/lib/krack/sync-status"
+
+  install -D -m644 man/krack-build.1 "${pkgdir}/usr/share/man1/krack-build.1"
+  install -D -m644 man/krack.1 "${pkgdir}/usr/share/man1/krack.1"
+  install -D -m644 man/krackctl.1 "${pkgdir}/usr/share/man1/krackctl.1"
 
   install -D -m644 lib/systemd/system/krack-receive.service "${pkgdir}/usr/lib/systemd/system/krack-receive.service"
 }
