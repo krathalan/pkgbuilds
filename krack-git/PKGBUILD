@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krack-git
-pkgver=r87.a9dc8cb
+pkgver=r95.752776c
 pkgrel=1
 pkgdesc="Krathalan's packaging softwares"
 url="https://git.sr.ht/~krathalan/krack"
@@ -37,7 +37,7 @@ pkgver() {
 build()
 {
   # "Build" man pages
-  cd "${srcdir}/${pkgname}-${pkgver}/man" || exit
+  cd "${srcdir}/${pkgname}/man" || exit
 
   for manpage in ./*.scd; do
     scdoc < "${manpage}" > "${manpage%.scd}"
