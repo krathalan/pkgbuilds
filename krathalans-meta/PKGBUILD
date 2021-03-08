@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=66
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -42,12 +42,12 @@ depends=(
     # System Packages
     "alsa-plugins" "apparmor" "asp" "bash-completion"
     "bluez" "bluez-utils" "crda" "dash" "dracut"
-    "exfatprogs" "f2fs-tools" "ffmpeg" "fwupd" "gst-libav"
-    "hunspell-en_US" "iwd" "logrotate" "man-db" "man-pages"
-    "notification-daemon" "papirus-icon-theme" "pkgstats"
-    "pulseaudio-alsa" "pulseaudio-bluetooth" "rng-tools"
-    "source-highlight" "systemd-resolvconf" "ufw" "usbguard"
-    "usbutils" "wireguard-tools"
+    "exfatprogs" "f2fs-tools" "ffmpeg" "fwupd" "grc"
+    "gst-libav" "hunspell-en_US" "iwd" "logrotate" "man-db"
+    "man-pages" "notification-daemon" "papirus-icon-theme"
+    "pkgstats" "pulseaudio-alsa" "pulseaudio-bluetooth"
+    "rng-tools" "source-highlight" "systemd-resolvconf"
+    "ufw" "usbguard" "usbutils" "wireguard-tools"
 
     # Backups
     "borg" "python-llfuse"
