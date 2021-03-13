@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-meta
-pkgver=66
-pkgrel=3
+pkgver=67
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("53dd616b47e64b5a751c29d51c1ca993c31ec6e45d0790493f9e4f6416fb2b8a60e228f88728b3cb097d1ea51e73fa96e1ca88fc950cbaa6e69013d72c4dd983" "5ab023b2a50be557c3a79c85cc03bac03b963b686f32ab23e299b1c520c8db7ed7c40d914f8044ba2bead3e2387944a69387170ac14fb293739ceafee7c35404")
+sha512sums=("b47615d6a5e45d4b88204d9be53b5a39e0d8fd0033720052213e8a654fb23eff9a4faffdc29ad65c32e536a6fba4373290da22997b0dc06311d42371ce0ddddd" "a148a6f69d2afcfdde48a2333d10e2c30660f211af67561e30be85946034aa745e3ea55a03885f1084f1f804ac69a0476277975f9b22fcc2b663b1463d1c8bbb")
 
 # Dependencies
 depends=(
@@ -41,11 +41,12 @@ depends=(
 
     # System Packages
     "alsa-plugins" "apparmor" "asp" "bash-completion"
-    "bluez" "bluez-utils" "crda" "dash" "dracut"
+    "bluez" "bluez-utils" "crda" "dash"
     "exfatprogs" "f2fs-tools" "ffmpeg" "fwupd" "grc"
-    "gst-libav" "hunspell-en_US" "iwd" "logrotate" "man-db"
-    "man-pages" "notification-daemon" "papirus-icon-theme"
-    "pkgstats" "pulseaudio-alsa" "pulseaudio-bluetooth"
+    "gst-libav" "gst-plugin-pipewire" "hunspell-en_US"
+    "iwd" "logrotate" "man-db" "man-pages"
+    "notification-daemon" "papirus-icon-theme"
+    "pkgstats" "pipewire" "pipewire-pulse"
     "rng-tools" "source-highlight" "systemd-resolvconf"
     "ufw" "usbguard" "usbutils" "wireguard-tools"
 
@@ -87,8 +88,6 @@ package() {
     install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 
-    install -D -m644 dracut.conf.d/krathalans-custom.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom.conf"
-
     install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
     install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
@@ -97,7 +96,6 @@ package() {
 
     install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/hooks/77-systemd-boot.hook"
     install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
-    install -D -m644 pacman.d/hooks/dracut.hook "${pkgdir}/etc/pacman.d/hooks/dracut.hook"
 
     install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
     install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"

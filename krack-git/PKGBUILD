@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krack-git
-pkgver=r95.752776c
-pkgrel=2
+pkgver=r102.6619c82
+pkgrel=1
 pkgdesc="Krathalan's packaging softwares"
 url="https://git.sr.ht/~krathalan/krack"
 license=("GPL3")
