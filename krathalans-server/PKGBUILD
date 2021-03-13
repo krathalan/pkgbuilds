@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-server
 pkgver=68
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -58,7 +58,7 @@ depends=(
 package() {
     cd "${srcdir}/etc-config-${pkgver}" || exit
 
-    install -D -m644 nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
+    install -D -m644 server/nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
 
     install -D -m644 server/nginx/sites-available/builds "${pkgdir}/etc/nginx/sites-available/builds"
