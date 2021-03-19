@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-server
-pkgver=69
-pkgrel=4
+pkgver=70
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("c991c07cbae8bf5d05776c7ba8521e27f76f8aceabc7a568af3c0d2124793f8e245e4a52aa560d2fde9b415f0caff6b74afc2b97e77d4faab97407f1e06fc3ce" "7bebc9457f942f352ef32ad410f9b3c6981e90e1c8370e3db477f00e687e273dd26cf96bdd142a395b4dca9d5457b044f7c6114d1b2a95e06fce774330f24832")
+sha512sums=("9aa20842f2ec187d71c01e2132f5acdae9875213bf49a6f1406f57ea921412e2350c2004546d431abfd73b334688b13ec695ed406143b71f3b1882aba09886bb" "513257b5d5c9c1b8912f1c31589dbd8899126f749d007ea9b3cdaa899ae4cbae5f93260ffe060202ffb47375ffe44db3e181e4d05c44f64add8fd6f476473298")
 
 # Dependencies
 depends=(
@@ -56,30 +56,35 @@ depends=(
 )
 
 package() {
-    cd "${srcdir}/etc-config-${pkgver}" || exit
+    cd "${srcdir}/etc-config-${pkgver}/meta" || exit
 
-    install -D -m644 server/nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
+    install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
+
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
-
-    install -D -m644 server/nginx/sites-available/builds "${pkgdir}/etc/nginx/sites-available/builds"
-    install -D -m644 server/nginx/sites-available/default "${pkgdir}/etc/nginx/sites-available/default"
-    install -D -m644 server/nginx/sites-available/mail "${pkgdir}/etc/nginx/sites-available/mail"
-    install -D -m644 server/nginx/sites-available/nitter "${pkgdir}/etc/nginx/sites-available/nitter"
-
-    install -D -m644 server/modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
     install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
 
     install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
     install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
 
-    install -D -m644 server/sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
-    install -D -m644 server/sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
-
-    install -D -m644 server/systemd/system/postgrey.service "${pkgdir}/etc/systemd/system/postgrey.service"
-
     install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
 
     install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
+
+    # server-specific
+    cd "${srcdir}/etc-config-${pkgver}/server" || exit
+
+    install -D -m644 nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
+    install -D -m644 nginx/mime.types "${pkgdir}/etc/krathalan/nginx/mime.types"
+    install -D -m644 nginx/sites-available/builds "${pkgdir}/etc/nginx/sites-available/builds"
+    install -D -m644 nginx/sites-available/default "${pkgdir}/etc/nginx/sites-available/default"
+    install -D -m644 nginx/sites-available/mail "${pkgdir}/etc/nginx/sites-available/mail"
+    install -D -m644 nginx/sites-available/nitter "${pkgdir}/etc/nginx/sites-available/nitter"
+
+    install -D -m644 systemd/system/postgrey.service "${pkgdir}/etc/systemd/system/postgrey.service"
+
+    install -D -m644 sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
+    install -D -m644 sysctl.d/hardened_malloc.conf "${pkgdir}/etc/sysctl.d/hardened_malloc.conf"
+    install -D -m644 sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
 }

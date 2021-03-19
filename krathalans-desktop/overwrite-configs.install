@@ -4,4 +4,5 @@ post_install() {
 
 post_upgrade() {
     cp /etc/krathalan/makepkg.conf /etc/makepkg.conf
+    cp /etc/krathalan/mkinitcpio.conf /etc/mkinitcpio.conf
 }

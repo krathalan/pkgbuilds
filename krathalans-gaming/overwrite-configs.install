@@ -4,6 +4,7 @@ post_install() {
 
 post_upgrade() {
     cp /etc/krathalan/conf.d/wireless-regdom /etc/conf.d/wireless-regdom
+    cp /etc/krathalan/mkinitcpio.conf /etc/mkinitcpio.conf
     cp /etc/krathalan/makepkg.conf /etc/makepkg.conf
     cp /etc/krathalan/makepkg.conf /var/lib/makechrootpkg/root/etc/makepkg.conf
     cp /etc/krathalan/pacman.conf /etc/pacman.conf

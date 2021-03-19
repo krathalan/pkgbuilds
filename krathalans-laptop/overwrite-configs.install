@@ -4,5 +4,6 @@ post_install() {
 
 post_upgrade() {
     cp /etc/krathalan/makepkg.conf /etc/makepkg.conf
+    cp /etc/krathalan/mkinitcpio.conf /etc/mkinitcpio.conf
     cp /etc/krathalan/fwupd/uefi_capsule.conf /etc/fwupd/uefi_capsule.conf
 }

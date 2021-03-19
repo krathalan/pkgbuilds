@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-gaming
-pkgver=69
-pkgrel=3
+pkgver=70
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -14,7 +14,7 @@ arch=("any")
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("c991c07cbae8bf5d05776c7ba8521e27f76f8aceabc7a568af3c0d2124793f8e245e4a52aa560d2fde9b415f0caff6b74afc2b97e77d4faab97407f1e06fc3ce" "7bebc9457f942f352ef32ad410f9b3c6981e90e1c8370e3db477f00e687e273dd26cf96bdd142a395b4dca9d5457b044f7c6114d1b2a95e06fce774330f24832")
+sha512sums=("9aa20842f2ec187d71c01e2132f5acdae9875213bf49a6f1406f57ea921412e2350c2004546d431abfd73b334688b13ec695ed406143b71f3b1882aba09886bb" "513257b5d5c9c1b8912f1c31589dbd8899126f749d007ea9b3cdaa899ae4cbae5f93260ffe060202ffb47375ffe44db3e181e4d05c44f64add8fd6f476473298")
 
 # Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
 install=overwrite-configs.install
@@ -75,7 +75,7 @@ depends=(
     "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
-    "alacritty" "evince" "firefox" "firefox-developer-edition"
+    "alacritty" "evince" "firefox-developer-edition"
     "gnome-characters" "imv" "mpv" "pavucontrol"
 
     # Wine
@@ -92,11 +92,8 @@ package() {
 
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
 
-    install -D -m644 dracut.conf.d/krathalans-custom.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom.conf"
-    install -D -m644 dracut.conf.d/krathalans-custom-desktop.conf "${pkgdir}/etc/dracut.conf.d/krathalans-custom-desktop.conf"
-
     # krathalans-meta
-    cd "${srcdir}/etc-config-${pkgver}" || exit
+    cd "${srcdir}/etc-config-${pkgver}/meta" || exit
 
     install -D -m644 conf.d/wireless-regdom "${pkgdir}/etc/krathalan/conf.d/wireless-regdom"
     install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
@@ -104,21 +101,22 @@ package() {
 
     install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
-    install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
-    install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/etc/systemd/network/25-ethernet.network"
-
     install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/hooks/77-systemd-boot.hook"
     install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
-    install -D -m644 pacman.d/hooks/dracut.hook "${pkgdir}/etc/pacman.d/hooks/dracut.hook"
 
     install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
+    install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
+    install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/etc/systemd/network/25-ethernet.network"
+    install -D -m644 systemd/resolved.conf.d/disable-fallback-dns.conf "${pkgdir}/etc/systemd/resolved.conf.d/disable-fallback-dns.conf"
 
     install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
 
     # krathalans-desktop
     cd "${srcdir}/etc-config-${pkgver}/desktop" || exit
+
+    install -D -m644 mkinitcpio.conf "${pkgdir}/etc/krathalan/mkinitcpio.conf"
 
     install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
 }
