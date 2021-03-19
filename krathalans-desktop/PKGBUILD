@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-desktop
 pkgver=69
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -26,10 +26,6 @@ depends=(
     "krathalans-meta" "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
     "polybar" "redshift-no-geoclue" "xob"
-
-    # Also from builds.krathalan.net; for f-droid server
-    "android-sdk" "android-sdk-build-tools" "fdroidserver"
-    "python-paramiko"
 
     # Xorg packages
     "code" "dmenu" "dunst" "feh" "i3-gaps" "i3lock" "i3status"

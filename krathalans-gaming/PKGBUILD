@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming
 pkgver=69
-pkgrel=1
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -27,7 +27,8 @@ depends=(
     "krathalans-systemd-sandboxing-git"
     "gamemode" "lib32-gamemode" "lib32-mangohud"
     "lib32-vkd3d-tkg-git" "mangohud" "minecraft-launcher"
-    "vkd3d-tkg-git" "weakauras-companion-bin"
+    "simulationcraft-git" "vkd3d-tkg-git"
+    "weakauras-companion-bin"
 
     # For building dxvk
     "ccache" "meson" "mingw-w64-binutils"
@@ -44,9 +45,9 @@ depends=(
 
     # Stripped down krathalans-meta
     # From builds.krathalan.net
-    "bottom" "etc-update" "gimp-git" "micro" "nemo-no-gvfs"
+    "etc-update" "gimp-git" "micro" "nemo-no-gvfs"
     "otf-san-francisco" "pfetch-git" "plata-theme" "polybar"
-    "tealdeer" "ttf-material-design-icons-webfont"
+    "ttf-material-design-icons-webfont"
     "ungoogled-chromium" "wtwitch"
 
     # Fonts
@@ -56,12 +57,12 @@ depends=(
     "ttf-roboto" "ttf-roboto-mono"
 
     # System Packages
-    "alsa-plugins" "apparmor" "bash-completion"
+    "apparmor" "bash-completion"
     "bluez" "bluez-utils" "crda" "dash" "exfat-utils"
-    "f2fs-tools" "ffmpeg" "gst-libav" "gst-plugins-base"
+    "f2fs-tools" "ffmpeg" "grc" "gst-libav" "gst-plugins-base"
     "hunspell-en_US" "intel-ucode" "iwd" "logrotate"
     "man-db" "man-pages" "notification-daemon"
-    "papirus-icon-theme" "pkgstats" "pulseaudio-alsa"
+    "papirus-icon-theme" "pkgstats"
     "rng-tools" "source-highlight" "systemd-resolvconf"
     "ufw" "usbutils"
 
@@ -70,12 +71,11 @@ depends=(
     "e2fsprogs" "exa" "efitools" "fff" "gptfdisk" "htop"
     "iw" "mediainfo" "nano" "nano-syntax-highlighting"
     "ncdu" "pacman-contrib" "pamixer" "perl-image-exiftool"
-    "pigz" "playerctl" "termdown" "unzip" "which" "xxhash"
-    "youtube-dl" "zip"
+    "pigz" "playerctl" "ripgrep" "termdown" "unzip" "which"
+    "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
-    "alacritty" "epiphany" "evince" "firefox"
-    "firefox-developer-edition" "gimp"
+    "alacritty" "evince" "firefox" "firefox-developer-edition"
     "gnome-characters" "imv" "mpv" "pavucontrol"
 
     # Wine

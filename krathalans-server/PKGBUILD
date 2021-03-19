@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-server
 pkgver=69
-pkgrel=2
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -26,12 +26,12 @@ depends=(
     "krathalans-apparmor-profiles-git"
     "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
-    "etc-update" "micro" "nginx-mainline-mod-brotli"
+    "etc-update" "hardened_malloc" "micro"
+    "nginx-mainline-mod-brotli"
     "nginx-mainline-mod-fancyindex"
+    "nitter-git"
     # For htpasswd
     "apache-tools"
-    # F-Droid server
-    "android-sdk" "android-sdk-build-tools" "fdroidserver"
 
     # System packages
     "apparmor" "bash-completion" "certbot" "certbot-nginx"
@@ -63,7 +63,6 @@ package() {
 
     install -D -m644 server/nginx/sites-available/builds "${pkgdir}/etc/nginx/sites-available/builds"
     install -D -m644 server/nginx/sites-available/default "${pkgdir}/etc/nginx/sites-available/default"
-    install -D -m644 server/nginx/sites-available/fdroid "${pkgdir}/etc/nginx/sites-available/fdroid"
     install -D -m644 server/nginx/sites-available/mail "${pkgdir}/etc/nginx/sites-available/mail"
     install -D -m644 server/nginx/sites-available/nitter "${pkgdir}/etc/nginx/sites-available/nitter"
 

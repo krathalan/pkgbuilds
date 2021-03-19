@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop
 pkgver=69
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -27,8 +27,8 @@ depends=(
     "krathalans-meta" "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
     "krathalans-waybar-modules"
-    "rofi-lbonn-wayland-git" "sbctl-git" "wdisplays"
-    "wlsunset-git" "wob"
+    "linode-cli" "rofi-lbonn-wayland-git" "sbctl-git"
+    "wdisplays" "wlsunset-git" "wob"
 
     # System packages
     "intel-ucode" "smartmontools" "tlp"

@@ -40,9 +40,6 @@ depends=(
     "mosh" "openssh" "pigz" "pkgstats" "rng-tools" "rsync"
     "stress" "sudo" "syncthing" "ufw"
 
-    # Package building
-    "ccache" "devtools"
-
     # Backups
     "borg"
 
@@ -53,7 +50,7 @@ depends=(
     "tree"
 
     # Development packages
-    "git"
+    "ccache" "devtools" "git"
 )
 
 package() {
