@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-server
-pkgver=70
+pkgver=71
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
@@ -17,7 +17,7 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("9aa20842f2ec187d71c01e2132f5acdae9875213bf49a6f1406f57ea921412e2350c2004546d431abfd73b334688b13ec695ed406143b71f3b1882aba09886bb" "513257b5d5c9c1b8912f1c31589dbd8899126f749d007ea9b3cdaa899ae4cbae5f93260ffe060202ffb47375ffe44db3e181e4d05c44f64add8fd6f476473298")
+sha512sums=("3f426b1ca967653d8ef6bcb407426228e8e1dcb74e789d1d59155a7cb915f2944de2d3b5897aa2164a9cfa6f69df7dc7c8e6d06b03ccba1866d627b3d9521d5c" "c08c12caea1123d3fa70010a0f4a8622f015e485c7aaf74cab27437cbbd32350e9ce6a9538bd8769c3f0751c3b21ca15a22620656a4ec3b0cae2f87d3b5f4944")
 
 # Dependencies
 depends=(
@@ -26,7 +26,7 @@ depends=(
     "krathalans-apparmor-profiles-git"
     "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
-    "etc-update" "hardened_malloc" "micro"
+    "etc-update" "micro"
     "nginx-mainline-mod-brotli"
     "nginx-mainline-mod-fancyindex"
     "nitter-git"
@@ -38,9 +38,9 @@ depends=(
     "dash" "fail2ban" "haveged" "pkgstats" "sudo"
 
     # Server packages (email, http, dav, file host, firewall)
-    "dovecot" "mosh" "nginx-mainline" "opendkim"
+    "dovecot" "firewalld" "mosh" "nginx-mainline" "opendkim"
     "opendmarc" "pigeonhole" "pflogsumm" "postfix" "postgrey"
-    "radicale" "rsync" "spamassassin" "ufw"
+    "radicale" "rsync" "spamassassin"
 
     # Backups
     "borg"
@@ -85,6 +85,5 @@ package() {
     install -D -m644 systemd/system/postgrey.service "${pkgdir}/etc/systemd/system/postgrey.service"
 
     install -D -m644 sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
-    install -D -m644 sysctl.d/hardened_malloc.conf "${pkgdir}/etc/sysctl.d/hardened_malloc.conf"
     install -D -m644 sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
 }
