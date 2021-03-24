@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-server
-pkgver=71
-pkgrel=1
+pkgver=73
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -17,12 +17,12 @@ install=overwrite-configs.install
 
 source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("3f426b1ca967653d8ef6bcb407426228e8e1dcb74e789d1d59155a7cb915f2944de2d3b5897aa2164a9cfa6f69df7dc7c8e6d06b03ccba1866d627b3d9521d5c" "c08c12caea1123d3fa70010a0f4a8622f015e485c7aaf74cab27437cbbd32350e9ce6a9538bd8769c3f0751c3b21ca15a22620656a4ec3b0cae2f87d3b5f4944")
+sha512sums=("74e4bc0b53eff1f531269b3167af46d842144101a8d95431c488f23f78169220741bc1f301cc2881020bb30f394ba921a199096b395c0d6768136b931bedcece" "fa282afa0223f39667d1f26e56607c03557988395aed5ecd4b64a81d14d9bd36e8f47d49bce790cae8e44d020fafd24591c06f849ff13742939c951ee026a88f")
 
 # Dependencies
 depends=(
     # From builds.krathalan.net
-    "krack-git"
+    "krack"
     "krathalans-apparmor-profiles-git"
     "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
