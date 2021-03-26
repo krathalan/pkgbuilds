@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming
 pkgver=73
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -63,8 +63,8 @@ depends=(
     "gst-plugins-base" "hunspell-en_US" "intel-ucode" "iwd"
     "logrotate" "man-db" "man-pages" "notification-daemon"
     "papirus-icon-theme" "pkgstats" "pipewire"
-    "pipewire-pulse" "rng-tools" "source-highlight"
-    "systemd-resolvconf" "usbutils"
+    "pipewire-alsa" "pipewire-pulse" "rng-tools"
+    "source-highlight" "systemd-resolvconf" "usbutils"
 
     # Terminal applications
     "android-tools" "bat" "calc" "dictd" "dosfstools"
