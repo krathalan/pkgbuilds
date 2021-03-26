@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-server
 pkgver=73
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -38,9 +38,9 @@ depends=(
     "dash" "fail2ban" "haveged" "pkgstats" "sudo"
 
     # Server packages (email, http, dav, file host, firewall)
-    "dovecot" "firewalld" "mosh" "nginx-mainline" "opendkim"
-    "opendmarc" "pigeonhole" "pflogsumm" "postfix" "postgrey"
-    "radicale" "rsync" "spamassassin"
+    "dovecot" "firewalld" "grc" "mosh" "nginx-mainline"
+    "opendkim" "opendmarc" "pigeonhole" "pflogsumm"
+    "postfix" "postgrey" "radicale" "rsync" "spamassassin"
 
     # Backups
     "borg"

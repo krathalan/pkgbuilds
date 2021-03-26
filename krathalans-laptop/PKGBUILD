@@ -27,7 +27,7 @@ depends=(
     "krathalans-meta" "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
     "krathalans-waybar-modules"
-    "linode-cli" "rofi-lbonn-wayland-git" "sbctl-git"
+    "rofi-lbonn-wayland-git" "sbctl-git"
     "wdisplays" "wlsunset-git" "wob"
 
     # System packages

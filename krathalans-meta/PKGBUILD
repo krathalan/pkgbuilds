@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta
 pkgver=73
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://git.sr.ht/~krathalan/pkgbuilds"
 license=("GPL3")
@@ -23,9 +23,9 @@ sha512sums=("74e4bc0b53eff1f531269b3167af46d842144101a8d95431c488f23f78169220741
 depends=(
     # From builds.krathalan.net
     "dict-gcide" "dict-moby-thesaurus" "etc-update"
-    "gimp-git" "gmni-git" "micro" "nemo-no-gvfs"
-    "otf-san-francisco" "pandoc-bin" "pash" "plata-theme"
-    "pfetch-git" "shellcheck-bin"
+    "gimp-git" "gmni-git" "linode-cli" "micro"
+    "nemo-no-gvfs" "otf-san-francisco" "pandoc-bin"
+    "pash" "plata-theme" "pfetch-git" "shellcheck-bin"
     "ttf-material-design-icons-webfont" "ungoogled-chromium"
     "wtwitch"
 
@@ -46,7 +46,7 @@ depends=(
     "grc" "gst-libav" "gst-plugin-pipewire" "hunspell-en_US"
     "iwd" "logrotate" "man-db" "man-pages"
     "notification-daemon" "papirus-icon-theme"
-    "pkgstats" "pipewire" "pipewire-pulse"
+    "pkgstats" "pipewire" "pipewire-alsa" "pipewire-pulse"
     "rng-tools" "source-highlight" "systemd-resolvconf"
     "usbguard" "usbutils" "wireguard-tools"
 
