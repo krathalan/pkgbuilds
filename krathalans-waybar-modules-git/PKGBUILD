@@ -4,29 +4,39 @@
 # shellcheck disable=SC2154
 
 # General package information
-pkgname=krathalans-waybar-modules
-pkgver=2.0.2
+pkgname=krathalans-waybar-modules-git
+pkgver=r58.4273a48
 pkgrel=1
 pkgdesc="Krathalan's personal waybar modules"
-url="https://git.sr.ht/~krathalan/waybar-modules"
+url="https://github.com/krathalan/waybar-modules"
 license=("GPL3")
 arch=("any")
 
 # Dependencies
+makedepends=("git")
 depends=()
 
 # Download information
-_packagesig="${url}/blob/master/signatures/${pkgver}.tar.gz.sig"
-source=("${url}/archive/${pkgver}.tar.gz" "${_packagesig}")
+source=("${pkgname}::git+${url}?signed")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("ef4ef6da8477220fe094d1ccc3a25113501b640119be71052b827378d2970b88df4da96fd3ba50989397196038226871ccacdcd21c7e547a77047aaba676de8c" "e8a4719f724ff30ac1fae69b6c92786ad8e3fd3246ab58532a9b92535d8fe202bbe4d35fb632217228bdb6a45d9ab9cd0dd35090acbce5f9c734f615595a90ae")
+sha512sums=("SKIP")
+
+# https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
+pkgver() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
 
 # Package specific information
 _MODULES=("battery" "vpn")
 
 build() {
   for module in "${_MODULES[@]}"; do
-    cd "${srcdir}/waybar-modules-${pkgver}/${module}" || exit
+    cd "${srcdir}/${pkgname}/${module}" || exit
     make clean > /dev/null
     make release
   done
@@ -34,11 +44,11 @@ build() {
 
 package() {
   for module in "${_MODULES[@]}"; do
-    cd "${srcdir}/waybar-modules-${pkgver}/${module}" || exit
+    cd "${srcdir}/${pkgname}/${module}" || exit
     install -D -m755 "wbm_${module}" "${pkgdir}/usr/bin/wbm_${module}"
   done
 
-  cd "${srcdir}/waybar-modules-${pkgver}/apparmor-profiles" || exit
+  cd "${srcdir}/${pkgname}/apparmor-profiles" || exit
 
   for profile in ./*; do
     install -D -m644 "${profile}" "${pkgdir}/etc/apparmor.d/${profile}"

@@ -4,20 +4,30 @@
 # shellcheck disable=SC2154
 
 # General package information
-pkgname=krathalans-meta
-pkgver=73
-pkgrel=4
+pkgname=krathalans-meta-git
+pkgver=r170.1cf1328
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
-url="https://git.sr.ht/~krathalan/pkgbuilds"
+url="https://github.com/krathalan/etc-config"
 license=("GPL3")
 arch=("any")
 
 # Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
 install=overwrite-configs.install
 
-source=("https://git.sr.ht/~krathalan/etc-config/archive/${pkgver}.tar.gz" "https://git.sr.ht/~krathalan/etc-config/blob/master/signatures/${pkgver}.tar.gz.sig")
+source=("${pkgname}::git+${url}?signed")
 validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
-sha512sums=("74e4bc0b53eff1f531269b3167af46d842144101a8d95431c488f23f78169220741bc1f301cc2881020bb30f394ba921a199096b395c0d6768136b931bedcece" "fa282afa0223f39667d1f26e56607c03557988395aed5ecd4b64a81d14d9bd36e8f47d49bce790cae8e44d020fafd24591c06f849ff13742939c951ee026a88f")
+sha512sums=("SKIP")
+
+# https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
+pkgver() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
 
 # Dependencies
 depends=(
@@ -79,7 +89,7 @@ depends=(
 )
 
 package() {
-    cd "${srcdir}/etc-config-${pkgver}/meta" || exit
+    cd "${srcdir}/${pkgname}/meta" || exit
     install -D -m644 conf.d/wireless-regdom "${pkgdir}/etc/krathalan/conf.d/wireless-regdom"
     install -D -m644 dict/dictd.conf "${pkgdir}/etc/krathalan/dict/dictd.conf"
     install -D -m644 issue "${pkgdir}/etc/krathalan/issue"

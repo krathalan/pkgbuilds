@@ -5,10 +5,10 @@
 
 # General package information
 pkgname=krack-git
-pkgver=r130.3b4ee40
+pkgver=r142.05307a4
 pkgrel=1
 pkgdesc="Krathalan's packaging softwares"
-url="https://git.sr.ht/~krathalan/krack"
+url="https://github.com/krathalan/krack"
 license=("GPL3")
 arch=("any")
 
@@ -21,7 +21,8 @@ makedepends=("git" "scdoc")
 conflicts=("krack")
 
 # Download information
-source=("${pkgname}::git+${url}")
+source=("${pkgname}::git+${url}?signed")
+validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
 sha256sums=('SKIP')
 
 # https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git

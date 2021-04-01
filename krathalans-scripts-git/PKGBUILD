@@ -8,7 +8,7 @@ pkgname=krathalans-scripts-git
 pkgver=r438.e2221b6
 pkgrel=1
 pkgdesc="Krathalan's personal scripts"
-url="https://git.sr.ht/~krathalan/miscellaneous-scripts"
+url="https://github.com/krathalan/miscellaneous-scripts"
 license=("GPL3")
 arch=("any")
 
@@ -26,7 +26,8 @@ optdepends=("ffmpeg: for audio_to_opus"
             "inotify-tools: for watch_add_packages{,.service}")
 
 # Download information
-source=("${pkgname}::git+${url}")
+source=("${pkgname}::git+${url}?signed")
+validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
 sha256sums=('SKIP')
 
 # https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git

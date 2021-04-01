@@ -8,7 +8,7 @@ pkgname=krathalans-apparmor-profiles-git
 pkgver=r585.21b461e
 pkgrel=1
 pkgdesc="Krathalan's apparmor profiles"
-url="https://git.sr.ht/~krathalan/apparmor-profiles"
+url="https://github.com/krathalan/apparmor-profiles"
 license=("GPL3")
 arch=("any")
 
@@ -19,7 +19,8 @@ depends=()
 makedepends=("git")
 
 # Download information
-source=("${pkgname}::git+${url}" "99-apparmor-profiles.hook")
+source=("${pkgname}::git+${url}?signed" "99-apparmor-profiles.hook")
+validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
 sha256sums=('SKIP' 'bab4b1f4f8be2588d81bcaafe7ec7da4dceef0e270e09a53de3e1fe2a57a98b2')
 
 # https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
