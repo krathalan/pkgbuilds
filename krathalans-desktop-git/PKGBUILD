@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-desktop-git
 pkgver=r171.c4c3572
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -34,7 +34,7 @@ pkgver() {
 depends=(
     # From builds.krathalan.net
     "krathalans-apparmor-profiles-git"
-    "krathalans-meta" "krathalans-scripts-git"
+    "krathalans-meta-git" "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
     "polybar" "redshift-no-geoclue" "xob"
 
