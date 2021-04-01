@@ -15,6 +15,7 @@ arch=("any")
 # Dependencies
 makedepends=("git")
 depends=()
+replaces=("krathalans-waybar-modules")
 
 # Download information
 source=("${pkgname}::git+${url}?signed")

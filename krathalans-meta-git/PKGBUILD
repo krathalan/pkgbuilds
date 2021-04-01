@@ -6,11 +6,12 @@
 # General package information
 pkgname=krathalans-meta-git
 pkgver=r171.c4c3572
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
 arch=("any")
+replaces=("krathalans-meta")
 
 # Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
 install=overwrite-configs.install
