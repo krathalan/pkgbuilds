@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-server-git
 pkgver=r171.c4c3572
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -35,6 +35,7 @@ depends=(
     # From builds.krathalan.net
     "krack"
     "krathalans-apparmor-profiles-git"
+    "krathalans-endlessh-git"
     "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
     "etc-update" "micro"
