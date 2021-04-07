@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krack-git
-pkgver=r143.dc09769
+pkgver=r151.d072e54
 pkgrel=1
 pkgdesc="Krathalan's packaging softwares"
 url="https://github.com/krathalan/krack"
@@ -63,6 +63,7 @@ package() {
 
   # man
   install -D -m644 man/krack-build.1 "${pkgdir}/usr/share/man/man1/krack-build.1"
+  install -D -m644 man/krack-receive.1 "${pkgdir}/usr/share/man/man1/krack-build.1"
   install -D -m644 man/krack.1 "${pkgdir}/usr/share/man/man1/krack.1"
   install -D -m644 man/krackctl.1 "${pkgdir}/usr/share/man/man1/krackctl.1"
 
