@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-meta-git
-pkgver=r171.c4c3572
-pkgrel=2
+pkgver=r172.a516c41
+pkgrel=9
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -38,7 +38,7 @@ depends=(
     "nemo-no-gvfs" "otf-san-francisco" "pandoc-bin"
     "pash" "plata-theme" "pfetch-git" "shellcheck-bin"
     "ttf-material-design-icons-webfont" "ungoogled-chromium"
-    "wtwitch"
+    "wtwitch" "zlib-ng"
 
     # Fonts
     "gnu-free-fonts" "noto-fonts" "noto-fonts-cjk"
@@ -55,11 +55,10 @@ depends=(
     "bluez" "bluez-utils" "crda" "dash"
     "exfatprogs" "f2fs-tools" "ffmpeg" "firewalld" "fwupd"
     "grc" "gst-libav" "gst-plugin-pipewire" "hunspell-en_US"
-    "iwd" "logrotate" "man-db" "man-pages"
+    "iwd" "logrotate" "man-db" "man-pages" "networkmanager"
     "notification-daemon" "papirus-icon-theme"
     "pkgstats" "pipewire" "pipewire-alsa" "pipewire-pulse"
-    "rng-tools" "source-highlight" "systemd-resolvconf"
-    "usbguard" "usbutils" "wireguard-tools"
+    "rng-tools" "source-highlight" "usbguard" "usbutils"
 
     # Backups
     "borg" "python-llfuse"
@@ -69,8 +68,8 @@ depends=(
 
     # Terminal applications
     "android-tools" "arch-audit" "archiso" "bat" "calc"
-    "dictd" "dosfstools" "e2fsprogs" "exa"
-    "efitools" "fff" "gptfdisk" "htop" "irssi"
+    "dictd" "dosfstools" "e2fsprogs" "exa" "efitools"
+    "fff" "gptfdisk" "htop" "hyperfine" "irssi"
     "isync" "iw" "jpegoptim" "khard" "mediainfo"
     "mosh" "nano" "nano-syntax-highlighting" "ncdu"
     "neomutt" "pacman-contrib" "pamixer" "pass" "pass-otp"
@@ -98,6 +97,9 @@ package() {
     install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 
+    install -D -m644 NetworkManager/conf.d/ip6-privacy.conf "${pkgdir}/etc/NetworkManager/conf.d/ip6-privacy.conf"
+    install -D -m644 NetworkManager/conf.d/wifi-backend.conf "${pkgdir}/etc/NetworkManager/conf.d/wifi-backend.conf"
+
     install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
     install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/hooks/77-systemd-boot.hook"
@@ -111,9 +113,6 @@ package() {
     install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
-    install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
-    install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/etc/systemd/network/25-ethernet.network"
-    install -D -m644 systemd/resolved.conf.d/disable-fallback-dns.conf "${pkgdir}/etc/systemd/resolved.conf.d/disable-fallback-dns.conf"
 
     install -D -m644 udev/rules.d/51-android.rules "${pkgdir}/etc/udev/rules.d/51-android.rules"
     install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"

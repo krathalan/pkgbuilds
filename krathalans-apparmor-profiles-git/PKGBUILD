@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-apparmor-profiles-git
-pkgver=r587.d913345
+pkgver=r601.9cfe23e
 pkgrel=1
 pkgdesc="Krathalan's apparmor profiles"
 url="https://github.com/krathalan/apparmor-profiles"
