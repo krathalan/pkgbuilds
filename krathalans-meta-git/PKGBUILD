@@ -30,6 +30,8 @@ pkgver() {
   )
 }
 
+makedepends=("git")
+
 # Dependencies
 depends=(
     # From builds.krathalan.net
