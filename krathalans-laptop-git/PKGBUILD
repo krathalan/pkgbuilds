@@ -39,7 +39,7 @@ depends=(
     "krathalans-apparmor-profiles-git"
     "krathalans-meta-git" "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
-    "krathalans-waybar-modules"
+    "krathalans-waybar-modules-git"
     "rofi-lbonn-wayland-git" "sbctl-git"
     "wdisplays" "wlsunset-git" "wob"
 
