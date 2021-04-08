@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-server-home-git
 pkgver=r171.c4c3572
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -40,7 +40,7 @@ depends=(
     "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
     "cloudflared" "etc-update" "jellyfin-server"
-    "jellyfin-web" "micro" "pi-hole-server"
+    "jellyfin-web" "micro" "pi-hole-server" "zlib-ng"
 
     # Syncthing web GUI reverse proxy
     "nginx-mainline"
