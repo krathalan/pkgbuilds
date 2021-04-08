@@ -59,8 +59,8 @@ depends=(
     # Stripped down krathalans-meta
     # From builds.krathalan.net
     "etc-update" "gimp-git" "micro" "nemo-no-gvfs"
-    "otf-san-francisco" "pfetch-git" "plata-theme" "polybar"
-    "ttf-material-design-icons-webfont"
+    "otf-san-francisco" "pfetch-git" "plata-theme-krath-purple"
+    "polybar" "ttf-material-design-icons-webfont"
     "ungoogled-chromium" "wtwitch"
 
     # Fonts
