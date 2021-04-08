@@ -39,7 +39,7 @@ depends=(
     "discord_arch_electron" "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
     "gamemode" "lib32-gamemode" "lib32-mangohud"
-    "lib32-vkd3d-tkg-git" "mangohud" "minecraft-launcher"
+    "lib32-vkd3d-tkg-git" "mangohud"
     "simulationcraft-git" "vkd3d-tkg-git"
     "weakauras-companion-bin"
 
