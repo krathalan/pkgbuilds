@@ -45,7 +45,7 @@ depends=(
     # Fonts
     "gnu-free-fonts" "noto-fonts" "noto-fonts-cjk"
     "noto-fonts-emoji" "otf-fira-mono" "terminus-font"
-    "ttf-dejavu" "ttf-ibm-plex" "ttf-linux-libertine"
+    "ttf-dejavu" "ttf-ibm-plex" "libertinus-font"
     "ttf-roboto" "ttf-roboto-mono"
 
     # Gstreamer
@@ -66,7 +66,7 @@ depends=(
     "borg" "python-llfuse"
 
     # Printing
-    "cups" "hplip"
+    "cups" "hplip" "system-config-printer"
 
     # Terminal applications
     "android-tools" "arch-audit" "archiso" "bat" "calc"
