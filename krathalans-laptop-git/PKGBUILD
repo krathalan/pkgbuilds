@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-laptop-git
-pkgver=r171.c4c3572
-pkgrel=3
+pkgver=r174.b53800f
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -17,7 +17,7 @@ replaces=("krathalans-laptop")
 install=overwrite-configs.install
 
 source=("${pkgname}::git+${url}?signed")
-validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
+validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174")
 sha512sums=("SKIP")
 
 # https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
@@ -72,4 +72,7 @@ package() {
     install -D -m644 modprobe.d/iwlwifi.conf "${pkgdir}/etc/modprobe.d/iwlwifi.conf"
 
     install -D -m644 tlp.d/krathalans-custom.conf "${pkgdir}/etc/tlp.d/krathalans-custom.conf"
+
+    install -D -m644 systemd/system/undervolt.timer "${pkgdir}/usr/lib/systemd/system/undervolt.timer"
+    install -D -m644 systemd/system/undervolt.service "${pkgdir}/usr/lib/systemd/system/undervolt.service"
 }
