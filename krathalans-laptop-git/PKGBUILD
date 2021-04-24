@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-laptop-git
-pkgver=r174.b53800f
-pkgrel=1
+pkgver=r177.cbe157b
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -35,16 +35,16 @@ makedepends=("git")
 # Dependencies
 depends=(
     # From builds.krathalan.net
-    "code-wayland" "foot"
+    "foot"
     "krathalans-apparmor-profiles-git"
     "krathalans-meta-git" "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
     "krathalans-waybar-modules-git"
-    "rofi-lbonn-wayland-git" "sbctl-git"
+    "rofi-lbonn-wayland-git"
     "wdisplays" "wlsunset-git" "wob"
 
     # System packages
-    "intel-ucode" "smartmontools" "tlp"
+    "intel-ucode" "sbctl" "smartmontools" "tlp"
     "x86_energy_perf_policy"
 
     # Hwaccel
