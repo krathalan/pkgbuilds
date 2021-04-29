@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-desktop-git
 pkgver=r177.cbe157b
-pkgrel=1
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -41,8 +41,8 @@ depends=(
     "polybar" "redshift-no-geoclue" "xob"
 
     # Xorg packages
-    "dmenu" "dunst" "feh" "i3-gaps" "i3lock" "i3status"
-    "picom" "rofi" "scrot" "xorg-server" "xorg-xinit"
+    "alacritty" "code" "dmenu" "dunst" "feh" "i3-gaps" "i3lock"
+    "i3status" "picom" "rofi" "scrot" "xorg-server" "xorg-xinit"
 
     # System packages
     "amd-ucode"
