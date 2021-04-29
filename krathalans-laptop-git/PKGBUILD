@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-laptop-git
 pkgver=r177.cbe157b
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -51,7 +51,7 @@ depends=(
     "intel-media-driver"
 
     # Wayland packages
-    "grim" "light" "mako" "slurp" "sway"
+    "code-wayland" "grim" "light" "mako" "slurp" "sway"
     "swayidle" "swaylock" "waybar" "wl-clipboard"
 )
 

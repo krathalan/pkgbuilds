@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-server-home-git
-pkgver=r171.c4c3572
-pkgrel=3
+pkgver=r177.cbe157b
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -49,8 +49,8 @@ depends=(
     "lighttpd" "php-cgi" "php-sqlite"
 
     # System packages
-    "apparmor" "bash-completion" "dash" "firewalld" "gptfdisk"
-    "lsscsi" "mosh" "openssh" "pigz" "pkgstats" "rng-tools"
+    "apparmor" "asp" "bash-completion" "dash" "firewalld" "gptfdisk"
+    "grc" "lsscsi" "mosh" "openssh" "pigz" "pkgstats" "rng-tools"
     "rsync" "stress" "sudo" "syncthing"
 
     # Backups
