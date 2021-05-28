@@ -18,7 +18,7 @@ makedepends=("git")
 
 # Download information
 source=("${pkgname}::git+${url}?signed")
-validpgpkeys=("B46B326273E4A1D21AAA3F6F529AC10050BD24EF")
+validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174")
 sha256sums=('SKIP')
 
 # https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
