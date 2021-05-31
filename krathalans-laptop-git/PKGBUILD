@@ -58,8 +58,8 @@ depends=(
 package() {
     cd "${srcdir}/${pkgname}/laptop" || exit
 
+    install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
-    install -D -m644 mkinitcpio.conf "${pkgdir}/etc/krathalan/mkinitcpio.conf"
 
     install -D -m644 fwupd/uefi_capsule.conf "${pkgdir}/etc/krathalan/fwupd/uefi_capsule.conf"
 

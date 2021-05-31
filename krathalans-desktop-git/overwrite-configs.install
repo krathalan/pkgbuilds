@@ -3,6 +3,6 @@ post_install() {
 }
 
 post_upgrade() {
+    cp /etc/krathalan/booster.yaml /etc/booster.yaml
     cp /etc/krathalan/makepkg.conf /etc/makepkg.conf
-    cp /etc/krathalan/mkinitcpio.conf /etc/mkinitcpio.conf
 }

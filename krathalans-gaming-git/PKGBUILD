@@ -73,7 +73,7 @@ depends=(
     "apparmor" "bash-completion" "bluez" "bluez-utils"
     "crda" "dash" "exfat-utils" "f2fs-tools" "ffmpeg"
     "firewalld" "grc" "gst-libav" "gst-plugin-pipewire"
-    "gst-plugins-base" "hunspell-en_US" "intel-ucode" "iwd"
+    "gst-plugins-base" "hunspell-en_US" "iwd"
     "logrotate" "man-db" "man-pages" "notification-daemon"
     "papirus-icon-theme" "pkgstats" "pipewire"
     "pipewire-alsa" "pipewire-pulse" "rng-tools"
@@ -129,7 +129,7 @@ package() {
     # krathalans-desktop
     cd "${srcdir}/${pkgname}/desktop" || exit
 
-    install -D -m644 mkinitcpio.conf "${pkgdir}/etc/krathalan/mkinitcpio.conf"
+    install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
 
     install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
 }
