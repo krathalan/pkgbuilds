@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-server-home-git
-pkgver=r177.cbe157b
-pkgrel=2
+pkgver=r183.c470830
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -89,6 +89,7 @@ package() {
     # home-server-specific
     cd "${srcdir}/${pkgname}/home-server" || exit
 
+    install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"

@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-gaming-git
-pkgver=r171.c4c3572
-pkgrel=3
+pkgver=r183.c470830
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
