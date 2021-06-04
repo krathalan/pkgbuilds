@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-gaming-git
-pkgver=r183.c470830
-pkgrel=1
+pkgver=r185.e3ab762
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -88,7 +88,7 @@ depends=(
     "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
-    "alacritty" "evince" "firefox-developer-edition"
+    "alacritty" "evince-no-gvfs" "firefox-developer-edition"
     "gnome-characters" "imv" "mpv" "pavucontrol"
 
     # Wine
