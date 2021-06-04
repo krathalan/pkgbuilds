@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta-git
 pkgver=r185.e3ab762
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -81,7 +81,7 @@ depends=(
     "zip"
 
     # Graphical applications
-    "epiphany" "evince-no-gvfs" "firefox-developer-edition"
+    "epiphany" "evince" "firefox-developer-edition"
     "foliate" "gnome-characters" "imv" "libreoffice-fresh"
     "meld" "lollypop" "mpv" "pavucontrol" "signal-desktop"
     "syncthing" "thunderbird" "zim"
