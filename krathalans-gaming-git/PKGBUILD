@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming-git
 pkgver=r185.e3ab762
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -58,7 +58,7 @@ depends=(
 
     # Stripped down krathalans-meta
     # From builds.krathalan.net
-    "etc-update" "gimp-git" "micro" "nemo-no-gvfs"
+    "etc-update" "gimp-git" "micro" "nemo"
     "otf-san-francisco" "pfetch-git" "plata-theme-krath-purple"
     "polybar" "ttf-material-design-icons-webfont"
     "ungoogled-chromium" "wtwitch"

@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta-git
 pkgver=r185.e3ab762
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -37,7 +37,7 @@ depends=(
     # From builds.krathalan.net
     "dict-gcide" "dict-moby-thesaurus" "etc-update"
     "gimp-git" "gmni-git" "linode-cli" "micro"
-    "nemo-no-gvfs" "otf-san-francisco" "pandoc-bin"
+    "nemo" "otf-san-francisco" "pandoc-bin"
     "pash" "plata-theme-krath-purple" "pfetch-git" "shellcheck-bin"
     "ttf-material-design-icons-webfont" "ungoogled-chromium"
     "wtwitch" "zlib-ng"
