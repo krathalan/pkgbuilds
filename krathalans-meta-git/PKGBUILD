@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta-git
 pkgver=r185.e3ab762
-pkgrel=4
+pkgrel=5
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -53,7 +53,7 @@ depends=(
     "gst-plugins-good"
 
     # System Packages
-    "apparmor" "asp" "bash-completion"
+    "android-udev" "apparmor" "asp" "bash-completion"
     "bluez" "bluez-utils" "crda" "dash"
     "exfatprogs" "f2fs-tools" "ffmpeg" "firewalld" "fwupd"
     "grc" "gst-libav" "gst-plugin-pipewire" "hunspell-en_US"
