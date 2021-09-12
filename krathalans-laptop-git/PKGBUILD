@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-laptop-git
-pkgver=r185.e3ab762
+pkgver=r187.7121d3b
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
@@ -40,7 +40,6 @@ depends=(
     "krathalans-meta-git" "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"
     "krathalans-waybar-modules-git"
-    "rofi-lbonn-wayland-git"
     "wdisplays" "wlsunset-git" "wob"
 
     # System packages
@@ -51,8 +50,9 @@ depends=(
     "intel-media-driver"
 
     # Wayland packages
-    "code-wayland" "grim" "light" "mako" "slurp" "sway"
-    "swayidle" "swaylock" "waybar" "wl-clipboard"
+    "bemenu" "bemenu-wayland" "grim" "light" "mako"
+    "slurp" "sway" "swayidle" "swaylock" "waybar"
+    "wl-clipboard"
 )
 
 package() {
