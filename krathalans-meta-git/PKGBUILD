@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta-git
 pkgver=r187.7121d3b
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -39,7 +39,7 @@ depends=(
     "gimp-git" "gmni-git" "linode-cli" "micro"
     "nemo" "otf-san-francisco" "pandoc-bin"
     "pash" "plata-theme-krath-purple" "pfetch-git" "shellcheck-bin"
-    "ttf-material-design-icons-webfont"
+    "ttf-material-design-icons-webfont" "ungoogled-chromium"
     "wtwitch" "zlib-ng"
 
     # Fonts
@@ -81,7 +81,7 @@ depends=(
     "zip"
 
     # Graphical applications
-    "chromium" "code" "epiphany" "evince" "firefox-developer-edition"
+    "code" "epiphany" "evince" "firefox-developer-edition"
     "foliate" "gnome-characters" "imv" "libreoffice-fresh"
     "meld" "lollypop" "mpv" "pavucontrol" "signal-desktop"
     "syncthing" "thunderbird" "zim"
