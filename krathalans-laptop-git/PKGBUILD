@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-laptop-git
-pkgver=r187.7121d3b
+pkgver=r188.34b0166
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
@@ -35,7 +35,7 @@ makedepends=("git")
 # Dependencies
 depends=(
     # From builds.krathalan.net
-    "foot"
+    "foot" "foot-terminfo"
     "krathalans-apparmor-profiles-git"
     "krathalans-meta-git" "krathalans-scripts-git"
     "krathalans-systemd-sandboxing-git"

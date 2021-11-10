@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-meta-git
-pkgver=r187.7121d3b
-pkgrel=4
+pkgver=r188.34b0166
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
