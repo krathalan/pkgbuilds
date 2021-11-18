@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming-git
 pkgver=r191.aeb7637
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -104,13 +104,13 @@ package() {
     cd "${srcdir}/${pkgname}/gaming" || exit
 
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 
     # krathalans-meta
     cd "${srcdir}/${pkgname}/meta" || exit
 
     install -D -m644 conf.d/wireless-regdom "${pkgdir}/etc/krathalan/conf.d/wireless-regdom"
     install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
-    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 
     install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
 
