@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-gaming-git
-pkgver=r185.e3ab762
-pkgrel=4
+pkgver=r191.aeb7637
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -52,13 +52,13 @@ depends=(
     "lutris" "steam-native-runtime"
 
     # Xorg packages (krathalans-desktop)
-    "dmenu" "dunst" "feh" "i3-gaps" "i3lock" "i3status"
-    "picom" "redshift-no-geoclue" "rofi" "scrot" "xorg-server"
+    "dmenu" "dunst" "feh" "i3-gaps" "i3lock" "picom"
+    "redshift-no-geoclue" "scrot" "xob" "xorg-server"
     "xorg-xinit"
 
     # Stripped down krathalans-meta
     # From builds.krathalan.net
-    "etc-update" "gimp-git" "micro" "nemo"
+    "etc-update" "gimp-git"
     "otf-san-francisco" "pfetch-git" "plata-theme-krath-purple"
     "polybar" "ttf-material-design-icons-webfont"
     "ungoogled-chromium" "wtwitch"
@@ -74,22 +74,22 @@ depends=(
     "crda" "dash" "exfat-utils" "f2fs-tools" "ffmpeg"
     "firewalld" "grc" "gst-libav" "gst-plugin-pipewire"
     "gst-plugins-base" "hunspell-en_US" "iwd"
-    "logrotate" "man-db" "man-pages" "notification-daemon"
-    "papirus-icon-theme" "pkgstats" "pipewire"
-    "pipewire-alsa" "pipewire-pulse" "rng-tools"
-    "source-highlight" "systemd-resolvconf" "usbutils"
+    "logrotate" "man-db" "man-pages" "networkmanager"
+    "notification-daemon" "papirus-icon-theme" "pkgstats"
+    "pipewire" "pipewire-alsa" "pipewire-pulse"
+    "rng-tools" "source-highlight" "usbutils"
 
     # Terminal applications
     "android-tools" "bat" "calc" "dictd" "dosfstools"
-    "e2fsprogs" "exa" "efitools" "fff" "gptfdisk" "htop"
-    "iw" "mediainfo" "nano" "nano-syntax-highlighting"
+    "e2fsprogs" "exa" "efitools" "gptfdisk" "htop"
+    "iw" "mediainfo" "micro" "nano" "nano-syntax-highlighting"
     "ncdu" "pacman-contrib" "pamixer" "perl-image-exiftool"
-    "pigz" "playerctl" "ripgrep" "termdown" "unzip" "which"
+    "pigz" "playerctl" "ripgrep" "termdown" "unzip"
     "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
     "alacritty" "evince" "firefox-developer-edition"
-    "gnome-characters" "imv" "mpv" "pavucontrol"
+    "gnome-characters" "imv" "mpv" "nemo" "pavucontrol"
 
     # Wine
     # https://github.com/lutris/docs/blob/master/Battle.Net.md

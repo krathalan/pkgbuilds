@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-meta-git
-pkgver=r188.34b0166
+pkgver=r191.aeb7637
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
@@ -36,11 +36,10 @@ makedepends=("git")
 depends=(
     # From builds.krathalan.net
     "dict-gcide" "dict-moby-thesaurus" "etc-update"
-    "gimp-git" "gmni-git" "linode-cli" "micro"
-    "nemo" "otf-san-francisco" "pandoc-bin"
-    "pash" "plata-theme-krath-purple" "pfetch-git" "shellcheck-bin"
-    "ttf-material-design-icons-webfont" "ungoogled-chromium"
-    "wtwitch" "zlib-ng"
+    "gimp-git" "gmni-git" "linode-cli" "otf-san-francisco"
+    "pandoc-bin" "pash" "plata-theme-krath-purple" "pfetch-git"
+    "shellcheck-bin" "ttf-material-design-icons-webfont"
+    "ungoogled-chromium" "wtwitch" "zlib-ng"
 
     # Fonts
     "gnu-free-fonts" "noto-fonts" "noto-fonts-cjk"
@@ -50,14 +49,14 @@ depends=(
 
     # Gstreamer
     "gst-libav" "gst-plugins-bad" "gst-plugins-base"
-    "gst-plugins-good"
+    "gst-plugins-good" "gst-plugin-pipewire"
 
     # System Packages
     "android-udev" "apparmor" "asp" "bash-completion"
-    "bluez" "bluez-utils" "crda" "dash"
-    "exfatprogs" "f2fs-tools" "ffmpeg" "firewalld" "fwupd"
-    "grc" "gst-libav" "gst-plugin-pipewire" "hunspell-en_US"
-    "iwd" "logrotate" "man-db" "man-pages" "networkmanager"
+    "bluez" "bluez-utils" "crda" "dash" "dosfstools"
+    "e2fsprogs" "exfatprogs" "f2fs-tools" "ffmpeg"
+    "firewalld" "fwupd" "grc" "hunspell-en_US" "iwd"
+    "logrotate" "man-db" "man-pages" "networkmanager"
     "notification-daemon" "papirus-icon-theme"
     "pkgstats" "pipewire" "pipewire-alsa" "pipewire-pulse"
     "rng-tools" "source-highlight" "usbguard" "usbutils"
@@ -70,20 +69,18 @@ depends=(
 
     # Terminal applications
     "android-tools" "arch-audit" "archiso" "bat" "calc"
-    "dictd" "dosfstools" "e2fsprogs" "exa" "efitools"
-    "fff" "gptfdisk" "htop" "hyperfine" "irssi"
-    "isync" "iw" "jpegoptim" "khard" "mediainfo"
-    "mosh" "nano" "nano-syntax-highlighting" "ncdu"
+    "dictd" "exa" "efitools" "gptfdisk" "htop" "hyperfine"
+    "irssi" "isync" "iw" "jpegoptim" "khard" "mediainfo"
+    "micro" "mosh" "nano" "nano-syntax-highlighting" "ncdu"
     "neomutt" "pacman-contrib" "pamixer" "pass" "pass-otp"
     "perl-image-exiftool" "pigz" "playerctl" "qpdf"
     "qrencode" "stow" "stress" "termdown" "transmission-cli"
-    "unzip" "w3m" "vdirsyncer" "which" "xxhash" "youtube-dl"
-    "zip"
+    "unzip" "w3m" "vdirsyncer" "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
     "code" "epiphany" "evince" "firefox-developer-edition"
-    "foliate" "gnome-characters" "imv" "libreoffice-fresh"
-    "meld" "lollypop" "mpv" "pavucontrol" "signal-desktop"
+    "gnome-characters" "imv" "libreoffice-fresh" "meld"
+    "lollypop" "mpv" "nemo" "pavucontrol" "signal-desktop"
     "syncthing" "thunderbird" "zim"
 
     # Development packages
