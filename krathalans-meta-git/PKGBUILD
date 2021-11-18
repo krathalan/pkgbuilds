@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-meta-git
-pkgver=r191.aeb7637
+pkgver=r194.9cf8fda
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"

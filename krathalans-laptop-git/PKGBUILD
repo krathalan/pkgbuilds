@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-laptop-git
-pkgver=r188.34b0166
+pkgver=r194.9cf8fda
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"

@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-gaming-git
-pkgver=r191.aeb7637
-pkgrel=2
+pkgver=r194.9cf8fda
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -103,6 +103,7 @@ package() {
     # gaming
     cd "${srcdir}/${pkgname}/gaming" || exit
 
+    install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 
