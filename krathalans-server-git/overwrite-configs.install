@@ -3,9 +3,22 @@ post_install() {
 }
 
 post_upgrade() {
+    rm -f /etc/opendmarc/opendmarc.conf
+    install -D -m640 -o opendmarc -g mail /etc/krathalan/opendmarc/opendmarc.conf /etc/opendmarc/opendmarc.conf
+    
     cp /etc/krathalan/nginx/mime.types /etc/nginx/mime.types
     cp /etc/krathalan/nginx/nginx.conf /etc/nginx/nginx.conf
+    
     cp /etc/krathalan/pacman.conf /etc/pacman.conf
+    
+    cp /etc/krathalan/postfix/main.cf /etc/postfix/main.cf
+    cp /etc/krathalan/postfix/master.cf /etc/postfix/master.cf
+    
     cp /etc/krathalan/ssh/ssh_config /etc/ssh/ssh_config
     cp /etc/krathalan/ssh/sshd_config /etc/ssh/sshd_config
+    
+    # Fix permissions
+    chown opendkim:mail /etc/opendkim/opendkim.conf
+    chown opendmarc:mail /etc/krathalan/opendmarc/opendmarc.conf
+    chown opendmarc:mail /etc/opendmarc/opendmarc.conf
 }

@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-server-git
-pkgver=r185.e3ab762
-pkgrel=1
+pkgver=r191.aeb7637
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -89,6 +89,8 @@ package() {
 
     # server-specific
     cd "${srcdir}/${pkgname}/server" || exit
+    
+    install -D -m644 dovecot/dovecot.conf "${pkgdir}/etc/dovecot/dovecot.conf"
 
     install -D -m644 nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
     install -D -m644 nginx/mime.types "${pkgdir}/etc/krathalan/nginx/mime.types"
@@ -96,6 +98,16 @@ package() {
     install -D -m644 nginx/sites-available/default "${pkgdir}/etc/nginx/sites-available/default"
     install -D -m644 nginx/sites-available/mail "${pkgdir}/etc/nginx/sites-available/mail"
     install -D -m644 nginx/sites-available/nitter "${pkgdir}/etc/nginx/sites-available/nitter"
+    
+    # /etc folder owners/permissions
+    # drwxr-xr-x 2 opendkim  mail    4096 Nov 14 11:35 opendkim
+    # drwx------ 2 opendmarc mail    4096 May 11  2021 opendmarc
+    install -D -m640 -o opendkim -g mail opendkim/opendkim.conf "${pkgdir}/etc/opendkim/opendkim.conf"
+    install -D -m640 -o opendmarc -g mail opendmarc/opendmarc.conf "${pkgdir}/etc/krathalan/opendmarc/opendmarc.conf"
+
+    install -D -m644 postfix/main.cf "${pkgdir}/etc/krathalan/postfix/main.cf"
+    install -D -m644 postfix/master.cf "${pkgdir}/etc/krathalan/postfix/master.cf"
+    install -D -m644 postfix/postgrey_whitelist_clients.local "${pkgdir}/etc/postfix/postgrey_whitelist_clients.local"
 
     install -D -m644 systemd/system/postgrey.service "${pkgdir}/etc/systemd/system/postgrey.service"
 
