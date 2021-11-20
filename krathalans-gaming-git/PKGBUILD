@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-gaming-git
 pkgver=r194.9cf8fda
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -37,11 +37,12 @@ depends=(
     # From builds.krathalan.net
     "krathalans-apparmor-profiles-git"
     "discord_arch_electron" "krathalans-scripts-git"
-    "krathalans-systemd-sandboxing-git"
-    "gamemode" "lib32-gamemode" "lib32-mangohud"
+    "krathalans-systemd-sandboxing-git" "gamemode"
+    "lib32-gamemode" "lib32-mangohud"
     "lib32-vkd3d-tkg-git" "mangohud"
     "simulationcraft-git" "vkd3d-tkg-git"
-    "weakauras-companion-bin" "zlib-ng"
+    "weakauras-companion-bin" "zenpower3-dkms"
+    "zlib-ng"
 
     # For building dxvk
     "ccache" "meson" "mingw-w64-binutils"

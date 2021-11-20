@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-desktop-git
 pkgver=r194.9cf8fda
-pkgrel=2
+pkgrel=3
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -37,8 +37,8 @@ depends=(
     # From builds.krathalan.net
     "krathalans-apparmor-profiles-git"
     "krathalans-meta-git" "krathalans-scripts-git"
-    "krathalans-systemd-sandboxing-git"
-    "polybar" "redshift-no-geoclue" "xob"
+    "krathalans-systemd-sandboxing-git" "polybar"
+    "redshift-no-geoclue" "xob" "zenpower3-dkms"
 
     # Xorg packages
     "alacritty" "code" "dmenu" "dunst" "feh" "i3-gaps" "i3lock"
