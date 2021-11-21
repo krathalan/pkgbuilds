@@ -92,6 +92,8 @@ package() {
     
     install -D -m644 dovecot/dovecot.conf "${pkgdir}/etc/dovecot/dovecot.conf"
 
+    install -D -m644 libreddit.conf "${pkgdir}/etc/libreddit.conf"
+
     install -D -m644 nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
     install -D -m644 nginx/mime.types "${pkgdir}/etc/krathalan/nginx/mime.types"
     install -D -m644 nginx/sites-available/builds "${pkgdir}/etc/nginx/sites-available/builds"
@@ -102,14 +104,15 @@ package() {
     # /etc folder owners/permissions
     # drwxr-xr-x 2 opendkim  mail    4096 Nov 14 11:35 opendkim
     # drwx------ 2 opendmarc mail    4096 May 11  2021 opendmarc
-    install -D -m640 -o opendkim -g mail opendkim/opendkim.conf "${pkgdir}/etc/opendkim/opendkim.conf"
-    install -D -m640 -o opendmarc -g mail opendmarc/opendmarc.conf "${pkgdir}/etc/krathalan/opendmarc/opendmarc.conf"
+    install -D -m640 opendkim/opendkim.conf "${pkgdir}/etc/krathalan/opendkim/opendkim.conf"
+    install -D -m640 opendmarc/opendmarc.conf "${pkgdir}/etc/krathalan/opendmarc/opendmarc.conf"
 
     install -D -m644 postfix/main.cf "${pkgdir}/etc/krathalan/postfix/main.cf"
     install -D -m644 postfix/master.cf "${pkgdir}/etc/krathalan/postfix/master.cf"
     install -D -m644 postfix/postgrey_whitelist_clients.local "${pkgdir}/etc/postfix/postgrey_whitelist_clients.local"
 
     install -D -m644 systemd/system/postgrey.service "${pkgdir}/etc/systemd/system/postgrey.service"
+    install -D -m644 systemd/system/libreddit.service "${pkgdir}/etc/systemd/system/libreddit.service"
 
     install -D -m644 sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
     install -D -m644 sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
