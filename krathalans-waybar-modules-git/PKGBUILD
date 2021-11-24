@@ -48,9 +48,6 @@ package() {
     cd "${srcdir}/${pkgname}/${module}" || exit
     install -D -m755 "wbm_${module}" "${pkgdir}/usr/bin/wbm_${module}"
   done
-  
-  # Install update-count
-  install -D -m755 "${srcdir}/${pkgname}/update-count" "${pkgdir}/usr/bin/wbm_update-count"
 
   cd "${srcdir}/${pkgname}/apparmor-profiles" || exit
 
