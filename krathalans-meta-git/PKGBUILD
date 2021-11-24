@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-meta-git
-pkgver=r194.9cf8fda
+pkgver=r196.f71eb6e
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
@@ -47,10 +47,6 @@ depends=(
     "ttf-dejavu" "ttf-ibm-plex" "libertinus-font"
     "ttf-roboto" "ttf-roboto-mono"
 
-    # Gstreamer
-    "gst-libav" "gst-plugins-bad" "gst-plugins-base"
-    "gst-plugins-good" "gst-plugin-pipewire"
-
     # System Packages
     "android-udev" "apparmor" "asp" "bash-completion"
     "bluez" "bluez-utils" "crda" "dash" "dosfstools"
@@ -78,7 +74,7 @@ depends=(
     "unzip" "w3m" "vdirsyncer" "xxhash" "youtube-dl" "zip"
 
     # Graphical applications
-    "code" "epiphany" "evince" "firefox-developer-edition"
+    "code" "evince" "firefox-developer-edition"
     "gnome-characters" "imv" "libreoffice-fresh" "meld"
     "lollypop" "mpv" "nemo" "pavucontrol" "signal-desktop"
     "syncthing" "thunderbird" "zim"
