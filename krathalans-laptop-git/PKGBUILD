@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-laptop-git
-pkgver=r194.9cf8fda
+pkgver=r198.58daf50
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
@@ -64,7 +64,6 @@ package() {
     install -D -m644 fwupd/uefi_capsule.conf "${pkgdir}/etc/krathalan/fwupd/uefi_capsule.conf"
 
     install -D -m644 sbctl-cmdline "${pkgdir}/etc/sbctl-cmdline"
-    install -D -m644 sbctl-cmdline-alt "${pkgdir}/etc/sbctl-cmdline-alt"
 
     install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
 

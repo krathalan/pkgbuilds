@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-meta-git
-pkgver=r196.f71eb6e
+pkgver=r199.8bcfc40
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
@@ -55,7 +55,8 @@ depends=(
     "logrotate" "man-db" "man-pages" "networkmanager"
     "notification-daemon" "papirus-icon-theme"
     "pkgstats" "pipewire" "pipewire-alsa" "pipewire-pulse"
-    "rng-tools" "source-highlight" "usbguard" "usbutils"
+    "rng-tools" "source-highlight" "usb_modeswitch"
+    "usbguard" "usbutils"
 
     # Backups
     "borg" "python-llfuse"
