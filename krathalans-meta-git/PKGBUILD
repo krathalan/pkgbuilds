@@ -6,7 +6,7 @@
 # General package information
 pkgname=krathalans-meta-git
 pkgver=r202.efcb858
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -52,9 +52,9 @@ depends=(
     "bluez" "bluez-utils" "crda" "dash" "dosfstools"
     "e2fsprogs" "exfatprogs" "f2fs-tools" "ffmpeg"
     "firewalld" "fwupd" "grc" "hunspell-en_US" "iwd"
-    "logrotate" "man-db" "man-pages" "networkmanager"
-    "notification-daemon" "papirus-icon-theme"
-    "pkgstats" "pipewire" "pipewire-alsa" "pipewire-pulse"
+    "logrotate" "lvm2" "man-db" "man-pages" "networkmanager"
+    "notification-daemon" "papirus-icon-theme" "pkgstats"
+    "pipewire" "pipewire-alsa" "pipewire-pulse"
     "rng-tools" "source-highlight" "usb_modeswitch"
     "usbguard" "usbutils" "xfsprogs"
 
