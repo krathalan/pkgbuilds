@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-desktop-git
-pkgver=r194.9cf8fda
-pkgrel=3
+pkgver=r204.8871628
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")

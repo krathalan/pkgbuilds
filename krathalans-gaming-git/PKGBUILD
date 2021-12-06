@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-gaming-git
-pkgver=r194.9cf8fda
+pkgver=r204.8871628
 pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
@@ -47,7 +47,7 @@ depends=(
     # For building dxvk
     "ccache" "meson" "mingw-w64-binutils"
     "mingw-w64-crt" "mingw-w64-gcc" "mingw-w64-headers"
-    "mingw-w64-winpthreads"
+    "mingw-w64-winpthreads" "wget"
 
     # Launchers
     "lutris" "steam-native-runtime"
@@ -115,6 +115,9 @@ package() {
     install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
 
     install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
+    
+    install -D -m644 NetworkManager/conf.d/ip6-privacy.conf "${pkgdir}/etc/NetworkManager/conf.d/ip6-privacy.conf"
+    install -D -m644 NetworkManager/conf.d/wifi-backend.conf "${pkgdir}/etc/NetworkManager/conf.d/wifi-backend.conf"
 
     install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/hooks/77-systemd-boot.hook"
     install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
