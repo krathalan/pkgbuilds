@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krack-git
-pkgver=0.4.2.r16.g4a9cdcc
+pkgver=0.4.2.r20.geb172cf
 pkgrel=1
 pkgdesc="Krathalan's packaging softwares"
 url="https://github.com/krathalan/krack"

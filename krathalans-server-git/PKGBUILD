@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-server-git
-pkgver=r194.9cf8fda
+pkgver=r206.eec3d04
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
@@ -50,7 +50,8 @@ depends=(
 
     # System packages
     "apparmor" "bash-completion" "certbot" "certbot-nginx"
-    "dash" "fail2ban" "haveged" "pkgstats" "sudo"
+    "dash" "fail2ban" "haveged" "pacman-contrib" "pkgstats"
+    "sudo"
 
     # Server packages (email, http, dav, file host, firewall)
     "dovecot" "firewalld" "grc" "mosh" "nginx-mainline"
