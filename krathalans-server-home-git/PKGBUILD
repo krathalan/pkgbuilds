@@ -59,8 +59,8 @@ depends=(
     # Terminal applications
     "arch-audit" "bat" "bc" "brotli" "e2fsprogs" "exa"
     "htop" "inotify-tools" "jq" "logrotate" "man-db"
-    "man-pages" "nano" "ncdu" "ripgrep" "texinfo" "tmux"
-    "tree"
+    "man-pages" "nano" "ncdu" "pacman-contrib" "ripgrep"
+    "texinfo" "tmux" "tree"
 
     # Development packages
     "ccache" "devtools" "git"
