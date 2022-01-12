@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krathalans-gaming-git
-pkgver=r204.8871628
-pkgrel=2
+pkgver=r208.bdc195f
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -137,4 +137,6 @@ package() {
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
 
     install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
+    
+    install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
 }
