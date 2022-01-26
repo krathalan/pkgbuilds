@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krathalans-server-home-git
-pkgver=r194.9cf8fda
+pkgver=r208.bdc195f
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
@@ -49,18 +49,19 @@ depends=(
     "lighttpd" "php-cgi" "php-sqlite"
 
     # System packages
-    "apparmor" "asp" "bash-completion" "dash" "firewalld" "gptfdisk"
-    "grc" "lsscsi" "mosh" "openssh" "pigz" "pkgstats" "rng-tools"
-    "rsync" "stress" "sudo" "syncthing"
+    "apparmor" "asp" "bash-completion" "clamav"
+    "clamav-unofficial-sigs" "dash" "dosfstools" "firewalld"
+    "gptfdisk" "grc" "lsscsi" "mosh" "openssh" "pigz"
+    "pkgstats" "rng-tools" "rsync" "stress" "sudo" "syncthing"
 
     # Backups
     "borg"
 
     # Terminal applications
-    "arch-audit" "bat" "bc" "brotli" "e2fsprogs" "exa"
-    "htop" "inotify-tools" "jq" "logrotate" "man-db"
-    "man-pages" "nano" "ncdu" "pacman-contrib" "ripgrep"
-    "texinfo" "tmux" "tree"
+    "android-tools" "arch-audit" "bat" "bc" "brotli" "e2fsprogs"
+    "exa" "htop" "inotify-tools" "jq" "logrotate" "man-db"
+    "man-pages" "mediainfo" "nano" "ncdu" "pacman-contrib"
+    "ripgrep" "texinfo" "tmux" "transmission-cli" "tree"
 
     # Development packages
     "ccache" "devtools" "git"
