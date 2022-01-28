@@ -4,14 +4,14 @@
 # shellcheck disable=SC2154
 
 # General package information
-pkgname=krathalans-server-git
+pkgname=krath-server-git
 pkgver=r206.eec3d04
 pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
 arch=("any")
-replaces=("krathalans-server")
+replaces=("krathalans-server" "krathalans-server-git")
 
 # Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
 install=overwrite-configs.install
@@ -34,69 +34,37 @@ makedepends=("git")
 
 # Dependencies
 depends=(
+    "krath-base-git"
+
     # From builds.krathalan.net
     "krack"
-    "krathalans-apparmor-profiles-git"
     "krathalans-endlessh-git"
-    "krathalans-scripts-git"
-    "krathalans-systemd-sandboxing-git"
-    "etc-update" "micro"
     "nginx-mainline-mod-brotli"
     "nginx-mainline-mod-fancyindex"
     "nitter-git"
-    "zlib-ng"
     # For htpasswd
     "apache-tools"
 
     # System packages
-    "apparmor" "bash-completion" "certbot" "certbot-nginx"
-    "dash" "fail2ban" "haveged" "pacman-contrib" "pkgstats"
-    "sudo"
+    "certbot" "certbot-nginx" "fail2ban"
 
     # Server packages (email, http, dav, file host, firewall)
-    "dovecot" "firewalld" "grc" "mosh" "nginx-mainline"
+    "dovecot" "firewalld" "nginx-mainline"
     "opendkim" "opendmarc" "pigeonhole" "pflogsumm"
     "postfix" "postgrey" "radicale" "rsync" "spamassassin"
-
-    # Backups
-    "borg"
-
-    # Terminal applications
-    "arch-audit" "bat" "bc" "brotli" "e2fsprogs" "exa"
-    "htop" "inotify-tools" "jq" "logrotate" "man-db"
-    "man-pages" "nano" "ncdu" "ripgrep" "texinfo" "tmux"
-    "tree"
-
-    # Development packages
-    "git"
 )
 
 package() {
-    cd "${srcdir}/${pkgname}/meta" || exit
-
-    install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
-
+    cd "${srcdir}/${pkgname}" || exit
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
-
-    install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
-
-    install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
-    install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
-
-    install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
-    install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
-
-    install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
 
     # server-specific
     cd "${srcdir}/${pkgname}/server" || exit
     
     install -D -m644 dovecot/dovecot.conf "${pkgdir}/etc/dovecot/dovecot.conf"
-
     install -D -m644 libreddit.conf "${pkgdir}/etc/libreddit.conf"
-
     install -D -m644 nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
-    install -D -m644 nginx/mime.types "${pkgdir}/etc/krathalan/nginx/mime.types"
+    install -D -m644 nginx/mime.types "${pkgdir}/etc/krathalan/nginx/mime.types"    
     install -D -m644 nginx/sites-available/builds "${pkgdir}/etc/nginx/sites-available/builds"
     install -D -m644 nginx/sites-available/default "${pkgdir}/etc/nginx/sites-available/default"
     install -D -m644 nginx/sites-available/mail "${pkgdir}/etc/nginx/sites-available/mail"
@@ -112,6 +80,10 @@ package() {
     install -D -m644 postfix/master.cf "${pkgdir}/etc/krathalan/postfix/master.cf"
     install -D -m644 postfix/postgrey_whitelist_clients.local "${pkgdir}/etc/postfix/postgrey_whitelist_clients.local"
 
+    install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
+
+    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
+    
     install -D -m644 systemd/system/postgrey.service "${pkgdir}/etc/systemd/system/postgrey.service"
     install -D -m644 systemd/system/libreddit.service "${pkgdir}/etc/systemd/system/libreddit.service"
 

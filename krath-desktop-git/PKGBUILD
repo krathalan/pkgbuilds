@@ -4,14 +4,14 @@
 # shellcheck disable=SC2154
 
 # General package information
-pkgname=krathalans-desktop-git
-pkgver=r204.8871628
+pkgname=krath-desktop-git
+pkgver=r208.bdc195f
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
 arch=("any")
-replaces=("krathalans-desktop")
+replaces=("krathalans-desktop" "krathalans-desktop-git")
 
 # Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
 install=overwrite-configs.install
@@ -34,28 +34,21 @@ makedepends=("git")
 
 # Dependencies
 depends=(
-    # From builds.krathalan.net
-    "krathalans-apparmor-profiles-git"
-    "krathalans-meta-git" "krathalans-scripts-git"
-    "krathalans-systemd-sandboxing-git" "polybar"
-    "redshift-no-geoclue" "xob" "zenpower3-dkms"
-
-    # Xorg packages
-    "alacritty" "code" "dmenu" "dunst" "feh" "i3-gaps" "i3lock"
-    "i3status" "picom" "rofi" "scrot" "xclip" "xorg-server"
-    "xorg-xinit"
-
-    # System packages
-    "amd-ucode"
+    "krath-base-git" "krath-dev-git" "krath-i3-git"
+    "krath-workstation-git" "krath-workstation-extras-git"
+    
+    # builds.krathalan.net
+    "zenpower3-dkms"
 )
 
-package() {
+package() { 
+    cd "${srcdir}/${pkgname}" || exit
+    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
+    
     cd "${srcdir}/${pkgname}/desktop" || exit
-
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
-
     install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
-
     install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
 }

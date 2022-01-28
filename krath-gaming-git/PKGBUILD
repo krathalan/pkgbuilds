@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krath-gaming-git
+pkgver=r208.bdc195f
+pkgrel=2
+pkgdesc="Packages and configuration for Krathalan's gaming"
+url="https://github.com/krathalan/etc-config"
+license=("GPL3")
+arch=("any")
+replaces=("krathalans-gaming" "krathalans-gaming-git")
+
+# Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
+install=overwrite-configs.install
+
+source=("${pkgname}::git+${url}?signed")
+validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174")
+sha512sums=("SKIP")
+
+# https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
+pkgver() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+makedepends=("git")
+
+# Dependencies
+depends=(
+    "krath-base-git" "krath-i3-git"
+    "krath-workstation-git"
+
+    # From builds.krathalan.net
+    "discord_arch_electron" "gamemode"
+    "lib32-gamemode" "lib32-mangohud"
+    "lib32-vkd3d-tkg-git" "mangohud"
+    "simulationcraft-git" "vkd3d-tkg-git"
+    "zenpower3-dkms"
+
+    # For building dxvk
+    "ccache" "meson" "mingw-w64-binutils"
+    "mingw-w64-crt" "mingw-w64-gcc" "mingw-w64-headers"
+    "mingw-w64-winpthreads" "wget"
+
+    # Launchers
+    "lutris" "steam-native-runtime"
+
+    # Wine
+    # https://github.com/lutris/docs/blob/master/Battle.Net.md
+    # https://github.com/lutris/docs/blob/master/WineDependencies.md
+    "wine-staging" "wine-gecko" "wine-mono"
+    "lib32-gnutls" "lib32-libldap" "lib32-libgpg-error" "lib32-sqlite" "lib32-libpulse"
+    "giflib" "lib32-giflib" "libpng" "lib32-libpng" "libldap" "lib32-libldap" "gnutls" "lib32-gnutls" "mpg123" "lib32-mpg123" "openal" "lib32-openal" "v4l-utils" "lib32-v4l-utils" "libpulse" "lib32-libpulse" "libgpg-error" "lib32-libgpg-error" "alsa-plugins" "lib32-alsa-plugins" "alsa-lib" "lib32-alsa-lib" "libjpeg-turbo" "lib32-libjpeg-turbo" "sqlite" "lib32-sqlite" "libxcomposite" "lib32-libxcomposite" "libxinerama" "lib32-libgcrypt" "libgcrypt" "lib32-libxinerama" "ncurses" "lib32-ncurses" "opencl-icd-loader" "lib32-opencl-icd-loader" "libxslt" "lib32-libxslt" "libva" "lib32-libva" "gtk3" "lib32-gtk3" "gst-plugins-base-libs" "lib32-gst-plugins-base-libs" "vulkan-icd-loader" "lib32-vulkan-icd-loader"
+)
+
+package() {
+    cd "${srcdir}/${pkgname}/gaming" || exit
+    install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
+    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
+
+    cd "${srcdir}/${pkgname}/desktop" || exit
+    install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
+    install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
+    install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
+}

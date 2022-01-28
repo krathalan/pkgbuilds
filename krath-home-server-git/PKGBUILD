@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krath-home-server-git
+pkgver=r208.bdc195f
+pkgrel=1
+pkgdesc="Packages and configuration for Krathalan's home server"
+url="https://github.com/krathalan/etc-config"
+license=("GPL3")
+arch=("any")
+replaces=("krathalans-server-home" "krathalans-server-home-git")
+
+# Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
+install=overwrite-configs.install
+
+source=("${pkgname}::git+${url}?signed")
+validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174")
+sha512sums=("SKIP")
+
+# https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
+pkgver() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+makedepends=("git")
+
+# Dependencies
+depends=(
+    "krath-base-git"
+
+    # builds.krathalan.net
+    "krack-git"
+    "cloudflared" "jellyfin-server"
+    "jellyfin-web" "pi-hole-server"
+
+    # Syncthing web GUI reverse proxy
+    "nginx-mainline"
+
+    # Pihole
+    "lighttpd" "php-cgi" "php-sqlite"
+
+    # System packages
+    "clamav" "clamav-unofficial-sigs" "syncthing"
+
+    # Development packages
+    "ccache" "devtools"
+)
+
+package() {
+    cd "${srcdir}/${pkgname}" || exit
+    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
+
+    # server-specific
+    cd "${srcdir}/${pkgname}/server" || exit
+    install -D -m644 sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
+    install -D -m644 sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
+
+    # home-server-specific
+    cd "${srcdir}/${pkgname}/home-server" || exit
+    install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
+    install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
+    install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
+}

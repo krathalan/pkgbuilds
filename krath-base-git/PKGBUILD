@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krath-base-git
+pkgver=r208.bdc195f
+pkgrel=2
+pkgdesc="Base package for Krathalan's computers"
+url="https://github.com/krathalan/etc-config"
+license=("GPL3")
+arch=("any")
+replaces=("krathalans-meta" "krathalans-meta-git")
+
+# Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
+install=overwrite-configs.install
+
+source=("${pkgname}::git+${url}?signed")
+validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174")
+sha512sums=("SKIP")
+
+# https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
+pkgver() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+makedepends=("git")
+
+# Dependencies
+depends=(
+    # builds.krathalan.net
+    "etc-update" "krathalans-apparmor-profiles-git"
+    "krathalans-scripts-git"
+    "krathalans-systemd-sandboxing-git" "pfetch-git" "zlib-ng"
+
+    # System Packages
+    "apparmor" "bash-completion" "dash" "firewalld" "grc"
+    "logrotate" "lvm2" "man-db" "man-pages" "pkgstats"
+    "rng-tools" "source-highlight"
+    
+    # Backups
+    "borg" "python-llfuse"
+    
+    # Terminal applications
+    "android-tools" "arch-audit" "asp" "bat" "bc" "brotli" "calc" "dosfstools"
+    "e2fsprogs" "exa" "exfatprogs" "efitools" "f2fs-tools" "ffmpeg"
+    "git" "gptfdisk" "htop" "hyperfine" "inotify-tools" "iw" "jpegoptim"
+    "jq" "lshw" "mediainfo" "micro" "mosh" "nano" "nano-syntax-highlighting"
+    "ncdu" "pacman-contrib" "perl-image-exiftool" "pigz" "qrencode" "ripgrep"
+    "rsync" "texinfo" "tmux" "tree" "transmission-cli" "unzip"
+    "usb_modeswitch" "usbutils" "xfsprogs" "xxhash" "zip"  
+)
+
+package() {
+    cd "${srcdir}/${pkgname}/base" || exit
+    install -D -m644 issue "${pkgdir}/etc/krathalan/issue"
+    install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
+    install -D -m644 NetworkManager/conf.d/ip6-privacy.conf "${pkgdir}/etc/NetworkManager/conf.d/ip6-privacy.conf"
+    install -D -m644 NetworkManager/conf.d/wifi-backend.conf "${pkgdir}/etc/NetworkManager/conf.d/wifi-backend.conf"
+    install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
+    install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
+    install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
+    install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
+    install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
+    install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
+    install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/etc/systemd/network/25-ethernet.network"
+    install -D -m644 systemd/resolved.conf.d/disable-fallback-dns.conf "${pkgdir}/etc/systemd/resolved.conf.d/disable-fallback-dns.conf"
+    install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
+    install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
+}

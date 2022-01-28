@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=krath-workstation-git
+pkgver=r208.bdc195f
+pkgrel=1
+pkgdesc="Basic home PC packages for Krathalan's computers"
+url="https://github.com/krathalan/etc-config"
+license=("GPL3")
+arch=("any")
+
+source=("${pkgname}::git+${url}?signed")
+validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174")
+sha512sums=("SKIP")
+
+# https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
+pkgver() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+makedepends=("git")
+
+# Dependencies
+depends=(
+    # builds.krathalan.net
+    "dict-gcide" "dict-moby-thesaurus" "gimp-git"
+    "gmni-git" "linode-cli" "otf-san-francisco"
+    "plata-theme-krath-purple"
+    "ttf-material-design-icons-webfont"
+    "ungoogled-chromium" "wtwitch"
+    
+    # Fonts
+    "gnu-free-fonts" "noto-fonts" "noto-fonts-cjk"
+    "noto-fonts-emoji" "otf-fira-mono" "terminus-font"
+    "ttf-dejavu" "ttf-ibm-plex" "libertinus-font"
+    "ttf-roboto" "ttf-roboto-mono"
+    
+    # System packages
+    "android-udev" "bluez" "bluez-utils" "crda"
+    "fwupd" "hunspell-en_US" "iwd" "networkmanager"
+    "notification-daemon" "papirus-icon-theme"
+    "pipewire" "pipewire-alsa" "pipewire-pulse"
+    "usbguard"
+    
+    # Printing
+    "cups" "hplip" "system-config-printer"
+    
+    # Terminal applications
+    "dictd" "nmap" "pamixer" "playerctl" "stow"
+    "stress" "termdown" "yt-dlp"
+    
+    # Graphical applications
+    "evince" "firefox-developer-edition"
+    "gnome-characters" "imv" "mpv" "nemo"
+    "pavucontrol"
+)
+
+package() {
+    cd "${srcdir}/${pkgname}/workstation" || exit
+    install -D -m644 conf.d/wireless-regdom "${pkgdir}/etc/krathalan/conf.d/wireless-regdom"
+    install -D -m644 dict/dictd.conf "${pkgdir}/etc/krathalan/dict/dictd.conf"
+    install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/hooks/77-systemd-boot.hook"
+    install -D -m644 sysctl.d/krathalans-custom.conf "${pkgdir}/etc/sysctl.d/krathalans-custom.conf"
+}

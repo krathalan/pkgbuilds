@@ -1,0 +1,9 @@
+post_install() {
+    post_upgrade
+}
+
+post_upgrade() {
+    cp /etc/krathalan/issue /etc/issue
+    cp /etc/krathalan/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
+    cp /etc/krathalan/ssh/ssh_config /etc/ssh/ssh_config
+}

@@ -11,6 +11,6 @@ post_upgrade() {
     cp /etc/krathalan/postfix/main.cf /etc/postfix/main.cf
     cp /etc/krathalan/postfix/master.cf /etc/postfix/master.cf
     
-    cp /etc/krathalan/ssh/ssh_config /etc/ssh/ssh_config
     cp /etc/krathalan/ssh/sshd_config /etc/ssh/sshd_config
+    cp /etc/krathalan/sudoers /etc/sudoers
 }

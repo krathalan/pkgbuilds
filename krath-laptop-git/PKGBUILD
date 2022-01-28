@@ -4,14 +4,14 @@
 # shellcheck disable=SC2154
 
 # General package information
-pkgname=krathalans-laptop-git
+pkgname=krath-laptop-git
 pkgver=r204.8871628
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
 arch=("any")
-replaces=("krathalans-laptop")
+replaces=("krathalans-laptop" "krathalans-laptop-git")
 
 # Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
 install=overwrite-configs.install
@@ -34,13 +34,11 @@ makedepends=("git")
 
 # Dependencies
 depends=(
-    # From builds.krathalan.net
-    "foot" "foot-terminfo"
-    "krathalans-apparmor-profiles-git"
-    "krathalans-meta-git" "krathalans-scripts-git"
-    "krathalans-systemd-sandboxing-git"
+    "krath-base-git" "krath-dev-git" "krath-sway-git"
+    "krath-workstation-git" "krath-workstation-extras-git"
+    
+    # builds.krathalan.net
     "krathalans-waybar-modules-git"
-    "wdisplays" "wlsunset-git" "wob"
 
     # System packages
     "intel-ucode" "sbctl" "smartmontools" "tlp"
@@ -48,30 +46,22 @@ depends=(
 
     # Hwaccel
     "intel-media-driver"
-
-    # Wayland packages
-    "bemenu" "bemenu-wayland" "grim" "light" "mako"
-    "slurp" "sway" "swayidle" "swaylock" "waybar"
-    "wl-clipboard"
 )
 
 package() {
+    cd "${srcdir}/${pkgname}" || exit
+    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
+    
     cd "${srcdir}/${pkgname}/laptop" || exit
-
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
-    install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
-
     install -D -m644 fwupd/uefi_capsule.conf "${pkgdir}/etc/krathalan/fwupd/uefi_capsule.conf"
-
-    install -D -m644 sbctl-cmdline "${pkgdir}/etc/sbctl-cmdline"
-
-    install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
-
+    install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
     install -D -m644 modprobe.d/iwlwifi.conf "${pkgdir}/etc/modprobe.d/iwlwifi.conf"
-
-    install -D -m644 tlp.d/krathalans-custom.conf "${pkgdir}/etc/tlp.d/krathalans-custom.conf"
-
+    install -D -m644 sbctl-cmdline "${pkgdir}/etc/sbctl-cmdline"
     install -D -m644 systemd/system/undervolt.timer "${pkgdir}/usr/lib/systemd/system/undervolt.timer"
     install -D -m644 systemd/system/undervolt.service "${pkgdir}/usr/lib/systemd/system/undervolt.service"
+    install -D -m644 tlp.d/krathalans-custom.conf "${pkgdir}/etc/tlp.d/krathalans-custom.conf"
+    install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
 }
