@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-sway-git
-pkgver=r208.bdc195f
+pkgver=r211.37df45c
 pkgrel=1
 pkgdesc="Sway/Wayland packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"

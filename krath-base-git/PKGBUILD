@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-base-git
-pkgver=r208.bdc195f
+pkgver=r211.37df45c
 pkgrel=2
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
@@ -49,7 +49,7 @@ depends=(
     
     # Terminal applications
     "android-tools" "arch-audit" "asp" "bat" "bc" "brotli" "calc" "dosfstools"
-    "e2fsprogs" "exa" "exfatprogs" "efitools" "f2fs-tools" "ffmpeg"
+    "e2fsprogs" "exa" "exfatprogs" "efitools" "f2fs-tools"
     "git" "gptfdisk" "htop" "hyperfine" "inotify-tools" "iw" "jpegoptim"
     "jq" "lshw" "mediainfo" "micro" "mosh" "nano" "nano-syntax-highlighting"
     "ncdu" "pacman-contrib" "perl-image-exiftool" "pigz" "qrencode" "ripgrep"
