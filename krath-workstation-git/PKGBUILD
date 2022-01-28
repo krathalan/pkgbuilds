@@ -6,7 +6,7 @@
 # General package information
 pkgname=krath-workstation-git
 pkgver=r211.37df45c
-pkgrel=4
+pkgrel=5
 pkgdesc="Basic home PC packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -35,7 +35,7 @@ makedepends=("git")
 depends=(
     # builds.krathalan.net
     "dict-gcide" "dict-moby-thesaurus" "gimp-git"
-    "gmni-git" "linode-cli" "otf-san-francisco"
+    "gmni-git" "otf-san-francisco"
     "plata-theme-krath-purple"
     "ttf-material-design-icons-webfont"
     "ungoogled-chromium" "wtwitch"
@@ -52,9 +52,6 @@ depends=(
     "notification-daemon" "papirus-icon-theme"
     "pipewire" "pipewire-alsa" "pipewire-pulse"
     "usbguard"
-    
-    # Printing
-    "cups" "hplip" "system-config-printer"
     
     # Terminal applications
     "dictd" "ffmpeg" "nmap" "pamixer" "playerctl" "stow"

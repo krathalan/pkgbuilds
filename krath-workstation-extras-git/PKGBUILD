@@ -6,7 +6,7 @@
 # General package information
 pkgname=krath-workstation-extras-git
 pkgver=r211.37df45c
-pkgrel=1
+pkgrel=2
 pkgdesc="Extended home PC packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -32,6 +32,9 @@ makedepends=("git")
 depends=(
     # builds.krathalan.net
     "linode-cli" "pash"
+    
+    # Printing
+    "cups" "hplip" "system-config-printer"
     
     # Terminal applications
     "irssi" "isync" "khard" "neomutt" "pass"
