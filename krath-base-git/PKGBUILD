@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-base-git
-pkgver=r211.37df45c
-pkgrel=2
+pkgver=r212.b4b8750
+pkgrel=1
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -67,7 +67,6 @@ package() {
     install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
     install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
     install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
-    install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
     install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/etc/systemd/network/25-ethernet.network"
     install -D -m644 systemd/resolved.conf.d/disable-fallback-dns.conf "${pkgdir}/etc/systemd/resolved.conf.d/disable-fallback-dns.conf"

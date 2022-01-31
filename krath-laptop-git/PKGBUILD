@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-laptop-git
-pkgver=r211.37df45c
+pkgver=r212.b4b8750
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
@@ -52,6 +52,9 @@ package() {
     cd "${srcdir}/${pkgname}" || exit
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
+    
+    cd "${srcdir}/${pkgname}/base" || exit
+    install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
     
     cd "${srcdir}/${pkgname}/laptop" || exit
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"

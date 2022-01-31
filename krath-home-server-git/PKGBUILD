@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r211.37df45c
+pkgver=r212.b4b8750
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
@@ -57,7 +57,6 @@ depends=(
 package() {
     cd "${srcdir}/${pkgname}" || exit
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
-    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 
     # server-specific
     cd "${srcdir}/${pkgname}/server" || exit
@@ -69,4 +68,5 @@ package() {
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
+    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 }

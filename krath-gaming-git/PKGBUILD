@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-gaming-git
-pkgver=r211.37df45c
+pkgver=r212.b4b8750
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
@@ -61,6 +61,9 @@ depends=(
 )
 
 package() {
+    cd "${srcdir}/${pkgname}/base" || exit
+    install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
+    
     cd "${srcdir}/${pkgname}/gaming" || exit
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
