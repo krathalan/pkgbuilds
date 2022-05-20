@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-sway-git
-pkgver=r211.37df45c
+pkgver=r218.eb059a5
 pkgrel=1
 pkgdesc="Sway/Wayland packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
@@ -31,11 +31,10 @@ makedepends=("git")
 # Dependencies
 depends=(
     # builds.krathalan.net
-    "foot" "foot-terminfo"
     "wdisplays" "wlsunset-git" "wob"
 
     # Wayland packages
-    "bemenu" "bemenu-wayland" "grim" "light" "mako"
-    "slurp" "sway" "swayidle" "swaylock" "waybar"
-    "wl-clipboard"
+    "bemenu" "bemenu-wayland" "foot" "foot-terminfo"
+    "grim" "light" "mako" "slurp" "sway" "swaybg"
+    "swayidle" "swaylock" "waybar" "wl-clipboard"
 )
