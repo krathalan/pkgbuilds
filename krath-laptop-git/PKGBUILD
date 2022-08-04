@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-laptop-git
-pkgver=r214.917dbd8
+pkgver=r220.68facbc
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
@@ -41,7 +41,7 @@ depends=(
     "krathalans-waybar-modules-git"
 
     # System packages
-    "intel-ucode" "sbctl" "smartmontools" "tlp"
+    "intel-ucode" "sbctl" "smartmontools" "thermald" "tlp"
     "x86_energy_perf_policy"
 
     # Hwaccel
