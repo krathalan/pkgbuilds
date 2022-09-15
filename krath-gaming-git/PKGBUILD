@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-gaming-git
-pkgver=r212.b4b8750
-pkgrel=1
+pkgver=r220.68facbc
+pkgrel=5
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -36,28 +36,21 @@ makedepends=("git")
 depends=(
     "krath-base-git" "krath-i3-git"
     "krath-workstation-git"
+    
+    "discord"
 
     # From builds.krathalan.net
-    "discord_arch_electron" "gamemode"
-    "lib32-gamemode" "lib32-mangohud"
-    "lib32-vkd3d-tkg-git" "mangohud"
+    "bottles" "gamemode" "lib32-gamemode"
+    "lib32-mangohud" "lib32-vkd3d-tkg-git" "mangohud"
     "simulationcraft-git" "vkd3d-tkg-git"
     "zenpower3-dkms"
 
-    # For building dxvk
-    "ccache" "meson" "mingw-w64-binutils"
-    "mingw-w64-crt" "mingw-w64-gcc" "mingw-w64-headers"
-    "mingw-w64-winpthreads" "wget"
-
-    # Launchers
-    "lutris" "steam-native-runtime"
-
     # Wine
-    # https://github.com/lutris/docs/blob/master/Battle.Net.md
     # https://github.com/lutris/docs/blob/master/WineDependencies.md
     "wine-staging" "wine-gecko" "wine-mono"
-    "lib32-gnutls" "lib32-libldap" "lib32-libgpg-error" "lib32-sqlite" "lib32-libpulse"
-    "giflib" "lib32-giflib" "libpng" "lib32-libpng" "libldap" "lib32-libldap" "gnutls" "lib32-gnutls" "mpg123" "lib32-mpg123" "openal" "lib32-openal" "v4l-utils" "lib32-v4l-utils" "libpulse" "lib32-libpulse" "libgpg-error" "lib32-libgpg-error" "alsa-plugins" "lib32-alsa-plugins" "alsa-lib" "lib32-alsa-lib" "libjpeg-turbo" "lib32-libjpeg-turbo" "sqlite" "lib32-sqlite" "libxcomposite" "lib32-libxcomposite" "libxinerama" "lib32-libgcrypt" "libgcrypt" "lib32-libxinerama" "ncurses" "lib32-ncurses" "opencl-icd-loader" "lib32-opencl-icd-loader" "libxslt" "lib32-libxslt" "libva" "lib32-libva" "gtk3" "lib32-gtk3" "gst-plugins-base-libs" "lib32-gst-plugins-base-libs" "vulkan-icd-loader" "lib32-vulkan-icd-loader"
+
+    # Launchers
+    "discord" "steam-native-runtime"
 )
 
 package() {
