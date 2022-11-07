@@ -1,7 +1,8 @@
-# Maintainer: spikecodes <19519553+spikecodes@users.noreply.github.com>
+# AUR (original) PKGBUILD author/maintainer: spikecodes <19519553+spikecodes@users.noreply.github.com>
+# Updated by Krathalan to follow Arch Rust packaging guidelines as of Nov. 2022 and adds a check() function
 pkgname=libreddit-git
 _pkgname=${pkgname%-git}
-pkgver=r27.c4b9400
+pkgver=r794.5c366e1
 pkgrel=1
 pkgdesc="Alternative private front-end to Reddit (Krathalan's PKGBUILD)"
 arch=('x86_64')
@@ -21,21 +22,25 @@ pkgver() {
 }
 
 prepare() {
+  cd "${_pkgname}"
   cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
 }
 
 build() {
+  cd "${_pkgname}"
   export RUSTUP_TOOLCHAIN=stable
   export CARGO_TARGET_DIR=target
   cargo build --frozen --release --all-features
 }
 
 check() {
+  cd "${_pkgname}"
   export RUSTUP_TOOLCHAIN=stable
   cargo test --frozen --all-features
 }
 
 package() {
-	install -Dm644 "${_pkgname}/LICENSE" "$pkgdir/usr/share/licenses/${_pkgname}/LICENSE"
-	install -Dm0755 -t "$pkgdir/usr/bin/" "target/release/$pkgname"
+  cd "${_pkgname}"
+	install -Dm644 "LICENSE" "${pkgdir}/usr/share/licenses/${_pkgname}/LICENSE"
+	install -Dm0755 -t "${pkgdir}/usr/bin/" "target/release/${_pkgname}"
 }
