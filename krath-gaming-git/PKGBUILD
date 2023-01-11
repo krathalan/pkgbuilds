@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-gaming-git
-pkgver=r220.68facbc
-pkgrel=5
+pkgver=r225.7fa7182
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -40,7 +40,7 @@ depends=(
     "discord"
 
     # From builds.krathalan.net
-    "bottles" "gamemode" "lib32-gamemode"
+    "gamemode" "lib32-gamemode"
     "lib32-mangohud" "lib32-vkd3d-tkg-git" "mangohud"
     "simulationcraft-git" "vkd3d-tkg-git"
     "zenpower3-dkms"
