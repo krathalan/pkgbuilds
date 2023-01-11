@@ -17,7 +17,7 @@ install=${pkgname}.install
 
 # Dependencies
 depends=()
-makedepends=("git")
+makedepends=()
 
 # Download information
 source=("krathalan-trusted"
