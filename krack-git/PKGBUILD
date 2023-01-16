@@ -72,4 +72,6 @@ package() {
 
   # systemd service
   install -D -m644 lib/systemd/system/krack-receive.service "${pkgdir}/usr/lib/systemd/system/krack-receive.service"
+  install -D -m644 lib/systemd/system/krack-build@.service "${pkgdir}/usr/lib/systemd/system/krack-build@.service"
+
 }

@@ -6,7 +6,7 @@
 # General package information
 pkgname=krath-base-git
 pkgver=r227.1aec89a
-pkgrel=1
+pkgrel=2
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -34,6 +34,9 @@ makedepends=("git")
 
 # Dependencies
 depends=(
+    # keyring
+    "krathalans-keyring"
+
     # builds.krathalan.net
     "etc-update" "krathalans-apparmor-profiles-git"
     "krathalans-scripts-git"
