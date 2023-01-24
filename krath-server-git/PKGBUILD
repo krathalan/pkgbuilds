@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-server-git
-pkgver=r235.f75c175
+pkgver=r236.f68f2ce
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
@@ -88,8 +88,14 @@ package() {
 
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
     
-    install -D -m644 systemd/system/postgrey.service "${pkgdir}/usr/lib/systemd/system/postgrey.service"
+    install -D -m644 systemd/system/postgrey.service "${pkgdir}/etc/systemd/system/postgrey.service"
     install -D -m644 systemd/system/libreddit.service "${pkgdir}/usr/lib/systemd/system/libreddit.service"
+    install -D -m644 systemd/system/backup-email.service "${pkgdir}/usr/lib/systemd/system/backup-email.service"
+    install -D -m644 systemd/system/backup-email.timer "${pkgdir}/usr/lib/systemd/system/backup-email.timer"
+    install -D -m644 systemd/system/certbot.service "${pkgdir}/usr/lib/systemd/system/certbot.service"
+    install -D -m644 systemd/system/certbot.timer "${pkgdir}/usr/lib/systemd/system/certbot.timer"
+    install -D -m644 systemd/system/spamassassin-update.service "${pkgdir}/usr/lib/systemd/system/spamassassin-update.service"
+    install -D -m644 systemd/system/spamassassin-update.timer "${pkgdir}/usr/lib/systemd/system/spamassassin-update.timer"
 
     install -D -m644 sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
     install -D -m644 sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
