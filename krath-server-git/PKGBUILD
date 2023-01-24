@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-server-git
-pkgver=r211.37df45c
-pkgrel=2
+pkgver=r234.1fdb5e6
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -57,6 +57,8 @@ depends=(
 package() {
     cd "${srcdir}/${pkgname}" || exit
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
+    
+    cd "${srcdir}/${pkgname}/base" || exit
 
     # server-specific
     cd "${srcdir}/${pkgname}/server" || exit
@@ -75,6 +77,8 @@ package() {
     # drwx------ 2 opendmarc mail    4096 May 11  2021 opendmarc
     install -D -m640 opendkim/opendkim.conf "${pkgdir}/etc/krathalan/opendkim/opendkim.conf"
     install -D -m640 opendmarc/opendmarc.conf "${pkgdir}/etc/krathalan/opendmarc/opendmarc.conf"
+    
+    install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
 
     install -D -m644 postfix/main.cf "${pkgdir}/etc/krathalan/postfix/main.cf"
     install -D -m644 postfix/master.cf "${pkgdir}/etc/krathalan/postfix/master.cf"

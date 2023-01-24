@@ -5,7 +5,9 @@ post_install() {
 post_upgrade() {
     cp /etc/krathalan/booster.yaml /etc/booster.yaml
     cp /etc/krathalan/pacman.conf /etc/pacman.conf
+    cp /etc/krathalan/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
     cp /etc/krathalan/makepkg.conf /etc/makepkg.conf
+    cp /etc/krathalan/nginx/nginx.conf /etc/nginx/nginx.conf
     cp /etc/krathalan/ssh/sshd_config /etc/ssh/sshd_config
     cp /etc/krathalan/sudoers /etc/sudoers
 }

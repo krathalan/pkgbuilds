@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-base-git
-pkgver=r227.1aec89a
-pkgrel=2
+pkgver=r234.1fdb5e6
+pkgrel=1
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -67,7 +67,6 @@ package() {
     install -D -m644 NetworkManager/conf.d/ip6-privacy.conf "${pkgdir}/etc/NetworkManager/conf.d/ip6-privacy.conf"
     install -D -m644 NetworkManager/conf.d/wifi-backend.conf "${pkgdir}/etc/NetworkManager/conf.d/wifi-backend.conf"
     install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
-    install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
     install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
     install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
