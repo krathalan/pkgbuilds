@@ -73,5 +73,7 @@ package() {
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
     install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
+    install -D -m644 systemd/system/clean-pacman-nginx-cache.service "${pkgdir}/usr/lib/systemd/system/clean-pacman-nginx-cache.service"
+    install -D -m644 systemd/system/clean-pacman-nginx-cache.timer "${pkgdir}/usr/lib/systemd/system/clean-pacman-nginx-cache.timer"
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 }

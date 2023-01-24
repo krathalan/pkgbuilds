@@ -71,7 +71,7 @@ package() {
     install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
     install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/etc/systemd/network/25-ethernet.network"
-    install -D -m644 systemd/system/systemd-logind.service.d/hidepid.conf "${pkgdir}/etc/systemd/system/systemd-logind.service.d/hidepid.conf"
+    install -D -m644 systemd/system/systemd-logind.service.d/hidepid.conf "${pkgdir}/usr/lib/systemd/system/systemd-logind.service.d/hidepid.conf"
     install -D -m644 systemd/resolved.conf.d/disable-fallback-dns.conf "${pkgdir}/etc/systemd/resolved.conf.d/disable-fallback-dns.conf"
     install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
     install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"

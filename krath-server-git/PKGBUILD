@@ -88,8 +88,8 @@ package() {
 
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
     
-    install -D -m644 systemd/system/postgrey.service "${pkgdir}/etc/systemd/system/postgrey.service"
-    install -D -m644 systemd/system/libreddit.service "${pkgdir}/etc/systemd/system/libreddit.service"
+    install -D -m644 systemd/system/postgrey.service "${pkgdir}/usr/lib/systemd/system/postgrey.service"
+    install -D -m644 systemd/system/libreddit.service "${pkgdir}/usr/lib/systemd/system/libreddit.service"
 
     install -D -m644 sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
     install -D -m644 sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
