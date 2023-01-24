@@ -16,7 +16,7 @@ arch=("any")
 backup=("etc/krack/build.conf" "etc/krack/receive.conf")
 
 # Dependencies
-depends=("brotli" "ccache" "devtools" "git" "gnupg" "rsync")
+depends=("brotli" "ccache" "devtools" "git" "gnupg" "pacman-contrib" "rsync")
 makedepends=("git" "scdoc")
 conflicts=("krack")
 
