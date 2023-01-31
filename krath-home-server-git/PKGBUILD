@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r235.f75c175
+pkgver=r239.aa8e9d6
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
@@ -75,5 +75,9 @@ package() {
     install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
     install -D -m644 systemd/system/clean-pacman-nginx-cache.service "${pkgdir}/usr/lib/systemd/system/clean-pacman-nginx-cache.service"
     install -D -m644 systemd/system/clean-pacman-nginx-cache.timer "${pkgdir}/usr/lib/systemd/system/clean-pacman-nginx-cache.timer"
+    install -D -m644 systemd/system/cloudflared.service "${pkgdir}/usr/lib/systemd/system/cloudflared.service"
+    install -D -m644 systemd/system/cloudflared.service "${pkgdir}/usr/lib/systemd/system/cloudflared.service"
+    install -D -m644 systemd/system/synchronize-krathalan-repo.service "${pkgdir}/usr/lib/systemd/system/synchronize-krathalan-repo.service"
+    install -D -m644 systemd/system/synchronize-krathalan-repo.timer "${pkgdir}/usr/lib/systemd/system/synchronize-krathalan-repo.timer"
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 }

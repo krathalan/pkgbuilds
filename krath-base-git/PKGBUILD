@@ -54,10 +54,11 @@ depends=(
     "android-tools" "arch-audit" "asp" "bat" "bc" "brotli" "calc" "dosfstools"
     "e2fsprogs" "exa" "exfatprogs" "efitools" "f2fs-tools"
     "git" "gptfdisk" "htop" "hyperfine" "inotify-tools" "iw" "jpegoptim"
-    "jq" "lshw" "mediainfo" "micro" "mosh" "nano" "nano-syntax-highlighting"
-    "ncdu" "pacman-contrib" "perl-image-exiftool" "pigz" "qrencode" "ripgrep"
-    "rsync" "texinfo" "tmux" "tree" "transmission-cli" "unzip"
-    "usb_modeswitch" "usbutils" "xfsprogs" "xxhash" "zip"  
+    "jq" "lshw" "magic-wormhole" "mediainfo" "micro" "mosh" "nano"
+    "nano-syntax-highlighting" "ncdu" "pacman-contrib" "perl-image-exiftool"
+    "pigz" "qrencode" "ripgrep" "rsync" "texinfo" "tmux" "tree"
+    "transmission-cli" "unzip" "usb_modeswitch" "usbutils" "xfsprogs" "xxhash"
+    "zip"  
 )
 
 package() {
