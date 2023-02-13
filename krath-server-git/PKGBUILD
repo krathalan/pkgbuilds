@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-server-git
-pkgver=r236.f68f2ce
+pkgver=r243.8110367
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
@@ -48,8 +48,8 @@ depends=(
     # System packages
     "certbot" "certbot-nginx" "fail2ban" "sudo"
 
-    # Server packages (email, http, dav, file host, firewall)
-    "dovecot" "firewalld" "nginx-mainline"
+    # Server packages (email, http, etc.)
+    "dovecot" "firewalld" "libreddit-git" "nginx-mainline"
     "opendkim" "opendmarc" "pigeonhole" "pflogsumm"
     "postfix" "postgrey" "radicale" "rsync" "spamassassin"
 )
