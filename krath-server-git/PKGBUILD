@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-server-git
-pkgver=r243.8110367
+pkgver=r248.7ea77fa
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
@@ -55,13 +55,10 @@ depends=(
 )
 
 package() {
-    cd "${srcdir}/${pkgname}" || exit
-    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
-    
-    cd "${srcdir}/${pkgname}/base" || exit
-
     # server-specific
     cd "${srcdir}/${pkgname}/server" || exit
+    
+    install -D -m755 bin/krath_backup_email "${pkgdir}/usr/bin/krath_backup_email"
     
     install -D -m644 dovecot/dovecot.conf "${pkgdir}/etc/dovecot/dovecot.conf"
     install -D -m644 libreddit.conf "${pkgdir}/etc/libreddit.conf"
@@ -71,6 +68,7 @@ package() {
     install -D -m644 nginx/sites-available/default "${pkgdir}/etc/nginx/sites-available/default"
     install -D -m644 nginx/sites-available/mail "${pkgdir}/etc/nginx/sites-available/mail"
     install -D -m644 nginx/sites-available/nitter "${pkgdir}/etc/nginx/sites-available/nitter"
+    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
     
     # /etc folder owners/permissions
     # drwxr-xr-x 2 opendkim  mail    4096 Nov 14 11:35 opendkim

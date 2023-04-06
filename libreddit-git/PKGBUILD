@@ -2,7 +2,7 @@
 # Updated by Krathalan to follow Arch Rust packaging guidelines as of Nov. 2022 and adds a check() function
 pkgname=libreddit-git
 _pkgname=${pkgname%-git}
-pkgver=r863.7efa26e
+pkgver=r897.e25622d
 pkgrel=1
 pkgdesc="Alternative private front-end to Reddit (Krathalan's PKGBUILD)"
 arch=('x86_64')
@@ -23,7 +23,7 @@ pkgver() {
 
 prepare() {
   cd "${_pkgname}"
-  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
+  cargo fetch --target "$CARCH-unknown-linux-gnu"
 }
 
 build() {
