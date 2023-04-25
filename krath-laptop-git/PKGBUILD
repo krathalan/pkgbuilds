@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-laptop-git
-pkgver=r234.1fdb5e6
+pkgver=r252.8780183
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
@@ -59,11 +59,11 @@ package() {
     
     cd "${srcdir}/${pkgname}/laptop" || exit
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
-    install -D -m644 fwupd/uefi_capsule.conf "${pkgdir}/etc/krathalan/fwupd/uefi_capsule.conf"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
     install -D -m644 modprobe.d/iwlwifi.conf "${pkgdir}/etc/modprobe.d/iwlwifi.conf"
     install -D -m644 sbctl-cmdline "${pkgdir}/etc/sbctl-cmdline"
+    install -D -m644 systemd/sleep.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/sleep.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/system/undervolt.timer "${pkgdir}/usr/lib/systemd/system/undervolt.timer"
     install -D -m644 systemd/system/undervolt.service "${pkgdir}/usr/lib/systemd/system/undervolt.service"
     install -D -m644 tlp.d/krathalans-custom.conf "${pkgdir}/etc/tlp.d/krathalans-custom.conf"
