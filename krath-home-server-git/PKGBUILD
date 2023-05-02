@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r251.fd33d67
-pkgrel=1
+pkgver=r258.ff74391
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -69,6 +69,9 @@ package() {
     # home-server-specific
     cd "${srcdir}/${pkgname}/home-server" || exit
     install -D -m644 apparmor.d/local/nginx "${pkgdir}/etc/apparmor.d/local/nginx"
+    
+    install -D bin/synchronize-krathalan-repo.sh "${pkgdir}/usr/bin/synchronize-krathalan-repo.sh"
+    
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
