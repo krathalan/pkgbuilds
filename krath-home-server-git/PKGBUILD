@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r261.5e57bbb
-pkgrel=1
+pkgver=r264.7554b8e
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -37,9 +37,13 @@ depends=(
     "krath-base-git"
 
     # builds.krathalan.net
-    "krack-git"
-    "cloudflared" "jellyfin-server"
-    "jellyfin-web" "pi-hole-server"
+    "krack-git" "cloudflared" "jellyfin" "jellyfin-server" "jellyfin-web"
+    "pi-hole-server" "zenpower3-dkms"
+    
+    # Packages for A380 jellyfin hardware enc/dec
+    "intel-compute-runtime" "intel-gpu-tools" "intel-media-driver"
+    "intel-media-sdk" "jellyfin-ffmpeg5" "libva-utils" "onevpl-intel-gpu"
+    "vulkan-intel"
 
     # Syncthing web GUI reverse proxy
     "nginx-mainline"

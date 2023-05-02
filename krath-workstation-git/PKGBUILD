@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-workstation-git
-pkgver=r211.37df45c
-pkgrel=5
+pkgver=r261.5e57bbb
+pkgrel=1
 pkgdesc="Basic home PC packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
