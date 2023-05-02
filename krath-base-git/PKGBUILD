@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-base-git
-pkgver=r243.8110367
+pkgver=r261.5e57bbb
 pkgrel=1
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
@@ -56,7 +56,7 @@ depends=(
     "git" "gptfdisk" "htop" "hyperfine" "inotify-tools" "iw" "jpegoptim"
     "jq" "lshw" "magic-wormhole" "mediainfo" "micro" "mosh" "nano"
     "nano-syntax-highlighting" "ncdu" "pacman-contrib" "perl-image-exiftool"
-    "pigz" "qrencode" "ripgrep" "rsync" "texinfo" "tmux" "tree"
+    "pigz" "qrencode" "ripgrep" "rsync" "stress" "texinfo" "tmux" "tree"
     "transmission-cli" "unzip" "usb_modeswitch" "usbutils" "xfsprogs" "xxhash"
     "zip"  
 )

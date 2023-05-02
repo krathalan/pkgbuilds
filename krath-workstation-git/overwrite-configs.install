@@ -1,0 +1,8 @@
+post_install() {
+    post_upgrade
+}
+
+post_upgrade() {
+    cp /etc/krathalan/conf.d/wireless-regdom /etc/conf.d/wireless-regdom
+    cp /etc/krathalan/dict/dictd.conf /etc/dict/dictd.conf
+}

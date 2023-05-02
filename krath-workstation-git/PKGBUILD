@@ -55,7 +55,7 @@ depends=(
     
     # Terminal applications
     "dictd" "ffmpeg" "nmap" "pamixer" "playerctl" "stow"
-    "stress" "termdown" "yt-dlp"
+    "termdown" "yt-dlp"
     
     # Graphical applications
     "evince" "firefox-developer-edition"
