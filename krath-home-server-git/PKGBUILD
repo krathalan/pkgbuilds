@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r264.7554b8e
-pkgrel=2
+pkgver=r269.c40a47f
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -85,8 +85,7 @@ package() {
     install -D -m644 systemd/system/clean-pacman-nginx-cache.service "${pkgdir}/usr/lib/systemd/system/clean-pacman-nginx-cache.service"
     install -D -m644 systemd/system/clean-pacman-nginx-cache.timer "${pkgdir}/usr/lib/systemd/system/clean-pacman-nginx-cache.timer"
     install -D -m644 systemd/system/cloudflared.service "${pkgdir}/usr/lib/systemd/system/cloudflared.service"
-    install -D -m644 systemd/system/cloudflared.service "${pkgdir}/usr/lib/systemd/system/cloudflared.service"
-    install -D -m644 systemd/system/cloudflared.service.d/nice.conf "${pkgdir}/usr/lib/systemd/system/cloudflared.service.d/nice.conf"
+    install -D -m644 systemd/system/jellyfin.service.d/nice.conf "${pkgdir}/usr/lib/systemd/system/jellyfin.service.d/nice.conf"
     install -D -m644 systemd/system/krack-build@.service.d/limit-processing.conf "${pkgdir}/usr/lib/systemd/system/krack-build@.service.d/limit-processing.conf"
     install -D -m644 systemd/system/synchronize-krathalan-repo.service "${pkgdir}/usr/lib/systemd/system/synchronize-krathalan-repo.service"
     install -D -m644 systemd/system/synchronize-krathalan-repo.timer "${pkgdir}/usr/lib/systemd/system/synchronize-krathalan-repo.timer"
