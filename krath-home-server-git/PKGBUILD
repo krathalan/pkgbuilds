@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r269.c40a47f
+pkgver=r271.def003e
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
@@ -89,5 +89,7 @@ package() {
     install -D -m644 systemd/system/krack-build@.service.d/limit-processing.conf "${pkgdir}/usr/lib/systemd/system/krack-build@.service.d/limit-processing.conf"
     install -D -m644 systemd/system/synchronize-krathalan-repo.service "${pkgdir}/usr/lib/systemd/system/synchronize-krathalan-repo.service"
     install -D -m644 systemd/system/synchronize-krathalan-repo.timer "${pkgdir}/usr/lib/systemd/system/synchronize-krathalan-repo.timer"
+    install -D -m644 systemd/system/transmission.service.d/nice-and-hardening.conf "${pkgdir}/usr/lib/systemd/system/transmission.service.d/nice-and-hardening.conf"
+
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
 }
