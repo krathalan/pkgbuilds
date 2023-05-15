@@ -1,0 +1,80 @@
+[buildPlans.iosevka-custom]
+family = "Iosevka Custom"
+spacing = "normal"
+serifs = "sans"
+no-cv-ss = true
+export-glyph-names = false
+no-ligation = true
+
+[buildPlans.iosevka-custom.variants.design]
+capital-c = "unilateral-inward-serifed"
+capital-d = "standard-unilateral-serifed"
+capital-g = "toothed-serifed-hooked"
+capital-i = "serifless"
+capital-q = "crossing"
+capital-s = "unilateral-inward-serifed"
+capital-u = "toothed"
+capital-x = "straight-serifless"
+capital-y = "straight-serifless"
+capital-z = "straight-serifless-with-horizontal-crossbar"
+a = "single-storey-earless-corner-tailed"
+c = "serifless"
+d = "toothless-rounded-serifless"
+e = "rounded"
+f = "tailed"
+g = "earless-corner"
+i = "flat-tailed"
+j = "serifless"
+k = "curly-serifless"
+l = "tailed-serifed"
+m = "tailed-top-left-serifed"
+n = "tailed"
+q = "diagonal-tailed"
+t = "standard"
+u = "tailed"
+v = "curly"
+x = "curly-serifless"
+y = "cursive"
+z = "straight-serifless-with-horizontal-crossbar"
+lower-iota = "zshaped"
+lower-lambda = "straight-turn"
+lower-xi = "flat-top"
+cyrl-capital-ze = "bilateral-serifed"
+cyrl-ze = "bilateral-serifed"
+zero = "slashed"
+one = "no-base"
+three = "flat-top"
+four = "open"
+six = "open-contour"
+seven = "straight-crossbar-serifed"
+eight = "crossing-asymmetric"
+punctuation-dot = "round"
+tilde = "low"
+asterisk = "penta-low"
+underscore = "above-baseline"
+caret = "medium"
+paren = "normal"
+brace = "straight"
+number-sign = "upright"
+ampersand = "closed"
+at = "threefold"
+dollar = "through"
+percent = "rings-continuous-slash-also-connected"
+ascii-single-quote = "raised-comma"
+question = "smooth"
+micro-sign = "tailed"
+lig-neq = "more-slanted"
+lig-equal-chain = "without-notch"
+lig-hyphen-chain = "without-notch"
+lig-double-arrow-bar = "without-notch"
+lig-single-arrow-bar = "without-notch"
+
+[buildPlans.iosevka-custom.weights.regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.iosevka-custom.weights.bold]
+shape = 700
+menu = 700
+css = 700

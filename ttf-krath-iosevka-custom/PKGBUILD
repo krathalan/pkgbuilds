@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < printf "dev@die.bots" | sed "s/die.bots/krathalan.net/g" >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=ttf-krath-iosevka-custom
+pkgver=22.1.2
+pkgrel=1
+pkgdesc="Custom build of ttf-iosevka with my customizations."
+url="https://github.com/be5invis/Iosevka"
+license=("GPL3")
+arch=("any")
+
+# Dependencies
+depends=()
+makedepends=("nodejs" "npm" "ttfautohint")
+
+# Download information
+source=("${url}/archive/refs/tags/v${pkgver}.tar.gz"
+        "private-build-plans.toml")
+sha256sums=('fbb02dc83ed57764b6f54e46112b37a5873470a6141be4de9f6858cf25ed9a85'
+            '6dff57900b420d58009e92f11557d01ee65d996248744e798eb1fe8db696cf51')
+
+prepare() {
+  cp "private-build-plans.toml" "${srcdir}/Iosevka-${pkgver}"
+  cd "${srcdir}/Iosevka-${pkgver}" || exit
+  npm install
+}
+
+build() {
+  cd "${srcdir}/Iosevka-${pkgver}" || exit
+  npm run build -- ttf::iosevka-custom
+}
+
+package() {
+  cd "${srcdir}/Iosevka-${pkgver}/dist/iosevka-custom/ttf" || exit
+  mkdir -p "${pkgdir}/usr/share/fonts/TTF/"
+  cp ./*.ttf "${pkgdir}/usr/share/fonts/TTF/"
+}
