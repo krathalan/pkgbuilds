@@ -6,10 +6,10 @@
 # General package information
 pkgname=ttf-krath-iosevka-custom
 pkgver=22.1.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Custom build of ttf-iosevka with my customizations."
 url="https://github.com/be5invis/Iosevka"
-license=("GPL3")
+license=("custom:OFL-1.1")
 arch=("any")
 
 # Dependencies
@@ -34,7 +34,10 @@ build() {
 }
 
 package() {
-  cd "${srcdir}/Iosevka-${pkgver}/dist/iosevka-custom/ttf" || exit
-  mkdir -p "${pkgdir}/usr/share/fonts/TTF/"
-  cp ./*.ttf "${pkgdir}/usr/share/fonts/TTF/"
+  cd "${srcdir}/Iosevka-${pkgver}" || exit
+  install -Dm644 LICENSE.md "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  
+  for fontfile in "${srcdir}/Iosevka-${pkgver}/dist/iosevka-custom/ttf"/*.ttf; do
+    install -Dm644 "${fontfile}" "${pkgdir}/usr/share/fonts/TTF/${fontfile##*/}"
+  done
 }
