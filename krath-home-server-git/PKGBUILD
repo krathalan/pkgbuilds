@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r271.def003e
+pkgver=r273.61de0a6
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
@@ -37,7 +37,7 @@ depends=(
     "krath-base-git"
 
     # builds.krathalan.net
-    "krack-git" "cloudflared" "jellyfin" "jellyfin-server" "jellyfin-web"
+    "krack-git" "jellyfin" "jellyfin-server" "jellyfin-web"
     "pi-hole-server" "zenpower3-dkms"
     
     # Packages for A380 jellyfin hardware enc/dec
@@ -49,7 +49,7 @@ depends=(
     "nginx-mainline"
 
     # Pihole
-    "lighttpd" "php-cgi" "php-sqlite"
+    "dnscrypt-proxy" "lighttpd" "php-cgi" "php-sqlite"
 
     # System packages
     "syncthing"
@@ -77,6 +77,7 @@ package() {
     install -D bin/synchronize-krathalan-repo.sh "${pkgdir}/usr/bin/synchronize-krathalan-repo.sh"
     
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
+    install -D -m644 dnscrypt-proxy/dnscrypt-proxy.toml "${pkgdir}/etc/krathalan/dnscrypt-proxy/dnscrypt-proxy.toml"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 modprobe.d/disable-wifi-bluetooth.conf "${pkgdir}/etc/modprobe.d/disable-wifi-bluetooth.conf"
     install -D -m644 motd "${pkgdir}/etc/motd"
@@ -84,7 +85,6 @@ package() {
     install -D -m644 ssh/sshd_config "${pkgdir}/etc/krathalan/ssh/sshd_config"
     install -D -m644 systemd/system/clean-pacman-nginx-cache.service "${pkgdir}/usr/lib/systemd/system/clean-pacman-nginx-cache.service"
     install -D -m644 systemd/system/clean-pacman-nginx-cache.timer "${pkgdir}/usr/lib/systemd/system/clean-pacman-nginx-cache.timer"
-    install -D -m644 systemd/system/cloudflared.service "${pkgdir}/usr/lib/systemd/system/cloudflared.service"
     install -D -m644 systemd/system/jellyfin.service.d/nice.conf "${pkgdir}/usr/lib/systemd/system/jellyfin.service.d/nice.conf"
     install -D -m644 systemd/system/krack-build@.service.d/limit-processing.conf "${pkgdir}/usr/lib/systemd/system/krack-build@.service.d/limit-processing.conf"
     install -D -m644 systemd/system/synchronize-krathalan-repo.service "${pkgdir}/usr/lib/systemd/system/synchronize-krathalan-repo.service"
