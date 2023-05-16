@@ -1,6 +1,6 @@
 [buildPlans.iosevka-custom]
 family = "Iosevka Custom"
-spacing = "normal"
+spacing = "term"
 serifs = "sans"
 no-cv-ss = true
 export-glyph-names = false
@@ -9,7 +9,7 @@ export-glyph-names = false
 capital-c = "serifless"
 capital-d = "standard-unilateral-serifed"
 capital-g = "toothed-serifless-hooked"
-capital-i = "serifless"
+capital-i = "short-serifed"
 capital-q = "crossing"
 capital-s = "serifless"
 capital-u = "toothed"
@@ -56,7 +56,7 @@ paren = "normal"
 brace = "straight"
 number-sign = "upright"
 ampersand = "closed"
-at = "threefold"
+at = "short"
 dollar = "through"
 percent = "rings-continuous-slash-also-connected"
 ascii-single-quote = "straight"
