@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r273.61de0a6
+pkgver=r274.494e179
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
@@ -86,6 +86,7 @@ package() {
     install -D -m644 systemd/system/clean-pacman-nginx-cache.service "${pkgdir}/usr/lib/systemd/system/clean-pacman-nginx-cache.service"
     install -D -m644 systemd/system/clean-pacman-nginx-cache.timer "${pkgdir}/usr/lib/systemd/system/clean-pacman-nginx-cache.timer"
     install -D -m644 systemd/system/jellyfin.service.d/nice.conf "${pkgdir}/usr/lib/systemd/system/jellyfin.service.d/nice.conf"
+    install -D -m644 systemd/system/dnscrypt-proxy.service.d/nice-and-hardening.conf "${pkgdir}/usr/lib/systemd/system/dnscrypt-proxy.service.d/nice-and-hardening.conf"
     install -D -m644 systemd/system/krack-build@.service.d/limit-processing.conf "${pkgdir}/usr/lib/systemd/system/krack-build@.service.d/limit-processing.conf"
     install -D -m644 systemd/system/synchronize-krathalan-repo.service "${pkgdir}/usr/lib/systemd/system/synchronize-krathalan-repo.service"
     install -D -m644 systemd/system/synchronize-krathalan-repo.timer "${pkgdir}/usr/lib/systemd/system/synchronize-krathalan-repo.timer"
