@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r274.494e179
+pkgver=r278.16cbab0
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
@@ -64,6 +64,9 @@ package() {
     
     cd "${srcdir}/${pkgname}/base" || exit
     install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
+    install -D -m644 mkinitcpio.conf.d/krath-intelgpu-i915.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-intelgpu-i915.conf"
+    install -D -m644 mkinitcpio.conf.d/krath-hooks-systemd-boot.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-hooks-systemd-boot.conf"
+    install -D -m644 mkinitcpio.conf.d/krath-lz4.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-lz4.conf"
 
     # server-specific
     cd "${srcdir}/${pkgname}/server" || exit

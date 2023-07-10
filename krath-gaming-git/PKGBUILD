@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-gaming-git
-pkgver=r234.1fdb5e6
+pkgver=r278.16cbab0
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
@@ -41,8 +41,8 @@ depends=(
 
     # From builds.krathalan.net
     "gamemode" "lib32-gamemode"
-    "lib32-mangohud" "lib32-vkd3d-tkg-git" "mangohud"
-    "simulationcraft-git" "vkd3d-tkg-git"
+    "lib32-mangohud" "mangohud"
+    "simulationcraft-git"
     "zenpower3-dkms"
 
     # Wine

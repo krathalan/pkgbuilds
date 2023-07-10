@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-workstation-git
-pkgver=r261.5e57bbb
+pkgver=r274.494e179
 pkgrel=1
 pkgdesc="Basic home PC packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
@@ -35,8 +35,7 @@ makedepends=("git")
 depends=(
     # builds.krathalan.net
     "dict-gcide" "dict-moby-thesaurus" "gimp-git"
-    "gmni-git" "otf-san-francisco"
-    "plata-theme-krath-purple"
+    "otf-san-francisco" "plata-theme-krath-purple"
     "ttf-material-design-icons-webfont"
     "ungoogled-chromium" "wtwitch"
     

@@ -30,7 +30,7 @@ prepare() {
 
 build() {
   cd "${srcdir}/Iosevka-${pkgver}" || exit
-  npm run build -- ttf::iosevka-custom
+  npm run build -- contents::iosevka-custom
 }
 
 package() {

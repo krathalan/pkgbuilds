@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-laptop-git
-pkgver=r252.8780183
+pkgver=r278.16cbab0
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
@@ -56,6 +56,9 @@ package() {
     cd "${srcdir}/${pkgname}/base" || exit
     install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
     install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
+    install -D -m644 mkinitcpio.conf.d/krath-intelgpu-i915.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-intelgpu-i915.conf"
+    install -D -m644 mkinitcpio.conf.d/krath-lvm-luks.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-lvm-luks.conf"
+    install -D -m644 mkinitcpio.conf.d/krath-lz4.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-lz4.conf"
     
     cd "${srcdir}/${pkgname}/laptop" || exit
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"

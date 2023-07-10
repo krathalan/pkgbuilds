@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-i3-git
-pkgver=r211.37df45c
-pkgrel=2
+pkgver=r281.236faf2
+pkgrel=1
 pkgdesc="i3/Xorg packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -31,8 +31,8 @@ makedepends=("git")
 # Dependencies
 depends=(
     # builds.krathalan.net
-    "polybar" "redshift-no-geoclue" "xob"
-
+    "polybar" "redshift" "xob"
+    
     # Xorg packages
     "alacritty" "dmenu" "dunst" "feh" "i3-gaps" "i3lock"
     "i3status" "picom" "scrot" "xclip" "xorg-server"

@@ -37,7 +37,7 @@ depends=(
     "krath-base-git"
 
     # From builds.krathalan.net
-    "krack"
+    "krack-git"
     "krathalans-endlessh-git"
     "nginx-mainline-mod-brotli"
     "nginx-mainline-mod-fancyindex"
@@ -55,6 +55,11 @@ depends=(
 )
 
 package() {
+    cd "${srcdir}/${pkgname}/base" || exit
+    install -D -m644 mkinitcpio.conf.d/krath-hooks-grub.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-hooks-grub.conf"
+    install -D -m644 mkinitcpio.conf.d/krath-server-modules.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-server-modules.conf"
+    install -D -m644 mkinitcpio.conf.d/krath-lz4.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-lz4.conf"
+
     # server-specific
     cd "${srcdir}/${pkgname}/server" || exit
     
@@ -86,6 +91,7 @@ package() {
 
     install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
     
+    install -D -m644 systemd/system/krack-receive.service.d/protect-system-strict.conf "${pkgdir}/usr/lib/systemd/system/krack-receive.service.d/protect-system-strict.conf"
     install -D -m644 systemd/system/postgrey.service "${pkgdir}/etc/systemd/system/postgrey.service"
     install -D -m644 systemd/system/libreddit.service "${pkgdir}/usr/lib/systemd/system/libreddit.service"
     install -D -m644 systemd/system/backup-email.service "${pkgdir}/usr/lib/systemd/system/backup-email.service"
