@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-base-git
-pkgver=r261.5e57bbb
+pkgver=r290.e32e1f7
 pkgrel=1
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
@@ -40,7 +40,7 @@ depends=(
     # builds.krathalan.net
     "etc-update" "krathalans-apparmor-profiles-git"
     "krathalans-scripts-git"
-    "krathalans-systemd-sandboxing-git" "pfetch-git" "zlib-ng"
+    "krathalans-systemd-sandboxing-git" "pfetch-git" "zlib-ng-compat"
 
     # System Packages
     "apparmor" "base-devel" "bash-completion" "dash" "firewalld" "grc"
@@ -51,7 +51,7 @@ depends=(
     "borg" "python-llfuse"
     
     # Terminal applications
-    "android-tools" "arch-audit" "asp" "bat" "bc" "brotli" "calc" "dosfstools"
+    "android-tools" "arch-audit" "bat" "bc" "brotli" "calc" "dosfstools"
     "e2fsprogs" "exa" "exfatprogs" "efitools" "f2fs-tools"
     "git" "gptfdisk" "htop" "hyperfine" "inotify-tools" "iw" "jpegoptim"
     "jq" "lshw" "magic-wormhole" "mediainfo" "micro" "mosh" "nano"
