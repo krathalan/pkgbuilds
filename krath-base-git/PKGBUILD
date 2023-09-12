@@ -52,7 +52,7 @@ depends=(
     
     # Terminal applications
     "android-tools" "arch-audit" "bat" "bc" "brotli" "calc" "dosfstools"
-    "e2fsprogs" "exa" "exfatprogs" "efitools" "f2fs-tools"
+    "e2fsprogs" "eza" "exfatprogs" "efitools" "f2fs-tools"
     "git" "gptfdisk" "htop" "hyperfine" "inotify-tools" "iw" "jpegoptim"
     "jq" "lshw" "magic-wormhole" "mediainfo" "micro" "mosh" "nano"
     "nano-syntax-highlighting" "ncdu" "pacman-contrib" "perl-image-exiftool"
