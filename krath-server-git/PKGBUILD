@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-server-git
-pkgver=r287.ccd4fdf
+pkgver=r291.ee62f57
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
@@ -41,7 +41,6 @@ depends=(
     "krathalans-endlessh-git"
     "nginx-mainline-mod-brotli"
     "nginx-mainline-mod-fancyindex"
-    "nitter-git"
     # For htpasswd
     "apache-tools"
 

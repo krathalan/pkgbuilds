@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-base-git
-pkgver=r290.e32e1f7
+pkgver=r291.ee62f57
 pkgrel=1
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
@@ -40,7 +40,7 @@ depends=(
     # builds.krathalan.net
     "etc-update" "krathalans-apparmor-profiles-git"
     "krathalans-scripts-git"
-    "krathalans-systemd-sandboxing-git" "pfetch-git" "zlib-ng-compat"
+    "krathalans-systemd-sandboxing-git" "pfetch-git"
 
     # System Packages
     "apparmor" "base-devel" "bash-completion" "dash" "firewalld" "grc"
