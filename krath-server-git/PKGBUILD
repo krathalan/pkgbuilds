@@ -54,11 +54,6 @@ depends=(
 )
 
 package() {
-    cd "${srcdir}/${pkgname}/base" || exit
-    install -D -m644 mkinitcpio.conf.d/krath-hooks-grub.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-hooks-grub.conf"
-    install -D -m644 mkinitcpio.conf.d/krath-server-modules.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-server-modules.conf"
-    install -D -m644 mkinitcpio.conf.d/krath-lz4.conf "${pkgdir}/etc/mkinitcpio.conf.d/krath-lz4.conf"
-
     # server-specific
     cd "${srcdir}/${pkgname}/server" || exit
     
