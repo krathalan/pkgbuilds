@@ -22,7 +22,8 @@ conflicts=("krack")
 
 # Download information
 source=("${pkgname}::git+${url}?signed")
-validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174")
+# My key, Github key (needed if the latest commit is a PR merge)
+validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174" "5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23")
 sha256sums=('SKIP')
 
 # https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
