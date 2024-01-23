@@ -7,5 +7,4 @@ post_upgrade() {
     cp /etc/krathalan/makepkg.conf /etc/makepkg.conf
     cp /etc/krathalan/pacman.conf /etc/pacman.conf
     cp /etc/krathalan/sudoers /etc/sudoers
-    cp /etc/krathalan/vconsole.conf /etc/vconsole.conf
 }
