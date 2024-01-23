@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-gaming-git
-pkgver=r278.16cbab0
+pkgver=r293.fee8811
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
@@ -34,23 +34,29 @@ makedepends=("git")
 
 # Dependencies
 depends=(
-    "krath-base-git" "krath-i3-git"
-    "krath-workstation-git"
+    "krath-base-git" "krath-i3-git" "krath-workstation-git"
     
-    "discord"
+    "discord" "gamemode" "keepassxc" "mangohud"
+    "noise-suppression-for-voice" "obs-studio" "syncthing"
+    
+    # Graphics
+    "libva-mesa-driver" "vulkan-radeon"
+    
+    # Building wine, linux, vkd3d
+    "ccache" "clang" "devtools" "git" "llvm" "meson" "mingw-w64-gcc"
 
     # From builds.krathalan.net
-    "gamemode" "lib32-gamemode"
-    "lib32-mangohud" "mangohud"
-    "simulationcraft-git"
-    "zenpower3-dkms"
+    "pcsx2-git" "rpcs3-git" "zenpower3-dkms"
 
     # Wine
     # https://github.com/lutris/docs/blob/master/WineDependencies.md
     "wine-staging" "wine-gecko" "wine-mono"
 
-    # Launchers
-    "discord" "steam-native-runtime"
+    # "Launchers"
+    "lutris"
+    
+    # 32 bit versions of some above packages
+    "lib32-gamemode" "lib32-libva" "lib32-mangohud" "lib32-vulkan-radeon"
 )
 
 package() {
