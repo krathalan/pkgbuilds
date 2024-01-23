@@ -6,7 +6,7 @@
 # General package information
 pkgname=krath-desktop-git
 pkgver=r293.fee8811
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -38,6 +38,9 @@ depends=(
     "krath-workstation-git" "krath-workstation-extras-git"
     
     "amd-ucode"
+    
+    # From builds.krathalan.net
+    "zenpower3-dkms"
     
     # Graphics/hwaccel
     "libva-mesa-driver" "vulkan-radeon"
