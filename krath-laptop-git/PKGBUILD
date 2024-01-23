@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-laptop-git
-pkgver=r287.ccd4fdf
-pkgrel=1
+pkgver=r293.fee8811
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -36,16 +36,13 @@ makedepends=("git")
 depends=(
     "krath-base-git" "krath-dev-git" "krath-sway-git"
     "krath-workstation-git" "krath-workstation-extras-git"
-    
-    # builds.krathalan.net
-    "krathalans-waybar-modules-git"
 
     # System packages
     "intel-ucode" "sbctl" "smartmontools" "thermald" "tlp"
     "x86_energy_perf_policy"
 
-    # Hwaccel
-    "intel-media-driver"
+    # Graphics/hwaccel
+    "libva-intel-driver" "intel-media-driver" "vulkan-intel"
 )
 
 package() {

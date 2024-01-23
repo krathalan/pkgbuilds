@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-desktop-git
-pkgver=r287.ccd4fdf
+pkgver=r293.fee8811
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://github.com/krathalan/etc-config"
@@ -37,8 +37,10 @@ depends=(
     "krath-base-git" "krath-dev-git" "krath-sway-git"
     "krath-workstation-git" "krath-workstation-extras-git"
     
-    # builds.krathalan.net
-    "krathalans-waybar-modules-git"
+    "amd-ucode"
+    
+    # Graphics/hwaccel
+    "libva-mesa-driver" "vulkan-radeon"
 )
 
 package() { 

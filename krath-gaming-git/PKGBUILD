@@ -6,7 +6,7 @@
 # General package information
 pkgname=krath-gaming-git
 pkgver=r293.fee8811
-pkgrel=3
+pkgrel=4
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -39,7 +39,7 @@ depends=(
     "discord" "gamemode" "keepassxc" "mangohud"
     "noise-suppression-for-voice" "obs-studio" "syncthing"
     
-    # Graphics
+    # Graphics/hwaccel
     "libva-mesa-driver" "vulkan-radeon"
     
     # Building wine, linux, vkd3d
