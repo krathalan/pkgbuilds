@@ -6,7 +6,7 @@
 # General package information
 pkgname=krath-gaming-git
 pkgver=r293.fee8811
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages and configuration for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -46,7 +46,8 @@ depends=(
     "ccache" "clang" "devtools" "git" "llvm" "meson" "mingw-w64-gcc"
 
     # From builds.krathalan.net
-    "pcsx2-git" "rpcs3-git" "zenpower3-dkms"
+    "pcsx2-git" "rpcs3-git" "weakauras-companion-bin" "wowup-cf-bin"
+    "zenpower3-dkms"
 
     # Wine
     # https://github.com/lutris/docs/blob/master/WineDependencies.md
