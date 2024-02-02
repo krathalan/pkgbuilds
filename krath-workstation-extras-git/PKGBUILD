@@ -6,7 +6,7 @@
 # General package information
 pkgname=krath-workstation-extras-git
 pkgver=r293.fee8811
-pkgrel=2
+pkgrel=3
 pkgdesc="Extended home PC packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -37,8 +37,8 @@ depends=(
     "cups" "hplip" "system-config-printer"
     
     # Terminal applications
-    "irssi" "isync" "khard" "neomutt" "p7zip" "pass"
-    "pass-otp" "qpdf" "w3m" "vdirsyncer"
+    "irssi" "isync" "khard" "neomutt" "pass" "pass-otp"
+    "qpdf" "w3m" "vdirsyncer"
     
     # Graphical applications
     "keepassxc" "libreoffice-fresh" "signal-desktop"

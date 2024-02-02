@@ -6,7 +6,7 @@
 # General package information
 pkgname=krath-base-git
 pkgver=r291.ee62f57
-pkgrel=1
+pkgrel=2
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -55,10 +55,10 @@ depends=(
     "e2fsprogs" "eza" "exfatprogs" "efitools" "f2fs-tools"
     "git" "gptfdisk" "htop" "hyperfine" "inotify-tools" "iw" "jpegoptim"
     "jq" "lshw" "magic-wormhole" "mediainfo" "micro" "mosh" "nano"
-    "nano-syntax-highlighting" "ncdu" "pacman-contrib" "perl-image-exiftool"
-    "pigz" "qrencode" "ripgrep" "rsync" "stress" "texinfo" "tmux" "tree"
-    "transmission-cli" "unzip" "usb_modeswitch" "usbutils" "xfsprogs" "xxhash"
-    "zip"  
+    "nano-syntax-highlighting" "ncdu" "p7zip" "pacman-contrib"
+    "perl-image-exiftool" "pigz" "qrencode" "ripgrep" "rsync" "stress"
+    "texinfo" "tmux" "tree" "transmission-cli" "usb_modeswitch"
+    "usbutils" "xfsprogs" "xxhash"
 )
 
 package() {
