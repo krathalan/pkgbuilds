@@ -6,7 +6,7 @@
 # General package information
 pkgname=krath-base-git
 pkgver=r291.ee62f57
-pkgrel=2
+pkgrel=3
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -65,10 +65,12 @@ package() {
     cd "${srcdir}/${pkgname}/base" || exit
     install -D -m644 issue "${pkgdir}/etc/krathalan/issue"
     install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
+    install -D -m644 modules-load.d/tcp_bbr.conf "${pkgdir}/etc/modules-load.d/tcp_bbr.conf"
     install -D -m644 NetworkManager/conf.d/ip6-privacy.conf "${pkgdir}/etc/NetworkManager/conf.d/ip6-privacy.conf"
     install -D -m644 NetworkManager/conf.d/wifi-backend.conf "${pkgdir}/etc/NetworkManager/conf.d/wifi-backend.conf"
     install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
     install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
+    install -D -m644 sysctl.d/tcp_bbr.conf "${pkgdir}/etc/sysctl.d/tcp_bbr.conf"
     install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
     install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
     install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/etc/systemd/network/25-ethernet.network"
