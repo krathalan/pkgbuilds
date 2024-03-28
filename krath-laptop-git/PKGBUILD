@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-laptop-git
-pkgver=r293.fee8811
-pkgrel=2
+pkgver=r305.c8a9601
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")

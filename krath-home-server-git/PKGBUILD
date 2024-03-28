@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r291.ee62f57
-pkgrel=2
+pkgver=r305.c8a9601
+pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")

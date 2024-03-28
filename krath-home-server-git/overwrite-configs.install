@@ -4,7 +4,6 @@ post_install() {
 
 post_upgrade() {
     cp /etc/krathalan/booster.yaml /etc/booster.yaml
-    cp /etc/krathalan/dnscrypt-proxy/dnscrypt-proxy.toml /etc/dnscrypt-proxy/dnscrypt-proxy.toml
     cp /etc/krathalan/pacman.conf /etc/pacman.conf
     cp /etc/krathalan/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
     cp /etc/krathalan/makepkg.conf /etc/makepkg.conf
