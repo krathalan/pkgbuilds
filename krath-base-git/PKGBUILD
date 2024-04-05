@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-base-git
-pkgver=r291.ee62f57
-pkgrel=3
+pkgver=r300.30c3f21
+pkgrel=1
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
