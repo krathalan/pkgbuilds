@@ -6,14 +6,14 @@
 # General package information
 pkgname=krathalans-scripts-git
 pkgver=r465.dee1877
-pkgrel=1
+pkgrel=2
 pkgdesc="Krathalan's personal scripts"
 url="https://github.com/krathalan/miscellaneous-scripts"
 license=("GPL3")
 arch=("any")
 
 # Dependencies
-depends=("termdown" "jq" "bc" "curl" "git")
+depends=("termdown" "jaq" "bc" "curl" "git")
 makedepends=("git")
 optdepends=("ffmpeg: for audio_to_opus"
             "imagemagick: for make_gif.sh"
