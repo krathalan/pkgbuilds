@@ -4,31 +4,25 @@
 # shellcheck disable=SC2154
 
 # General package information
-pkgname=krack-git
-pkgver=0.4.2.r79.g87d2251
+pkgbase=krack-git
+pkgname=("krack-common-git" "krack-build-git" "krack-receive-git")
+pkgver=0.4.2.r82.g1f7ce38
 pkgrel=1
-pkgdesc="Krathalan's packaging softwares"
 url="https://github.com/krathalan/krack"
 license=("GPL3")
 arch=("any")
 
-# Files in /etc, keep these if the package upgrades!
-backup=("etc/krack/build.conf" "etc/krack/receive.conf")
-
-# Dependencies
-depends=("brotli" "ccache" "devtools" "git" "gnupg" "pacman-contrib" "rsync")
 makedepends=("git" "scdoc")
-conflicts=("krack")
 
 # Download information
-source=("${pkgname}::git+${url}?signed")
+source=("${pkgbase}::git+${url}?signed")
 # My key, Github key (needed if the latest commit is a PR merge)
 validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174" "5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23")
 sha256sums=('SKIP')
 
 # https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
 pkgver() {
-  cd "${srcdir}/${pkgname}" || exit
+  cd "${srcdir}/${pkgbase}" || exit
 
   ( set -o pipefail
     git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
@@ -39,19 +33,41 @@ pkgver() {
 build()
 {
   # "Build" man pages
-  cd "${srcdir}/${pkgname}/man" || exit
+  cd "${srcdir}/${pkgbase}/man" || exit
 
   for manpage in ./*.scd; do
     scdoc < "${manpage}" > "${manpage%.scd}"
   done
 }
 
-package() {
-  cd "${srcdir}/${pkgname}" || exit
+package_krack-common-git() {
+  pkgdesc="Common files for Krathalan's packaging softwares (git version)"
+  depends=("pacman" "rsync")
+  conflicts=("krack" "krack-common" "krack-build" "krack-receive")
+  replaces=("krack-git")
+  
+  cd "${srcdir}/${pkgbase}" || exit
+
+  # lib
+  install -D -m755 lib/common "${pkgdir}/usr/lib/krack/common"
+
+  # man
+  install -D -m644 man/krack-build.1 "${pkgdir}/usr/share/man/man1/krack-build.1"
+  install -D -m644 man/krack-receive.1 "${pkgdir}/usr/share/man/man1/krack-receive.1"
+  install -D -m644 man/krack.1 "${pkgdir}/usr/share/man/man1/krack.1"
+  install -D -m644 man/krackctl.1 "${pkgdir}/usr/share/man/man1/krackctl.1"
+}
+
+package_krack-build-git() {
+  pkgdesc="Build packages continually with Krathalan's packaging softwares (git version)"
+  depends=("krack-common-git" "brotli" "ccache" "devtools" "fzf" "git" "gnupg" "jaq" "pacman-contrib")
+  conflicts=("krack-common" "krack-build" "krack-receive")
+  backup=("etc/krack/build.conf")
+
+  cd "${srcdir}/${pkgbase}" || exit
 
   # /etc conf
   install -D -m644 etc/build.conf "${pkgdir}/etc/krack/build.conf"
-  install -D -m644 etc/receive.conf "${pkgdir}/etc/krack/receive.conf"
 
   # bin
   install -D -m755 bin/krack-build "${pkgdir}/usr/bin/krack-build"
@@ -59,21 +75,29 @@ package() {
 
   # lib
   install -D -m755 lib/build "${pkgdir}/usr/lib/krack/build"
-  install -D -m755 lib/common "${pkgdir}/usr/lib/krack/common"
-  install -D -m755 lib/receive "${pkgdir}/usr/lib/krack/receive"
-
-  # man
-  install -D -m644 man/krack-build.1 "${pkgdir}/usr/share/man/man1/krack-build.1"
-  install -D -m644 man/krack-receive.1 "${pkgdir}/usr/share/man/man1/krack-receive.1"
-  install -D -m644 man/krack.1 "${pkgdir}/usr/share/man/man1/krack.1"
-  install -D -m644 man/krackctl.1 "${pkgdir}/usr/share/man/man1/krackctl.1"
 
   # bash completion
   install -D -m644 bash-completion/krackctl "${pkgdir}/usr/share/bash-completion/completions/krackctl"
 
   # systemd service
-  install -D -m644 lib/systemd/system/krack-receive.service "${pkgdir}/usr/lib/systemd/system/krack-receive.service"
   install -D -m644 lib/systemd/system/krack-build@.service "${pkgdir}/usr/lib/systemd/system/krack-build@.service"
   install -D -m644 lib/systemd/system/krack-build@.timer "${pkgdir}/usr/lib/systemd/system/krack-build@.timer"
+}
 
+package_krack-receive-git() {
+  pkgdesc="Receive packages with Krathalan's packaging softwares (git version)"
+  depends=("krack-common-git" "inotify-tools")
+  conflicts=("krack-common" "krack-build" "krack-receive")
+  backup=("etc/krack/receive.conf")
+
+  cd "${srcdir}/${pkgbase}" || exit
+
+  # /etc conf
+  install -D -m644 etc/receive.conf "${pkgdir}/etc/krack/receive.conf"
+
+  # lib
+  install -D -m755 lib/receive "${pkgdir}/usr/lib/krack/receive"
+
+  # systemd service
+  install -D -m644 lib/systemd/system/krack-receive.service "${pkgdir}/usr/lib/systemd/system/krack-receive.service"
 }
