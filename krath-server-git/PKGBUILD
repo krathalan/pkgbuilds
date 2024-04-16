@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-server-git
-pkgver=r291.ee62f57
+pkgver=r307.9360ebe
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"
@@ -37,7 +37,7 @@ depends=(
     "krath-base-git"
 
     # From builds.krathalan.net
-    "krack-git"
+    "krack-receive-git"
     "krathalans-endlessh-git"
     "nginx-mainline-mod-brotli"
     "nginx-mainline-mod-fancyindex"
@@ -48,7 +48,7 @@ depends=(
     "certbot" "certbot-nginx" "fail2ban" "sudo"
 
     # Server packages (email, http, etc.)
-    "dovecot" "firewalld" "libreddit-git" "nginx-mainline"
+    "dovecot" "firewalld" "nginx-mainline"
     "opendkim" "opendmarc" "pigeonhole" "pflogsumm"
     "postfix" "postgrey" "radicale" "rsync" "spamassassin"
 )
@@ -60,13 +60,10 @@ package() {
     install -D -m755 bin/krath_backup_email "${pkgdir}/usr/bin/krath_backup_email"
     
     install -D -m644 dovecot/dovecot.conf "${pkgdir}/etc/dovecot/dovecot.conf"
-    install -D -m644 libreddit.conf "${pkgdir}/etc/libreddit.conf"
     install -D -m644 nginx/nginx.conf "${pkgdir}/etc/krathalan/nginx/nginx.conf"
     install -D -m644 nginx/mime.types "${pkgdir}/etc/krathalan/nginx/mime.types"    
     install -D -m644 nginx/sites-available/builds "${pkgdir}/etc/nginx/sites-available/builds"
     install -D -m644 nginx/sites-available/default "${pkgdir}/etc/nginx/sites-available/default"
-    install -D -m644 nginx/sites-available/mail "${pkgdir}/etc/nginx/sites-available/mail"
-    install -D -m644 nginx/sites-available/nitter "${pkgdir}/etc/nginx/sites-available/nitter"
     install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
     
     # /etc folder owners/permissions

@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-home-server-git
-pkgver=r305.c8a9601
+pkgver=r307.9360ebe
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's home server"
 url="https://github.com/krathalan/etc-config"
@@ -37,7 +37,7 @@ depends=(
     "krath-base-git"
 
     # builds.krathalan.net
-    "krack-git" "jellyfin-server" "jellyfin-web"
+    "krack-build-git" "jellyfin-server" "jellyfin-web"
     "zenpower3-dkms"
     
     # Packages for A380 jellyfin hardware enc/dec
