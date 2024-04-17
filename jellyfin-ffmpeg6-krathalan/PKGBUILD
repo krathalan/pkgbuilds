@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-# Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
+# Maintainer: Hunter Peavey < printf "dev@die.bots" | sed "s/die.bots/krathalan.net/g" >
 # shellcheck disable=SC2034
 # shellcheck disable=SC2154
+
+# Updated deleted AUR pkgbuild with default Jellyfin ffmpeg configuration and
+# fixed build error by disabling cuda/nvenc/nvdec
 
 # Contributor : nyanmisaka <nst799610810@gmail.com>
 
