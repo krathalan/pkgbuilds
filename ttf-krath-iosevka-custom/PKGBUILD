@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=ttf-krath-iosevka-custom
-pkgver=22.1.2
-pkgrel=5
+pkgver=29.2.1
+pkgrel=1
 pkgdesc="Custom build of ttf-iosevka with my customizations."
 url="https://github.com/be5invis/Iosevka"
 license=("custom:OFL-1.1")
@@ -19,8 +19,8 @@ makedepends=("nodejs" "npm" "ttfautohint")
 # Download information
 source=("${url}/archive/refs/tags/v${pkgver}.tar.gz"
         "private-build-plans.toml")
-sha256sums=('fbb02dc83ed57764b6f54e46112b37a5873470a6141be4de9f6858cf25ed9a85'
-            '9a8d3eefb752dae1e86b7f87aeac85fc8ce9880f5710e41b64f482faf1ac43c2')
+sha256sums=('579ebc242eaec971385fc2beb2b5383d32c3f7d0a0a9b9ffbf22a80f3777c71a'
+            'f304283cd8b2993241f6a208f3b755a1d5dd798f6af56ed063cad9b1d94e6cad')
 
 prepare() {
   cp "private-build-plans.toml" "${srcdir}/Iosevka-${pkgver}"
@@ -37,7 +37,7 @@ package() {
   cd "${srcdir}/Iosevka-${pkgver}" || exit
   install -Dm644 LICENSE.md "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
   
-  for fontfile in "${srcdir}/Iosevka-${pkgver}/dist/iosevka-custom/ttf"/*.ttf; do
+  for fontfile in "${srcdir}/Iosevka-${pkgver}/dist/iosevka-custom/TTF"/*.ttf; do
     install -Dm644 "${fontfile}" "${pkgdir}/usr/share/fonts/TTF/${fontfile##*/}"
   done
 }
