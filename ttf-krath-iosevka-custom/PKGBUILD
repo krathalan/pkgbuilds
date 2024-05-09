@@ -6,7 +6,7 @@
 # General package information
 pkgname=ttf-krath-iosevka-custom
 pkgver=29.2.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Custom build of ttf-iosevka with my customizations."
 url="https://github.com/be5invis/Iosevka"
 license=("custom:OFL-1.1")
@@ -20,7 +20,7 @@ makedepends=("nodejs" "npm" "ttfautohint")
 source=("${url}/archive/refs/tags/v${pkgver}.tar.gz"
         "private-build-plans.toml")
 sha256sums=('579ebc242eaec971385fc2beb2b5383d32c3f7d0a0a9b9ffbf22a80f3777c71a'
-            'f304283cd8b2993241f6a208f3b755a1d5dd798f6af56ed063cad9b1d94e6cad')
+            'd964a176e4a0461ef60821c7a87041a17858d390c758edda77d527cc7bb7a883')
 
 prepare() {
   cp "private-build-plans.toml" "${srcdir}/Iosevka-${pkgver}"
