@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
+# shellcheck disable=SC2034
+# shellcheck disable=SC2154
+
+# General package information
+pkgname=kbh-git
+pkgver=r11.6458665
+pkgrel=1
+pkgdesc="Terminal user interface wrapper for borg backup"
+url="https://github.com/krathalan/kbh"
+license=("GPL3")
+arch=("any")
+
+# Dependencies
+depends=("borg" "jaq" "openssh")
+makedepends=("scdoc")
+
+# Download information
+source=("${pkgname}::git+${url}?signed")
+sha256sums=("SKIP")
+# My key, Github key (needed if the latest commit is a PR merge)
+validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174" "5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23")
+
+# https://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines#Git
+pkgver() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
+
+build() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  # Create man page
+  scdoc < kbh.1.scd > kbh.1
+}
+
+package() {
+  cd "${srcdir}/${pkgname}" || exit
+
+  # kbh "binary"
+  install -D -m755 kbh "${pkgdir}/usr/bin/kbh"
+
+  # Bash completion file
+  install -D -m644 kbh-completion.bash "${pkgdir}/usr/share/bash-completion/completions/kbh"
+
+  # man page
+  install -D -m644 kbh.1 "${pkgdir}/usr/share/man/man1/kbh.1"
+}
