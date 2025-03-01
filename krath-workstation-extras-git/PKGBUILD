@@ -37,8 +37,7 @@ depends=(
     "cups" "hplip" "system-config-printer"
     
     # Terminal applications
-    "irssi" "isync" "khard" "neomutt" "pass" "pass-otp"
-    "qpdf" "w3m" "vdirsyncer"
+    "pass" "pass-otp" "qpdf" "w3m"
     
     # Graphical applications
     "keepassxc" "libreoffice-fresh" "signal-desktop"
