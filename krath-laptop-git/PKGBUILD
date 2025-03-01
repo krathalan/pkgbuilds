@@ -38,11 +38,13 @@ depends=(
     "krath-workstation-git" "krath-workstation-extras-git"
 
     # System packages
-    "intel-ucode" "sbctl" "smartmontools" "thermald" "tlp"
-    "x86_energy_perf_policy"
-
+    "amd-ucode" "sbctl" "smartmontools"
+    
+    # From builds.krathalan.net
+    "zenpower3-dkms"
+    
     # Graphics/hwaccel
-    "libva-intel-driver" "intel-media-driver" "vulkan-intel"
+    "libva-mesa-driver" "vulkan-radeon"
 )
 
 package() {
@@ -57,12 +59,7 @@ package() {
     cd "${srcdir}/${pkgname}/laptop" || exit
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
-    install -D -m644 modprobe.d/i915.conf "${pkgdir}/etc/modprobe.d/i915.conf"
-    install -D -m644 modprobe.d/iwlwifi.conf "${pkgdir}/etc/modprobe.d/iwlwifi.conf"
     install -D -m644 sbctl-cmdline "${pkgdir}/etc/sbctl-cmdline"
     install -D -m644 systemd/sleep.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/sleep.conf.d/krathalans-custom.conf"
-    install -D -m644 systemd/system/undervolt.timer "${pkgdir}/usr/lib/systemd/system/undervolt.timer"
-    install -D -m644 systemd/system/undervolt.service "${pkgdir}/usr/lib/systemd/system/undervolt.service"
-    install -D -m644 tlp.d/krathalans-custom.conf "${pkgdir}/etc/tlp.d/krathalans-custom.conf"
     install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
 }
