@@ -51,12 +51,12 @@ depends=(
     "borg" "python-llfuse"
     
     # Terminal applications
-    "android-tools" "arch-audit" "bat" "bc" "brotli" "calc" "dosfstools"
-    "e2fsprogs" "eza" "exfatprogs" "efitools" "f2fs-tools"
+    "7zip" "android-tools" "arch-audit" "bat" "bc" "brotli" "calc"
+    "dosfstools" "e2fsprogs" "eza" "exfatprogs" "efitools" "f2fs-tools"
     "git" "gptfdisk" "htop" "hyperfine" "inotify-tools" "iw" "jpegoptim"
     "jq" "lshw" "magic-wormhole" "mediainfo" "micro" "mosh" "nano"
-    "nano-syntax-highlighting" "ncdu" "p7zip" "pacman-contrib"
-    "perl-image-exiftool" "pigz" "qrencode" "ripgrep" "rsync" "stress"
+    "nano-syntax-highlighting" "ncdu" "pacman-contrib"
+    "perl-image-exiftool" "qrencode" "ripgrep" "rsync" "stress"
     "texinfo" "tmux" "tree" "transmission-cli" "usb_modeswitch"
     "usbutils" "xfsprogs" "xxhash"
 )
