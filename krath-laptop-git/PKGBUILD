@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-laptop-git
-pkgver=r305.c8a9601
+pkgver=r317.efccf9c
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"

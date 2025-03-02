@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-workstation-extras-git
-pkgver=r293.fee8811
-pkgrel=3
+pkgver=r317.efccf9c
+pkgrel=2
 pkgdesc="Extended home PC packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -34,7 +34,8 @@ depends=(
     "linode-cli" "pash"
     
     # Printing
-    "cups" "hplip" "system-config-printer"
+    "cups" "hplip" "sane-airscan" "simple-scan"
+    "system-config-printer"
     
     # Terminal applications
     "pass" "pass-otp" "qpdf" "w3m"
