@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-gaming-git
-pkgver=r320.a48298b
+pkgver=r322.f1117c2
 pkgrel=1
 pkgdesc="Packages for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"

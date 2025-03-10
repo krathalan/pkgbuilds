@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-workstation-git
-pkgver=r317.efccf9c
-pkgrel=1
+pkgver=r322.f1117c2
+pkgrel=3
 pkgdesc="Basic home PC packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -36,6 +36,7 @@ depends=(
     # builds.krathalan.net
     "dict-gcide" "dict-moby-thesaurus" "gimp-git" "kbh-git"
     "otf-san-francisco" "plata-theme-krath-purple"
+    "ttf-krath-iosevka-custom"
     "ttf-material-design-icons-webfont"
     "ungoogled-chromium" "wtwitch"
     
@@ -57,9 +58,8 @@ depends=(
     "termdown" "yt-dlp"
     
     # Graphical applications
-    "evince" "firefox-developer-edition"
-    "gnome-characters" "imv" "mpv" "nemo"
-    "pavucontrol"
+    "evince" "firefox" "gnome-characters" "imv" "mpv"
+    "nemo" "pavucontrol"
 )
 
 package() {

@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-server-git
-pkgver=r314.badace0
+pkgver=r322.f1117c2
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's servers"
 url="https://github.com/krathalan/etc-config"

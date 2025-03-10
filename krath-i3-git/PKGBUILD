@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-i3-git
-pkgver=r281.236faf2
+pkgver=r322.f1117c2
 pkgrel=1
 pkgdesc="i3/Xorg packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
