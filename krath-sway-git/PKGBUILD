@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-sway-git
-pkgver=r293.fee8811
-pkgrel=4
+pkgver=r319.0863537
+pkgrel=1
 pkgdesc="Sway/Wayland packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -35,6 +35,6 @@ depends=(
 
     # Wayland packages
     "bemenu" "bemenu-wayland" "foot" "foot-terminfo"
-    "grim" "light" "mako" "slurp" "sway" "swaybg"
+    "grim" "mako" "slurp" "sway" "swaybg"
     "swayidle" "swaylock" "waybar" "wl-clipboard" "wlsunset"
 )

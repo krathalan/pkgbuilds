@@ -5,16 +5,13 @@
 
 # General package information
 pkgname=krath-gaming-git
-pkgver=r293.fee8811
-pkgrel=4
-pkgdesc="Packages and configuration for Krathalan's gaming"
+pkgver=r320.a48298b
+pkgrel=1
+pkgdesc="Packages for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
 arch=("any")
 replaces=("krathalans-gaming" "krathalans-gaming-git")
-
-# Overwrite config files that are owned by packages, e.g. /etc/pacman.conf
-install=overwrite-configs.install
 
 source=("${pkgname}::git+${url}?signed")
 validpgpkeys=("0C6B73F391FA26F0EBCD1F75C0F9AEE56E47D174")
@@ -34,43 +31,17 @@ makedepends=("git")
 
 # Dependencies
 depends=(
-    "krath-base-git" "krath-i3-git" "krath-workstation-git"
+    "krath-i3-git"
     
     "discord" "gamemode" "keepassxc" "mangohud"
     "noise-suppression-for-voice" "obs-studio" "syncthing"
     
-    # Graphics/hwaccel
-    "libva-mesa-driver" "vulkan-radeon"
-    
-    # Building wine, linux, vkd3d
-    "ccache" "clang" "devtools" "git" "llvm" "meson" "mingw-w64-gcc"
-
     # From builds.krathalan.net
     "pcsx2-git" "rpcs3-git" "weakauras-companion-bin" "wowup-cf-bin"
-    "zenpower3-dkms"
-
-    # Wine
-    # https://github.com/lutris/docs/blob/master/WineDependencies.md
-    "wine-staging" "wine-gecko" "wine-mono"
 
     # "Launchers"
-    "lutris"
+    "flatpak" "prismlauncher"
     
-    # 32 bit versions of some above packages
-    "lib32-gamemode" "lib32-libva" "lib32-mangohud" "lib32-vulkan-radeon"
+    # Other
+    "steam-devices-git"
 )
-
-package() {
-    cd "${srcdir}/${pkgname}/base" || exit
-    install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
-    
-    cd "${srcdir}/${pkgname}/gaming" || exit
-    install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
-    install -D -m644 pacman.conf "${pkgdir}/etc/krathalan/pacman.conf"
-    install -D -m644 sudoers "${pkgdir}/etc/krathalan/sudoers"
-
-    cd "${srcdir}/${pkgname}/desktop" || exit
-    install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
-    install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
-    install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
-}

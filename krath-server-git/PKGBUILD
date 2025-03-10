@@ -84,7 +84,6 @@ package() {
     
     install -D -m644 systemd/system/krack-receive.service.d/protect-system-strict.conf "${pkgdir}/usr/lib/systemd/system/krack-receive.service.d/protect-system-strict.conf"
     install -D -m644 systemd/system/postgrey.service "${pkgdir}/etc/systemd/system/postgrey.service"
-    install -D -m644 systemd/system/libreddit.service "${pkgdir}/usr/lib/systemd/system/libreddit.service"
     install -D -m644 systemd/system/backup-email.service "${pkgdir}/usr/lib/systemd/system/backup-email.service"
     install -D -m644 systemd/system/backup-email.timer "${pkgdir}/usr/lib/systemd/system/backup-email.timer"
     install -D -m644 systemd/system/certbot.service "${pkgdir}/usr/lib/systemd/system/certbot.service"
@@ -92,6 +91,6 @@ package() {
     install -D -m644 systemd/system/spamassassin-update.service "${pkgdir}/usr/lib/systemd/system/spamassassin-update.service"
     install -D -m644 systemd/system/spamassassin-update.timer "${pkgdir}/usr/lib/systemd/system/spamassassin-update.timer"
 
-    install -D -m644 sysctl.d/disable-user-namespaces.conf "${pkgdir}/etc/sysctl.d/disable-user-namespaces.conf"
-    install -D -m644 sysctl.d/krathalans-custom-server.conf "${pkgdir}/etc/sysctl.d/krathalans-custom-server.conf"
+    install -D -m644 sysctl.d/disable-user-namespaces.conf "${pkgdir}/usr/lib/sysctl.d/disable-user-namespaces.conf"
+    install -D -m644 sysctl.d/krathalans-custom-server.conf "${pkgdir}/usr/lib/sysctl.d/krathalans-custom-server.conf"
 }

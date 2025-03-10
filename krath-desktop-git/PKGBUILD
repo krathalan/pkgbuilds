@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-desktop-git
-pkgver=r317.efccf9c
+pkgver=r318.96e196b
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's desktop"
 url="https://github.com/krathalan/etc-config"
@@ -58,6 +58,6 @@ package() {
     cd "${srcdir}/${pkgname}/desktop" || exit
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
-    install -D -m644 systemd/system/i3lock.service "${pkgdir}/etc/systemd/system/i3lock.service"
     install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
+    install -D -m644 systemd/system/i3lock.service "${pkgdir}/usr/lib/systemd/system/i3lock.service"
 }

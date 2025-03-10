@@ -5,8 +5,8 @@
 
 # General package information
 pkgname=krath-workstation-extras-git
-pkgver=r317.efccf9c
-pkgrel=2
+pkgver=r320.a48298b
+pkgrel=1
 pkgdesc="Extended home PC packages for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
 license=("GPL3")
@@ -38,7 +38,7 @@ depends=(
     "system-config-printer"
     
     # Terminal applications
-    "pass" "pass-otp" "qpdf" "w3m"
+    "irssi" "ollama" "pass" "pass-otp" "qpdf"
     
     # Graphical applications
     "keepassxc" "libreoffice-fresh" "signal-desktop"

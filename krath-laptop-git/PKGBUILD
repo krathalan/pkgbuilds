@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+q#!/usr/bin/env bash
 # Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
 # shellcheck disable=SC2034
 # shellcheck disable=SC2154
 
 # General package information
 pkgname=krath-laptop-git
-pkgver=r317.efccf9c
+pkgver=r321.ff85a59
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
@@ -38,13 +38,15 @@ depends=(
     "krath-workstation-git" "krath-workstation-extras-git"
 
     # System packages
-    "amd-ucode" "sbctl" "smartmontools"
-    
-    # From builds.krathalan.net
-    "zenpower3-dkms"
+    "amd-ucode" "easyeffects" "brightnessctl"
+    "power-profiles-daemon" "sbctl" "smartmontools"
     
     # Graphics/hwaccel
-    "libva-mesa-driver" "vulkan-radeon"
+    "amdgpu_top" "libva-mesa-driver" "vulkan-radeon"
+    "xf86-video-amdgpu"
+    
+    # For testing camera
+    "snapshot"
 )
 
 package() {
@@ -62,4 +64,9 @@ package() {
     install -D -m644 sbctl-cmdline "${pkgdir}/etc/sbctl-cmdline"
     install -D -m644 systemd/sleep.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/sleep.conf.d/krathalans-custom.conf"
     install -D -m644 vconsole.conf "${pkgdir}/etc/vconsole.conf"
+    
+    install -D -m644 X11/xorg.conf.d/10-disable-dpms.conf "${pkgdir}/usr/share/X11/xorg.conf.d/10-disable-dpms.conf"
+    install -D -m644 X11/xorg.conf.d/10-disable-screen-blank.conf "${pkgdir}/usr/share/X11/xorg.conf.d/10-disable-screen-blank.conf"
+    install -D -m644 X11/xorg.conf.d/10-tearfree.conf "${pkgdir}/usr/share/X11/xorg.conf.d/10-tearfree.conf"
+    install -D -m644 X11/xorg.conf.d/30-touchpad.conf "${pkgdir}/usr/share/X11/xorg.conf.d/30-touchpad.conf"
 }

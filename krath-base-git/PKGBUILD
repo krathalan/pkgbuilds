@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-base-git
-pkgver=r317.efccf9c
+pkgver=r318.96e196b
 pkgrel=1
 pkgdesc="Base package for Krathalan's computers"
 url="https://github.com/krathalan/etc-config"
@@ -63,16 +63,20 @@ depends=(
 
 package() {
     cd "${srcdir}/${pkgname}/base" || exit
+    
+    # /etc files
     install -D -m644 issue "${pkgdir}/etc/krathalan/issue"
-    install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/etc/modprobe.d/modprobed-hardening.conf"
-    install -D -m644 NetworkManager/conf.d/ip6-privacy.conf "${pkgdir}/etc/NetworkManager/conf.d/ip6-privacy.conf"
-    install -D -m644 NetworkManager/conf.d/wifi-backend.conf "${pkgdir}/etc/NetworkManager/conf.d/wifi-backend.conf"
-    install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/etc/pacman.d/hooks/dash.hook"
     install -D -m644 ssh/ssh_config "${pkgdir}/etc/krathalan/ssh/ssh_config"
     install -D -m644 systemd/coredump.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/coredump.conf.d/krathalans-custom.conf"
-    install -D -m644 systemd/network/25-wireless.network "${pkgdir}/etc/systemd/network/25-wireless.network"
-    install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/etc/systemd/network/25-ethernet.network"
     install -D -m644 systemd/resolved.conf.d/disable-fallback-dns.conf "${pkgdir}/etc/systemd/resolved.conf.d/disable-fallback-dns.conf"
     install -D -m644 systemd/system.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/system.conf.d/krathalans-custom.conf"
-    install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/etc/udev/rules.d/60-ioschedulers.rules"
+    
+    # /usr files
+    install -D -m644 udev/rules.d/60-ioschedulers.rules "${pkgdir}/usr/lib/udev/rules.d/60-ioschedulers.rules"
+    install -D -m644 systemd/network/25-wireless.network "${pkgdir}/usr/lib/systemd/network/25-wireless.network"
+    install -D -m644 systemd/network/26-ethernet.network "${pkgdir}/usr/lib/systemd/network/25-ethernet.network"
+    install -D -m644 pacman.d/hooks/dash.hook "${pkgdir}/usr/share/libalpm/hooks/dash.hook"
+    install -D -m644 modprobe.d/modprobed-hardening.conf "${pkgdir}/usr/lib/modprobe.d/modprobed-hardening.conf"
+    install -D -m644 NetworkManager/conf.d/ip6-privacy.conf "${pkgdir}/usr/lib/NetworkManager/conf.d/ip6-privacy.conf"
+    install -D -m644 NetworkManager/conf.d/wifi-backend.conf "${pkgdir}/usr/lib/NetworkManager/conf.d/wifi-backend.conf"
 }

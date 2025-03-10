@@ -66,6 +66,6 @@ package() {
     cd "${srcdir}/${pkgname}/workstation" || exit
     install -D -m644 conf.d/wireless-regdom "${pkgdir}/etc/krathalan/conf.d/wireless-regdom"
     install -D -m644 dict/dictd.conf "${pkgdir}/etc/krathalan/dict/dictd.conf"
-    install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/etc/pacman.d/hooks/77-systemd-boot.hook"
-    install -D -m644 sysctl.d/krathalans-custom.conf "${pkgdir}/etc/sysctl.d/krathalans-custom.conf"
+    install -D -m644 pacman.d/hooks/77-systemd-boot.hook "${pkgdir}/usr/share/libalpm/hooks/77-systemd-boot.hook"
+    install -D -m644 sysctl.d/krathalans-custom.conf "${pkgdir}/usr/lib/sysctl.d/krathalans-custom.conf"
 }
