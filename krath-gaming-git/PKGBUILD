@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-gaming-git
-pkgver=r322.f1117c2
+pkgver=r327.0a842f3
 pkgrel=1
 pkgdesc="Packages for Krathalan's gaming"
 url="https://github.com/krathalan/etc-config"
@@ -37,7 +37,8 @@ depends=(
     "noise-suppression-for-voice" "obs-studio" "syncthing"
     
     # From builds.krathalan.net
-    "pcsx2-git" "rpcs3-git" "weakauras-companion-bin" "wowup-cf-bin"
+    "pcsx2-git" "rpcs3-git" "rusty-psn-git"
+    "weakauras-companion-bin" "wowup-cf-bin"
 
     # "Launchers"
     "flatpak" "prismlauncher"
