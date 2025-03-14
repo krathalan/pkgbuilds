@@ -5,7 +5,7 @@
 
 # General package information
 pkgname=krath-laptop-git
-pkgver=r326.fa5b297
+pkgver=r327.0a842f3
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
@@ -63,6 +63,7 @@ package() {
     
     cd "${srcdir}/${pkgname}/laptop" || exit
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
+    install -D -m644 icc/BOE0CB4.icc "${pkgdir}/usr/share/color/icc/colord/BOE0CB4.icc"
     install -D -m644 makepkg.conf "${pkgdir}/etc/krathalan/makepkg.conf"
     install -D -m644 sbctl-cmdline "${pkgdir}/etc/sbctl-cmdline"
     install -D -m644 systemd/sleep.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/sleep.conf.d/krathalans-custom.conf"
