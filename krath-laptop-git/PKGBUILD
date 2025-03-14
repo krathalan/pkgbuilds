@@ -1,11 +1,11 @@
-q#!/usr/bin/env bash
+#!/usr/bin/env bash
 # Maintainer: Hunter Peavey < printf "srht@die.bots" | sed "s/die.bots/krathalan.net/g" >
 # shellcheck disable=SC2034
 # shellcheck disable=SC2154
 
 # General package information
 pkgname=krath-laptop-git
-pkgver=r322.f1117c2
+pkgver=r326.fa5b297
 pkgrel=1
 pkgdesc="Packages and configuration for Krathalan's laptop"
 url="https://github.com/krathalan/etc-config"
