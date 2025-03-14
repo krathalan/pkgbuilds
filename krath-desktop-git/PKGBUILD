@@ -54,6 +54,9 @@ package() {
     cd "${srcdir}/${pkgname}/base" || exit
     install -D -m644 pacman.d/mirrorlist "${pkgdir}/etc/krathalan/pacman.d/mirrorlist"
     install -D -m644 systemd/logind.conf.d/krathalans-custom.conf "${pkgdir}/etc/systemd/logind.conf.d/krathalans-custom.conf"
+    install -D -m644 X11/xorg.conf.d/10-disable-dpms.conf "${pkgdir}/usr/share/X11/xorg.conf.d/10-disable-dpms.conf"
+    install -D -m644 X11/xorg.conf.d/10-disable-screen-blank.conf "${pkgdir}/usr/share/X11/xorg.conf.d/10-disable-screen-blank.conf"
+    install -D -m644 X11/xorg.conf.d/10-tearfree.conf "${pkgdir}/usr/share/X11/xorg.conf.d/10-tearfree.conf"
     
     cd "${srcdir}/${pkgname}/desktop" || exit
     install -D -m644 booster.yaml "${pkgdir}/etc/krathalan/booster.yaml"
